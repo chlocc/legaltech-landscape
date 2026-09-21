@@ -3,7 +3,8 @@
 A tracker of the legal AI market, weighted toward the **foundation-model integration layer** —
 who is building on whose model, and which platform ecosystems each vendor has joined.
 
-Live site: _(not yet published)_
+Live site: **https://www.chloe-lw-chan.com/legaltech-landscape/**
+(`https://chlocc.github.io/legaltech-landscape/` redirects there — the account-level custom domain applies to every Pages repo.)
 
 ## Why this exists
 
