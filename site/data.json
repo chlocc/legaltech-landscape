@@ -1,0 +1,1410 @@
+{
+  "platforms": {
+    "as_of": "2026-09-21",
+    "note": "The foundation-model layer's direct moves into legal. This is the layer the rest of the market now has to position against.",
+    "platforms": [
+      {
+        "id": "anthropic",
+        "vendor": "Anthropic",
+        "product": "Claude for Legal",
+        "launched": "2026-05-12",
+        "model": "Claude Opus 4.7 positioned as its most capable public model for legal reasoning and long-document work",
+        "shape": "Distribution play: ship the legal workflow layer inside Claude itself, and make every incumbent a connector into it.",
+        "components": [
+          "20+ MCP connectors into the software firms already run (DMS, CLM, e-discovery, research, deal rooms)",
+          "12 practice-area plugins: Commercial, Corporate, Employment, Privacy, Product, Regulatory, AI Governance, IP, Litigation, plus Law Student, Legal Clinic, Legal Builder Hub",
+          "Each plugin ships a cold-start interview that learns the team's playbook, escalation matrix and house style",
+          "4 plugins (Commercial, Corporate, Litigation, Product) also deploy as Managed Agents via the Claude API",
+          "Native in Microsoft 365 \u2014 Word (drafting/redlining), Outlook (triage), Excel (checklists), PowerPoint",
+          "Claude Cowork for multi-document work; Projects as persistent matter workspaces; scheduled tasks for recurring sweeps"
+        ],
+        "partners": [
+          "Harvey",
+          "Legora",
+          "Thomson Reuters (CoCounsel)",
+          "Relativity",
+          "Everlaw",
+          "Consilio",
+          "Ironclad",
+          "DocuSign",
+          "Definely",
+          "iManage",
+          "NetDocuments",
+          "Box",
+          "Datasite",
+          "Midpage",
+          "Trellis",
+          "Legal Data Hunter",
+          "Solve Intelligence",
+          "Crosby",
+          "Eve",
+          "Lawve AI",
+          "The L Suite (Lloyd, TopCounsel)",
+          "BoardWise",
+          "Courtroom5",
+          "Descrybe",
+          "Free Law Project"
+        ],
+        "named_users": [
+          "Freshfields",
+          "Accenture Legal",
+          "Holland & Knight",
+          "Quinn Emanuel",
+          "EvenUp",
+          "Crosby Legal"
+        ],
+        "access": "Enterprise via sales; discounted access for qualifying nonprofits through Claude for Nonprofits; A2J partnerships with Free Law Project and the Justice Technology Association",
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry",
+          "https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html",
+          "https://www.artificiallawyer.com/2026/05/12/claude-for-legal-launches-may-reshape-the-legal-tech-world/",
+          "https://github.com/anthropics/claude-for-legal"
+        ]
+      },
+      {
+        "id": "openai",
+        "vendor": "OpenAI",
+        "product": "Astra for Law",
+        "launched": "2026-09-17",
+        "model": "GPT-6 Astra, configured for legal work \u2014 not a separate model",
+        "shape": "Content play: own the primary-law retrieval layer, then sell trusted access to the Am Law 200 direct.",
+        "components": [
+          "Legal Search Index across 230M+ URLs of US case law, statutes, regulations, court rules and administrative decisions, built using CourtListener data",
+          "Legal-specific instructions for analysis and writing",
+          "26 vendor plugins plus 9 community plugins (LegalQuants, LegalEng Consulting Group, Skills.law) and 47 user-built skills",
+          "ChatGPT for Word",
+          "Trusted Access program for Am Law 200 firms: zero data retention on the API, ChatGPT Enterprise excluded from human review; built with Latham & Watkins on permissions and ethical walls (~30-page agreement)"
+        ],
+        "benchmarks": "Passed correctness evals on 54% of legal research questions vs 38.7% for GPT-6 with web search alone; retrieved 24% more case law references and up to 54% more relevant passages",
+        "partners": [
+          "Thomson Reuters",
+          "Harvey",
+          "Legora",
+          "iManage",
+          "Intapp",
+          "DeepJudge",
+          "Clio",
+          "Relativity"
+        ],
+        "people": "Jason Boehmig, Ironclad co-founder, leads OpenAI's legal effort",
+        "sources": [
+          "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html",
+          "https://openai.com/solutions/industries/law/",
+          "https://www.pymnts.com/news/artificial-intelligence/2026/openai-targets-legal-tech-market-with-astra-for-law/"
+        ]
+      },
+      {
+        "id": "google",
+        "vendor": "Google Cloud",
+        "product": "Gemini Enterprise for Legal",
+        "launched": "2026-08-25",
+        "model": "Gemini, packaged on Gemini Enterprise",
+        "shape": "Integration play: don't own the workflow, be the substrate the firm's existing stack runs agents on. Sold through SIs.",
+        "components": [
+          "Legal-specific skills and pre-built agents for contract review, diligence, regulatory monitoring and privacy requests",
+          "Connectors into DMS, e-discovery and legal research systems with existing permissions preserved",
+          "First industry-specific packaging of Gemini Enterprise, alongside a financial services edition; healthcare and life sciences flagged as next",
+          "Available in preview at launch"
+        ],
+        "partners": [
+          "Accenture",
+          "Deloitte",
+          "Devoteam",
+          "Factor Law",
+          "KPMG",
+          "Tribe.ai",
+          "Valtech",
+          "Zazmic",
+          "Zencore",
+          "66degrees"
+        ],
+        "named_users": [
+          "Cleary Gottlieb",
+          "Freshfields",
+          "Weil",
+          "Williams & Connolly"
+        ],
+        "sources": [
+          "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal",
+          "https://www.artificiallawyer.com/2026/08/25/google-launches-gemini-enterprise-for-legal/",
+          "https://www.googlecloudpresscorner.com/2026-08-25-Google-Cloud-Launches-Gemini-Enterprise-for-Legal"
+        ]
+      }
+    ]
+  },
+  "companies": {
+    "as_of": "2026-09-21",
+    "disclaimer": "Compiled from public reporting and vendor announcements. Valuations and funding are as last publicly reported and may be stale. 'Models' reflects publicly disclosed foundation-model use only; most vendors are multi-model and do not disclose routing. Fields left null are genuinely unknown, not zero.",
+    "categories": {
+      "platform": "Foundation-model vendor selling directly into legal",
+      "assistant": "Horizontal legal AI assistant / firm-wide platform",
+      "research": "Primary law, case law data and research",
+      "contract": "Contract drafting, review and CLM",
+      "litigation": "Litigation, e-discovery and plaintiff-side workflow",
+      "inhouse": "In-house / GC department tooling",
+      "ip": "Patent and IP prosecution",
+      "infra": "DMS, knowledge, firm operations and deal infrastructure",
+      "practice_mgmt": "Practice management for small and mid-size firms",
+      "ai_native_firm": "AI-native law firm or legal service provider (sells outcomes, not seats)",
+      "buyer": "Law firm or legal department building rather than buying"
+    },
+    "companies": [
+      {
+        "id": "harvey",
+        "name": "Harvey",
+        "url": "https://www.harvey.ai",
+        "category": "assistant",
+        "hq": "San Francisco",
+        "founded": 2022,
+        "valuation": "$11B (Mar 2026)",
+        "last_round": "$200M co-led by GIC and Sequoia, Mar 2026",
+        "valuation_history": "$3B Feb 2025 -> $5B Jun 2025 -> $8B Dec 2025 -> $11B Mar 2026",
+        "what_it_does": "Firm-wide assistant for research, drafting, diligence and workflow automation, sold to large firms and enterprise legal departments.",
+        "models": [
+          "OpenAI",
+          "Anthropic",
+          "Google"
+        ],
+        "model_note": "Originally OpenAI-exclusive (an OpenAI Startup Fund portfolio company from Dec 2022). Opened to Anthropic and Google models in May 2025; users can pick a model or let Harvey auto-route. Publishing its own model research (Tenet) and moving toward a proprietary legal model.",
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": "Astra for Law API customer + ChatGPT plugin",
+          "google": null
+        },
+        "traction": "Reported 40+ Am Law 100 firms; publishes BigLaw Bench",
+        "sources": [
+          "https://www.harvey.ai/blog/expanding-harveys-model-offerings",
+          "https://techcrunch.com/2026/04/30/legal-ai-startup-legora-hits-5-6-valuation-and-its-battle-with-harvey-just-got-hotter/"
+        ]
+      },
+      {
+        "id": "legora",
+        "name": "Legora",
+        "url": "https://legora.com",
+        "category": "assistant",
+        "hq": "Stockholm / New York",
+        "founded": 2023,
+        "valuation": "$5.6B (Apr 2026)",
+        "last_round": "$550M Series D at $5.55B (Mar 10 2026), extended +$50M in Apr 2026 with Atlassian and NVentures (NVIDIA)",
+        "what_it_does": "Collaborative legal AI platform. Best known for Tabular Review \u2014 turning a folder of contracts into an interactive grid for clause comparison and extraction at scale \u2014 plus agentic workflows spanning drafting, review, research and translation.",
+        "models": [
+          "Anthropic",
+          "OpenAI"
+        ],
+        "model_note": "Anthropic publishes Legora as a Claude customer, using Claude across assistant, document review and workflows. Also an OpenAI API customer with Astra for Law access.",
+        "platform_integrations": {
+          "anthropic": "Named Claude for Legal partner + published Claude customer",
+          "openai": "Astra for Law API customer + ChatGPT plugin",
+          "google": null
+        },
+        "traction": "Aggressive US buildout: NY (11 Madison Ave, ~100k sq ft), Denver, Houston, Chicago; 300+ US staff targeted by end of 2026",
+        "sources": [
+          "https://legora.com/newsroom/legora-raises-550-million-series-d-to-fuel-us-growth",
+          "https://legora.com/newsroom/legora-extends-series-d-with-additional-50-million-welcomes-atlassian-and-nventures-as-investors",
+          "https://www.anthropic.com/customers/legora"
+        ]
+      },
+      {
+        "id": "cocounsel",
+        "name": "Thomson Reuters \u2014 CoCounsel Legal",
+        "url": "https://legal.thomsonreuters.com/en/products/cocounsel-legal",
+        "category": "assistant",
+        "hq": "Toronto / Eagan",
+        "founded": null,
+        "valuation": "Public (TRI)",
+        "last_round": null,
+        "what_it_does": "Agentic legal platform grounded in Westlaw primary law and Practical Law, taking a matter from research and issue analysis to work product in one workflow. Next generation reached GA 2026-08-20.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": "Next-gen CoCounsel Legal is built on Anthropic's Claude Agent SDK \u2014 it plans, selects tools, retrieves authoritative content and adapts mid-workflow.",
+        "platform_integrations": {
+          "anthropic": "Built on Claude Agent SDK; CoCounsel MCP connector exposes Westlaw + Practical Law inside Claude",
+          "openai": "ChatGPT plugin (HighQ matter context)",
+          "google": null
+        },
+        "traction": "Distribution is the moat: bundled with Westlaw and Practical Law, already the default research stack in most large US firms",
+        "sources": [
+          "https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-launches-next-generation-of-cocounsel-legal-the-ai-ecosystem-built-for-legal-professionals",
+          "https://legal.thomsonreuters.com/blog/the-next-generation-of-cocounsel-legal/"
+        ]
+      },
+      {
+        "id": "lexisnexis",
+        "name": "LexisNexis \u2014 Lexis+ AI / Prot\u00e9g\u00e9",
+        "url": "https://www.lexisnexis.com",
+        "category": "assistant",
+        "hq": "New York",
+        "founded": null,
+        "valuation": "Division of RELX",
+        "last_round": null,
+        "what_it_does": "Agentic legal assistant across research, analysis, drafting and review, preserving matter context between steps. Expanded agentic capabilities announced 2026-08-24, four days after CoCounsel's next-gen GA.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": "Historically multi-model across Anthropic, OpenAI and Mistral; routing not publicly disclosed.",
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "The other half of the research duopoly; competing head-on with CoCounsel for the layer where lawyers finish work",
+        "confidence": "model attribution: low",
+        "sources": [
+          "https://abovethelaw.com/2026/08/lexisnexis-and-thomson-reuters-ilta-announcements-closing-the-conference-room-door/",
+          "https://runtimewire.com/article/lexisnexis-expands-protege-end-to-end-legal-work-cocounsel"
+        ]
+      },
+      {
+        "id": "clio",
+        "name": "Clio",
+        "url": "https://www.clio.com",
+        "category": "practice_mgmt",
+        "hq": "Vancouver",
+        "founded": 2008,
+        "valuation": "$5B (Nov 2025)",
+        "last_round": null,
+        "what_it_does": "Practice management for small and mid-size firms \u2014 intake, matters, billing, payments \u2014 now with AI layered across. Acquired vLex (~$1B, 2025), buying its way into legal research.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": "ChatGPT ecosystem plugin partner",
+          "google": null
+        },
+        "traction": "Owns the long tail of the profession \u2014 the segment BigLaw-focused vendors don't serve",
+        "sources": [
+          "https://blog.platinumids.com/blog/legal-ai-billion-dollar-arms-race-2026"
+        ]
+      },
+      {
+        "id": "relativity",
+        "name": "Relativity",
+        "url": "https://www.relativity.com",
+        "category": "litigation",
+        "hq": "Chicago",
+        "founded": 2001,
+        "valuation": "$3.6B (2021)",
+        "last_round": null,
+        "what_it_does": "Dominant e-discovery platform (RelativityOne), with aiR for Review and related generative layers.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": "ecosystem partner",
+          "google": null
+        },
+        "traction": "Incumbent with the corpus \u2014 review data is the asset everyone else lacks",
+        "sources": [
+          "https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html"
+        ]
+      },
+      {
+        "id": "everlaw",
+        "name": "Everlaw",
+        "url": "https://www.everlaw.com",
+        "category": "litigation",
+        "hq": "Oakland",
+        "founded": 2010,
+        "valuation": "$2B+ (2021)",
+        "last_round": null,
+        "what_it_does": "Cloud e-discovery and litigation platform with generative review, chronologies and storybuilding.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "confidence": "valuation: low",
+        "sources": [
+          "https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html"
+        ]
+      },
+      {
+        "id": "consilio",
+        "name": "Consilio",
+        "url": "https://www.consilio.com",
+        "category": "litigation",
+        "hq": "Washington DC",
+        "founded": 2011,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Managed review and legal services at scale \u2014 the human layer under e-discovery, now automating itself.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "evenup",
+        "name": "EvenUp",
+        "url": "https://www.evenuplaw.com",
+        "category": "litigation",
+        "hq": "San Francisco",
+        "founded": 2019,
+        "valuation": "$2B+ (Oct 2025)",
+        "last_round": null,
+        "what_it_does": "Personal injury automation \u2014 medical record review, damages modelling and demand package generation for plaintiff firms.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": "Named by Anthropic as a Claude for Legal customer.",
+        "platform_integrations": {
+          "anthropic": "Named customer",
+          "openai": null,
+          "google": null
+        },
+        "traction": "Part of the plaintiff-side cohort that minted three unicorns in autumn 2025",
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry",
+          "https://blog.platinumids.com/blog/legal-ai-billion-dollar-arms-race-2026"
+        ]
+      },
+      {
+        "id": "eve",
+        "name": "Eve",
+        "url": "https://www.eve.legal",
+        "category": "litigation",
+        "hq": "San Francisco",
+        "founded": 2023,
+        "valuation": "$1B+ (Sep 2025)",
+        "last_round": null,
+        "what_it_does": "End-to-end plaintiff-side case platform \u2014 intake, case evaluation, demand drafting.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": "Reported as built on Claude; named Claude for Legal partner.",
+        "platform_integrations": {
+          "anthropic": "Named partner",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "filevine",
+        "name": "Filevine",
+        "url": "https://www.filevine.com",
+        "category": "litigation",
+        "hq": "Salt Lake City",
+        "founded": 2014,
+        "valuation": "~$3B (Sep 2025, reported)",
+        "last_round": null,
+        "what_it_does": "Case management for plaintiff and contingency firms, with AI document and demand tooling layered on.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "confidence": "valuation: reported estimate",
+        "sources": [
+          "https://blog.platinumids.com/blog/legal-ai-billion-dollar-arms-race-2026"
+        ]
+      },
+      {
+        "id": "trellis",
+        "name": "Trellis",
+        "url": "https://trellis.law",
+        "category": "research",
+        "hq": "Los Angeles",
+        "founded": 2018,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "State trial court records and judge analytics \u2014 the layer neither Westlaw nor Lexis covers well.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "midpage",
+        "name": "Midpage",
+        "url": "https://www.midpage.ai",
+        "category": "research",
+        "hq": "New York",
+        "founded": 2022,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "AI legal research built around verifiable citation to primary sources \u2014 litigator-first research workflow.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "freelawproject",
+        "name": "Free Law Project / CourtListener",
+        "url": "https://www.courtlistener.com",
+        "category": "research",
+        "hq": "Oakland",
+        "founded": 2010,
+        "valuation": "Nonprofit",
+        "last_round": null,
+        "what_it_does": "Open primary law and PACER archive. Quietly one of the most consequential entities in the market \u2014 OpenAI built the Astra for Law legal search index using CourtListener data.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal (A2J partner)",
+          "openai": "Data source for the Astra Legal Search Index",
+          "google": null
+        },
+        "sources": [
+          "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html",
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "descrybe",
+        "name": "Descrybe.ai",
+        "url": "https://descrybe.ai",
+        "category": "research",
+        "hq": "US",
+        "founded": 2023,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Free AI-summarised case law search, aimed at access to justice.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal (A2J)",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "legaldatahunter",
+        "name": "Legal Data Hunter",
+        "url": null,
+        "category": "research",
+        "hq": null,
+        "founded": null,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Legal research and data retrieval connector.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "confidence": "thin public information",
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "ironclad",
+        "name": "Ironclad",
+        "url": "https://ironcladapp.com",
+        "category": "contract",
+        "hq": "San Francisco",
+        "founded": 2014,
+        "valuation": "$3.2B (2022)",
+        "last_round": "$333M total raised",
+        "what_it_does": "CLM for in-house teams \u2014 workflow, repository, AI review and playbook enforcement.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "notable": "Co-founder Jason Boehmig now leads OpenAI's legal effort \u2014 a direct pipeline from the CLM incumbent into the model layer",
+        "sources": [
+          "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html"
+        ]
+      },
+      {
+        "id": "luminance",
+        "name": "Luminance",
+        "url": "https://www.luminance.com",
+        "category": "contract",
+        "hq": "London / Cambridge",
+        "founded": 2015,
+        "valuation": null,
+        "last_round": "~$115M total raised",
+        "what_it_does": "Contract analysis and negotiation across the contract lifecycle; deep roots in diligence-scale document review.",
+        "models": [
+          "proprietary + multiple"
+        ],
+        "model_note": "Runs its own legal-domain models alongside third-party LLMs.",
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising"
+        ]
+      },
+      {
+        "id": "spellbook",
+        "name": "Spellbook",
+        "url": "https://www.spellbook.legal",
+        "category": "contract",
+        "hq": "Halifax",
+        "founded": 2021,
+        "valuation": null,
+        "last_round": "$40M debt facility from RBCx (Mar 2026), earmarked for acquisitions",
+        "what_it_does": "Contract drafting and review inside Microsoft Word, aimed at small and mid-size firms and lean in-house teams.",
+        "models": [
+          "OpenAI",
+          "Anthropic"
+        ],
+        "model_note": "Historically GPT-based; now multi-model.",
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Word-native positioning is now directly contested by both ChatGPT for Word and Claude's native M365 integration",
+        "sources": [
+          "https://sacra.com/c/spellbook/"
+        ]
+      },
+      {
+        "id": "robinai",
+        "name": "Robin AI",
+        "url": "https://www.robinai.com",
+        "category": "contract",
+        "hq": "London",
+        "founded": 2019,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Contract review plus lightweight CLM for mid-market teams with recurring contract types.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": "Long-standing public Claude user; among the earliest Anthropic legal customers.",
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://legalaiinsight.com/buying-guides/best-ai-contract-review-software"
+        ]
+      },
+      {
+        "id": "definely",
+        "name": "Definely",
+        "url": "https://www.definely.com",
+        "category": "contract",
+        "hq": "London",
+        "founded": 2019,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Drafting-assistant layer inside Word \u2014 definition and cross-reference navigation, now extended with AI review.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "docusign",
+        "name": "DocuSign",
+        "url": "https://www.docusign.com",
+        "category": "contract",
+        "hq": "San Francisco",
+        "founded": 2003,
+        "valuation": "Public (DOCU)",
+        "last_round": null,
+        "what_it_does": "E-signature plus Intelligent Agreement Management \u2014 the execution and obligation layer.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "legalon",
+        "name": "LegalOn",
+        "url": "https://www.legalontech.com",
+        "category": "contract",
+        "hq": "Tokyo / San Francisco",
+        "founded": 2017,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Contract review grounded in attorney-authored playbooks and standards; strong in Japan, expanding in the US.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://www.botmemo.com/ai-legal-tech-startups-20-companies"
+        ]
+      },
+      {
+        "id": "icertis",
+        "name": "Icertis",
+        "url": "https://www.icertis.com",
+        "category": "contract",
+        "hq": "Bellevue",
+        "founded": 2009,
+        "valuation": "$5B (2022)",
+        "last_round": null,
+        "what_it_does": "Enterprise CLM for the Fortune 500 \u2014 obligation management at procurement scale.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "confidence": "valuation: dated",
+        "sources": [
+          "https://www.botmemo.com/ai-legal-tech-startups-20-companies"
+        ]
+      },
+      {
+        "id": "linksquares",
+        "name": "LinkSquares",
+        "url": "https://linksquares.com",
+        "category": "contract",
+        "hq": "Boston",
+        "founded": 2015,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "CLM and contract analytics for in-house legal.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://www.botmemo.com/ai-legal-tech-startups-20-companies"
+        ]
+      },
+      {
+        "id": "spotdraft",
+        "name": "SpotDraft",
+        "url": "https://www.spotdraft.com",
+        "category": "contract",
+        "hq": "Bengaluru / San Francisco",
+        "founded": 2017,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "CLM for high-velocity in-house teams, with AI review and self-serve business workflows.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://www.botmemo.com/ai-legal-tech-startups-20-companies"
+        ]
+      },
+      {
+        "id": "ivo",
+        "name": "Ivo",
+        "url": "https://www.ivo.ai",
+        "category": "contract",
+        "hq": "San Francisco",
+        "founded": 2022,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "AI contract review tuned to an in-house team's own positions and playbook.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising"
+        ]
+      },
+      {
+        "id": "summize",
+        "name": "Summize",
+        "url": "https://www.summize.com",
+        "category": "contract",
+        "hq": "Manchester",
+        "founded": 2018,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Contract workflow that meets the business where it works \u2014 Slack, Teams, Word \u2014 rather than in a legal portal.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising"
+        ]
+      },
+      {
+        "id": "wordsmith",
+        "name": "Wordsmith AI",
+        "url": "https://www.wordsmith.ai",
+        "category": "inhouse",
+        "hq": "Edinburgh / London",
+        "founded": 2023,
+        "valuation": null,
+        "last_round": "$70M Series B (Jun 2026); Series A led by Index Ventures",
+        "what_it_does": "The 'legal front door' \u2014 AI agents that intercept and handle inbound business requests to in-house legal before they reach a lawyer.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://gc.ai/blog/ironclad-vs-wordsmith"
+        ]
+      },
+      {
+        "id": "gcai",
+        "name": "GC AI",
+        "url": "https://gc.ai",
+        "category": "inhouse",
+        "hq": "San Francisco",
+        "founded": 2023,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "AI assistant purpose-built for in-house generalist counsel \u2014 the one-lawyer-department use case.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": "Publicly Claude-forward; publishes analysis of the Claude legal plugins.",
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://gc.ai/blog/claude-legal-plugin"
+        ]
+      },
+      {
+        "id": "eudia",
+        "name": "Eudia",
+        "url": "https://www.eudia.com",
+        "category": "ai_native_firm",
+        "hq": "Palo Alto",
+        "founded": 2023,
+        "valuation": null,
+        "last_round": "$105M+ total raised",
+        "what_it_does": "Augmented legal for enterprise departments \u2014 AI plus its own legal professionals delivering contracting, litigation support and compliance work as a service.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Acquired traditional ALSP capacity to pair with the model layer \u2014 the services-roll-up pattern",
+        "sources": [
+          "https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms"
+        ]
+      },
+      {
+        "id": "crosby",
+        "name": "Crosby",
+        "url": "https://www.crosby.ai",
+        "category": "ai_native_firm",
+        "hq": "San Francisco",
+        "founded": 2024,
+        "valuation": "~$400M (Apr 2026, reported)",
+        "last_round": "$60M Series B, Apr 2026",
+        "what_it_does": "An actual law firm running on AI: high-volume contract review with licensed attorney sign-off in a median of 58 minutes, priced per document rather than per hour.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": "Named Claude for Legal partner and named as using Claude on live matters.",
+        "platform_integrations": {
+          "anthropic": "Named partner and user",
+          "openai": null,
+          "google": null
+        },
+        "traction": "Clients include Cursor and Clay",
+        "sources": [
+          "https://www.lupl.com/blog/10-ai-law-firms-to-watch-in-2026/",
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "garfield",
+        "name": "Garfield AI",
+        "url": "https://www.garfield.law",
+        "category": "ai_native_firm",
+        "hq": "London",
+        "founded": 2024,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Small-claims and debt recovery run end-to-end by AI. The first fully AI-driven law firm authorised by the UK Solicitors Regulation Authority.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "The regulatory precedent matters more than the product \u2014 SRA authorisation is the template others will cite",
+        "sources": [
+          "https://www.ibanet.org/AI-native-law-firm-regulatory-innovation-and-fundamental-restructuring-of-legal-service-delivery"
+        ]
+      },
+      {
+        "id": "lawhive",
+        "name": "Lawhive",
+        "url": "https://lawhive.co.uk",
+        "category": "ai_native_firm",
+        "hq": "London",
+        "founded": 2020,
+        "valuation": null,
+        "last_round": "Google-backed",
+        "what_it_does": "Consumer legal services delivered by AI plus a network of solicitors, at fixed prices.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Acquired Woodstock Legal Services (Sep 2025) \u2014 believed to be the first acquisition of a traditional law firm by an AI company",
+        "sources": [
+          "https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms"
+        ]
+      },
+      {
+        "id": "normai",
+        "name": "Norm Ai",
+        "url": "https://www.norm.ai",
+        "category": "inhouse",
+        "hq": "New York",
+        "founded": 2022,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Converts regulation into executable code \u2014 regulatory compliance agents that check actions against rules pre-emptively. Heaviest traction in financial services.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms"
+        ]
+      },
+      {
+        "id": "solveintelligence",
+        "name": "Solve Intelligence",
+        "url": "https://www.solveintelligence.com",
+        "category": "ip",
+        "hq": "San Francisco / London",
+        "founded": 2023,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "AI copilot for patent drafting and prosecution.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": "Reported as built on Claude; named Claude for Legal partner with an MCP connector.",
+        "platform_integrations": {
+          "anthropic": "MCP connector + named partner",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "deepip",
+        "name": "DeepIP",
+        "url": "https://www.deepip.ai",
+        "category": "ip",
+        "hq": "New York / Paris",
+        "founded": 2024,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Patent drafting assistant embedded in the attorney's Word workflow.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising"
+        ]
+      },
+      {
+        "id": "imanage",
+        "name": "iManage",
+        "url": "https://imanage.com",
+        "category": "infra",
+        "hq": "Chicago",
+        "founded": 1995,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "The document management system most large firms run on \u2014 and therefore the gate to firm knowledge for every AI vendor.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": "Astra plugin \u2014 draft negotiation briefs to matter files",
+          "google": "connector"
+        },
+        "notable": "Connected to all three model platforms. Whoever controls the DMS connector controls context.",
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry",
+          "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html"
+        ]
+      },
+      {
+        "id": "netdocuments",
+        "name": "NetDocuments",
+        "url": "https://www.netdocuments.com",
+        "category": "infra",
+        "hq": "Salt Lake City",
+        "founded": 1999,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Cloud DMS and the other half of the firm-knowledge gate, strong in mid-market firms.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "intapp",
+        "name": "Intapp",
+        "url": "https://www.intapp.com",
+        "category": "infra",
+        "hq": "Palo Alto",
+        "founded": 2000,
+        "valuation": "Public (INTA)",
+        "last_round": null,
+        "what_it_does": "Firm operations \u2014 intake, conflicts, ethical walls, pricing, time. The compliance plumbing AI has to respect.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": "Astra ecosystem plugin",
+          "google": null
+        },
+        "sources": [
+          "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html"
+        ]
+      },
+      {
+        "id": "deepjudge",
+        "name": "DeepJudge",
+        "url": "https://www.deepjudge.ai",
+        "category": "infra",
+        "hq": "Zurich",
+        "founded": 2022,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Knowledge search across a firm's own work product \u2014 semantic retrieval over the DMS, permissions intact.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": "Astra plugin \u2014 compare prior deals side by side",
+          "google": null
+        },
+        "notable": "Sits exactly on Helen Fan's Level 3: the firm's proprietary data layer",
+        "sources": [
+          "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html"
+        ]
+      },
+      {
+        "id": "hebbia",
+        "name": "Hebbia",
+        "url": "https://www.hebbia.com",
+        "category": "infra",
+        "hq": "New York",
+        "founded": 2020,
+        "valuation": "$700M (2024)",
+        "last_round": null,
+        "what_it_does": "Matrix \u2014 document-set analysis at scale. Horizontal, but heavily used for diligence and legal/finance document work.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "confidence": "valuation: dated",
+        "sources": [
+          "https://www.botmemo.com/ai-legal-tech-startups-20-companies"
+        ]
+      },
+      {
+        "id": "box",
+        "name": "Box",
+        "url": "https://www.box.com",
+        "category": "infra",
+        "hq": "Redwood City",
+        "founded": 2005,
+        "valuation": "Public (BOX)",
+        "last_round": null,
+        "what_it_does": "Content cloud used as a deal room and matter repository.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "datasite",
+        "name": "Datasite",
+        "url": "https://www.datasite.com",
+        "category": "infra",
+        "hq": "Minneapolis",
+        "founded": 1968,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Virtual data rooms for M&A \u2014 where diligence documents actually live.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "MCP connector in Claude for Legal",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "kirkland",
+        "name": "Kirkland & Ellis",
+        "url": "https://www.kirkland.com",
+        "category": "buyer",
+        "hq": "Chicago",
+        "founded": 1909,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Building rather than buying: $500M over three to four years on a proprietary AI platform, with $100M committed in 2026.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "~50 AI engineers engaged \u2014 roughly 35 via strategic partnerships and 15+ in-house, and growing. Still licensing some third-party AI.",
+        "notable": "The reference case for build-vs-buy at the top of the market. One GC called it 'a few steps closer to killing the billable hour.'",
+        "sources": [
+          "https://news.bloomberglaw.com/business-and-practice/kirklands-500-million-ai-gambit-requires-a-cast-of-hundreds",
+          "https://modern-counsel.com/2026/kirklands-500-million-ai-bet-could-reshape-the-future-of-big-law/"
+        ]
+      },
+      {
+        "id": "freshfields",
+        "name": "Freshfields",
+        "url": "https://www.freshfields.com",
+        "category": "buyer",
+        "hq": "London",
+        "founded": 1743,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Buying across the platform layer \u2014 named by both Anthropic (Claude for Legal user) and Google (Gemini Enterprise for Legal launch firm).",
+        "models": [
+          "Anthropic",
+          "Google"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "Named user",
+          "openai": null,
+          "google": "Launch firm"
+        },
+        "notable": "The clearest example of firms refusing to pick one model vendor",
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry",
+          "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal"
+        ]
+      },
+      {
+        "id": "latham",
+        "name": "Latham & Watkins",
+        "url": "https://www.lw.com",
+        "category": "buyer",
+        "hq": "Los Angeles",
+        "founded": 1934,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Worked with OpenAI on information permissions and ethical walls for the Astra for Law Trusted Access program.",
+        "models": [
+          "OpenAI"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": "Design partner on Trusted Access",
+          "google": null
+        },
+        "sources": [
+          "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html"
+        ]
+      },
+      {
+        "id": "hollandknight",
+        "name": "Holland & Knight",
+        "url": "https://www.hklaw.com",
+        "category": "buyer",
+        "hq": "Miami",
+        "founded": 1968,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Named Claude for Legal user, running Claude on live matters.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "Named user",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry"
+        ]
+      },
+      {
+        "id": "quinnemanuel",
+        "name": "Quinn Emanuel",
+        "url": "https://www.quinnemanuel.com",
+        "category": "buyer",
+        "hq": "Los Angeles",
+        "founded": 1986,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Named as using Claude on live matters.",
+        "models": [
+          "Anthropic"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "Named user",
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://fortune.com/2026/05/12/anthropic-legal-plug-in-release-claude-cowork-big-law/"
+        ]
+      },
+      {
+        "id": "cleary",
+        "name": "Cleary Gottlieb",
+        "url": "https://www.clearygottlieb.com",
+        "category": "buyer",
+        "hq": "New York",
+        "founded": 1946,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Gemini Enterprise for Legal launch firm.",
+        "models": [
+          "Google"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": "Launch firm"
+        },
+        "sources": [
+          "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal"
+        ]
+      },
+      {
+        "id": "weil",
+        "name": "Weil, Gotshal & Manges",
+        "url": "https://www.weil.com",
+        "category": "buyer",
+        "hq": "New York",
+        "founded": 1931,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Gemini Enterprise for Legal launch firm.",
+        "models": [
+          "Google"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": "Launch firm"
+        },
+        "sources": [
+          "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal"
+        ]
+      },
+      {
+        "id": "williamsconnolly",
+        "name": "Williams & Connolly",
+        "url": "https://www.wc.com",
+        "category": "buyer",
+        "hq": "Washington DC",
+        "founded": 1967,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Gemini Enterprise for Legal launch firm.",
+        "models": [
+          "Google"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": "Launch firm"
+        },
+        "sources": [
+          "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal"
+        ]
+      },
+      {
+        "id": "accenturelegal",
+        "name": "Accenture Legal",
+        "url": "https://www.accenture.com",
+        "category": "buyer",
+        "hq": "Dublin",
+        "founded": 1989,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Named Claude for Legal user; also a Gemini Enterprise for Legal systems-integrator partner.",
+        "models": [
+          "Anthropic",
+          "Google"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": "Named user",
+          "openai": null,
+          "google": "SI partner"
+        },
+        "sources": [
+          "https://claude.com/blog/claude-for-the-legal-industry",
+          "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal"
+        ]
+      }
+    ]
+  }
+}

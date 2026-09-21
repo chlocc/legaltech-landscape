@@ -1,0 +1,75 @@
+{
+  "as_of": "2026-09-21",
+  "note": "The foundation-model layer's direct moves into legal. This is the layer the rest of the market now has to position against.",
+  "platforms": [
+    {
+      "id": "anthropic",
+      "vendor": "Anthropic",
+      "product": "Claude for Legal",
+      "launched": "2026-05-12",
+      "model": "Claude Opus 4.7 positioned as its most capable public model for legal reasoning and long-document work",
+      "shape": "Distribution play: ship the legal workflow layer inside Claude itself, and make every incumbent a connector into it.",
+      "components": [
+        "20+ MCP connectors into the software firms already run (DMS, CLM, e-discovery, research, deal rooms)",
+        "12 practice-area plugins: Commercial, Corporate, Employment, Privacy, Product, Regulatory, AI Governance, IP, Litigation, plus Law Student, Legal Clinic, Legal Builder Hub",
+        "Each plugin ships a cold-start interview that learns the team's playbook, escalation matrix and house style",
+        "4 plugins (Commercial, Corporate, Litigation, Product) also deploy as Managed Agents via the Claude API",
+        "Native in Microsoft 365 — Word (drafting/redlining), Outlook (triage), Excel (checklists), PowerPoint",
+        "Claude Cowork for multi-document work; Projects as persistent matter workspaces; scheduled tasks for recurring sweeps"
+      ],
+      "partners": ["Harvey", "Legora", "Thomson Reuters (CoCounsel)", "Relativity", "Everlaw", "Consilio", "Ironclad", "DocuSign", "Definely", "iManage", "NetDocuments", "Box", "Datasite", "Midpage", "Trellis", "Legal Data Hunter", "Solve Intelligence", "Crosby", "Eve", "Lawve AI", "The L Suite (Lloyd, TopCounsel)", "BoardWise", "Courtroom5", "Descrybe", "Free Law Project"],
+      "named_users": ["Freshfields", "Accenture Legal", "Holland & Knight", "Quinn Emanuel", "EvenUp", "Crosby Legal"],
+      "access": "Enterprise via sales; discounted access for qualifying nonprofits through Claude for Nonprofits; A2J partnerships with Free Law Project and the Justice Technology Association",
+      "sources": [
+        "https://claude.com/blog/claude-for-the-legal-industry",
+        "https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html",
+        "https://www.artificiallawyer.com/2026/05/12/claude-for-legal-launches-may-reshape-the-legal-tech-world/",
+        "https://github.com/anthropics/claude-for-legal"
+      ]
+    },
+    {
+      "id": "openai",
+      "vendor": "OpenAI",
+      "product": "Astra for Law",
+      "launched": "2026-09-17",
+      "model": "GPT-6 Astra, configured for legal work — not a separate model",
+      "shape": "Content play: own the primary-law retrieval layer, then sell trusted access to the Am Law 200 direct.",
+      "components": [
+        "Legal Search Index across 230M+ URLs of US case law, statutes, regulations, court rules and administrative decisions, built using CourtListener data",
+        "Legal-specific instructions for analysis and writing",
+        "26 vendor plugins plus 9 community plugins (LegalQuants, LegalEng Consulting Group, Skills.law) and 47 user-built skills",
+        "ChatGPT for Word",
+        "Trusted Access program for Am Law 200 firms: zero data retention on the API, ChatGPT Enterprise excluded from human review; built with Latham & Watkins on permissions and ethical walls (~30-page agreement)"
+      ],
+      "benchmarks": "Passed correctness evals on 54% of legal research questions vs 38.7% for GPT-6 with web search alone; retrieved 24% more case law references and up to 54% more relevant passages",
+      "partners": ["Thomson Reuters", "Harvey", "Legora", "iManage", "Intapp", "DeepJudge", "Clio", "Relativity"],
+      "people": "Jason Boehmig, Ironclad co-founder, leads OpenAI's legal effort",
+      "sources": [
+        "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html",
+        "https://openai.com/solutions/industries/law/",
+        "https://www.pymnts.com/news/artificial-intelligence/2026/openai-targets-legal-tech-market-with-astra-for-law/"
+      ]
+    },
+    {
+      "id": "google",
+      "vendor": "Google Cloud",
+      "product": "Gemini Enterprise for Legal",
+      "launched": "2026-08-25",
+      "model": "Gemini, packaged on Gemini Enterprise",
+      "shape": "Integration play: don't own the workflow, be the substrate the firm's existing stack runs agents on. Sold through SIs.",
+      "components": [
+        "Legal-specific skills and pre-built agents for contract review, diligence, regulatory monitoring and privacy requests",
+        "Connectors into DMS, e-discovery and legal research systems with existing permissions preserved",
+        "First industry-specific packaging of Gemini Enterprise, alongside a financial services edition; healthcare and life sciences flagged as next",
+        "Available in preview at launch"
+      ],
+      "partners": ["Accenture", "Deloitte", "Devoteam", "Factor Law", "KPMG", "Tribe.ai", "Valtech", "Zazmic", "Zencore", "66degrees"],
+      "named_users": ["Cleary Gottlieb", "Freshfields", "Weil", "Williams & Connolly"],
+      "sources": [
+        "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal",
+        "https://www.artificiallawyer.com/2026/08/25/google-launches-gemini-enterprise-for-legal/",
+        "https://www.googlecloudpresscorner.com/2026-08-25-Google-Cloud-Launches-Gemini-Enterprise-for-Legal"
+      ]
+    }
+  ]
+}

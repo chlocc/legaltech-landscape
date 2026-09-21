@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legal AI Landscape &mdash; the model layer and everyone building on it</title>
+<meta name="description" content="Who is building what in legal AI, and which foundation-model platform they plug into. Updated 2026-09-21.">
+<style>
+:root {
+  --bg:#0e1013; --panel:#16191e; --panel2:#1c2027; --line:#262b33;
+  --ink:#e8eaed; --ink2:#a2a9b4; --ink3:#6f7681;
+  --accent:#d97757; --anthropic:#d97757; --openai:#10a37f; --google:#5b8def;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink);
+  font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+.wrap { max-width:1180px; margin:0 auto; padding:0 24px; }
+
+header.top { border-bottom:1px solid var(--line); padding:56px 0 40px; }
+header.top h1 { font-size:34px; line-height:1.15; margin:0 0 14px; letter-spacing:-.02em; }
+header.top h1 span { color:var(--accent); }
+header.top p { color:var(--ink2); max-width:70ch; margin:0 0 10px; font-size:16px; }
+.asof { font:12px var(--mono); color:var(--ink3); text-transform:uppercase; letter-spacing:.08em; margin-top:18px; }
+nav.jump { display:flex; gap:20px; flex-wrap:wrap; margin-top:22px; font-size:13px; }
+nav.jump a { color:var(--ink2); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; }
+nav.jump a:hover { color:var(--accent); border-color:var(--accent); }
+
+section { padding:56px 0; border-bottom:1px solid var(--line); }
+h2 { font-size:13px; font-family:var(--mono); text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ink3); margin:0 0 8px; }
+.lede { font-size:19px; line-height:1.55; max-width:72ch; margin:0 0 32px; color:var(--ink); letter-spacing:-.01em; }
+.lede strong { color:var(--accent); font-weight:600; }
+
+.pf-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; }
+.pf { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:22px; border-top:3px solid var(--line); }
+.pf--anthropic { border-top-color:var(--anthropic); }
+.pf--openai { border-top-color:var(--openai); }
+.pf--google { border-top-color:var(--google); }
+.pf-vendor { font:11px var(--mono); text-transform:uppercase; letter-spacing:.12em; color:var(--ink3); }
+.pf h3 { margin:6px 0 4px; font-size:21px; letter-spacing:-.01em; }
+.pf-date { font:12px var(--mono); color:var(--ink3); margin-bottom:16px; }
+.pf-shape { font-size:15px; color:var(--ink); margin:0 0 16px; padding-left:12px; border-left:2px solid var(--accent); }
+.pf-comps { margin:0 0 16px; padding-left:18px; color:var(--ink2); font-size:13.5px; }
+.pf-comps li { margin-bottom:6px; }
+.pf-model, .pf-extra, .line { font-size:13px; color:var(--ink2); margin:0 0 10px; }
+.lbl { display:block; font:10.5px var(--mono); text-transform:uppercase; letter-spacing:.1em;
+  color:var(--ink3); margin-bottom:3px; }
+.pf-src, .co-src { font:11px var(--mono); margin:14px 0 0; }
+.pf-src a, .co-src a { color:var(--ink3); text-decoration:none; margin-right:4px; }
+.pf-src a:hover, .co-src a:hover { color:var(--accent); }
+
+table.mx { width:100%; border-collapse:collapse; font-size:13.5px; }
+table.mx th, table.mx td { border-bottom:1px solid var(--line); padding:11px 10px; text-align:left; vertical-align:top; }
+table.mx thead th { font:11px var(--mono); text-transform:uppercase; letter-spacing:.1em; color:var(--ink3); border-bottom:1px solid var(--line); }
+table.mx th[scope=row] { font-weight:500; width:30%; }
+.mx-cat { display:block; font:10.5px var(--mono); color:var(--ink3); text-transform:uppercase; letter-spacing:.06em; margin-top:2px; }
+td.yes { color:var(--ink2); }
+td.yes .dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:7px; vertical-align:middle; }
+td.anthropic .dot { background:var(--anthropic); }
+td.openai .dot { background:var(--openai); }
+td.google .dot { background:var(--google); }
+.mx-note { font-size:12.5px; }
+td.no { color:var(--ink3); }
+td.no::after { content:"·"; color:var(--line); }
+.mx-scroll { overflow-x:auto; }
+
+.controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:26px; }
+.fb { background:var(--panel); border:1px solid var(--line); color:var(--ink2); border-radius:999px;
+  padding:6px 13px; font-size:12.5px; cursor:pointer; font-family:inherit; }
+.fb em { font-style:normal; color:var(--ink3); margin-left:4px; font-size:11px; }
+.fb:hover { border-color:var(--ink3); color:var(--ink); }
+.fb.is-on { background:var(--accent); border-color:var(--accent); color:#16100d; font-weight:600; }
+.fb.is-on em { color:#16100d; opacity:.65; }
+#q { background:var(--panel); border:1px solid var(--line); color:var(--ink); border-radius:8px;
+  padding:8px 12px; font-size:13px; font-family:inherit; min-width:220px; flex:1; }
+#q::placeholder { color:var(--ink3); }
+.pfilter { display:flex; gap:6px; }
+.pf-toggle { background:transparent; border:1px solid var(--line); color:var(--ink2); border-radius:999px;
+  padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; }
+.pf-toggle[data-p=anthropic].is-on { background:var(--anthropic); border-color:var(--anthropic); color:#16100d; }
+.pf-toggle[data-p=openai].is-on { background:var(--openai); border-color:var(--openai); color:#06201a; }
+.pf-toggle[data-p=google].is-on { background:var(--google); border-color:var(--google); color:#0a1524; }
+
+.co-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; }
+.co { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; }
+.co-head { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+.co h4 { margin:0; font-size:17px; letter-spacing:-.01em; }
+.co h4 a { text-decoration:none; }
+.co h4 a:hover { color:var(--accent); }
+.co-chips { display:flex; gap:4px; flex-shrink:0; }
+.chip { font:9.5px var(--mono); text-transform:uppercase; letter-spacing:.06em; padding:3px 6px; border-radius:4px; }
+.chip--anthropic { background:rgba(217,119,87,.16); color:var(--anthropic); }
+.chip--openai { background:rgba(16,163,127,.16); color:var(--openai); }
+.chip--google { background:rgba(91,141,239,.16); color:var(--google); }
+.co-meta { font:11.5px var(--mono); color:var(--ink3); margin:5px 0 12px; }
+.co-desc { font-size:14px; color:var(--ink); margin:0 0 14px; }
+.co-models { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:14px; }
+.co-models .m { font:10.5px var(--mono); border:1px solid var(--line); color:var(--ink2);
+  padding:2px 7px; border-radius:4px; }
+.line--caveat { color:var(--ink3); font-style:italic; }
+.co.hide { display:none; }
+#count { font:12px var(--mono); color:var(--ink3); margin-bottom:16px; }
+
+.reads { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+.read { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+.read a { text-decoration:none; font-size:14.5px; }
+.read a:hover { color:var(--accent); }
+.read p { font-size:12.5px; color:var(--ink2); margin:6px 0 0; }
+footer { padding:40px 0 70px; color:var(--ink3); font-size:12.5px; }
+footer p { max-width:75ch; }
+@media (max-width:640px) {
+  header.top h1 { font-size:26px; } .lede { font-size:17px; }
+  .wrap { padding:0 16px; } table.mx th[scope=row] { width:auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <h1>Legal AI: the <span>model layer</span><br>and everyone building on it</h1>
+  <p>Three foundation-model vendors shipped legal products in four months. Every incumbent had to decide whether to become a connector. This tracks who sells what, and which platform they plugged into.</p>
+  <div class="asof">As of 2026-09-21 &middot; 53 entities tracked</div>
+  <nav class="jump">
+    <a href="#platforms">The platform layer</a>
+    <a href="#matrix">Integration matrix</a>
+    <a href="#companies">Who does what</a>
+    <a href="#reading">Reading</a>
+  </nav>
+</div></header>
+
+<section id="platforms"><div class="wrap">
+  <h2>01 &mdash; The platform layer</h2>
+  <p class="lede">Anthropic went first in May and chose <strong>distribution</strong>: put the workflow inside Claude and make every vendor a connector. Google went in August and chose <strong>integration</strong>: don't own the workflow, be the substrate, sell through the SIs. OpenAI went in September and chose <strong>content</strong>: own primary-law retrieval, then sell direct to the Am Law 200. Same market, three different bets about where the value sits.</p>
+  <div class="pf-grid">
+
+<article class="pf pf--anthropic">
+  <header>
+    <div class="pf-vendor">Anthropic</div>
+    <h3>Claude for Legal</h3>
+    <div class="pf-date">Launched 2026-05-12</div>
+  </header>
+  <p class="pf-shape">Distribution play: ship the legal workflow layer inside Claude itself, and make every incumbent a connector into it.</p>
+  <p class="pf-model"><span class="lbl">Model</span>Claude Opus 4.7 positioned as its most capable public model for legal reasoning and long-document work</p>
+  <ul class="pf-comps"><li>20+ MCP connectors into the software firms already run (DMS, CLM, e-discovery, research, deal rooms)</li><li>12 practice-area plugins: Commercial, Corporate, Employment, Privacy, Product, Regulatory, AI Governance, IP, Litigation, plus Law Student, Legal Clinic, Legal Builder Hub</li><li>Each plugin ships a cold-start interview that learns the team&#x27;s playbook, escalation matrix and house style</li><li>4 plugins (Commercial, Corporate, Litigation, Product) also deploy as Managed Agents via the Claude API</li><li>Native in Microsoft 365 — Word (drafting/redlining), Outlook (triage), Excel (checklists), PowerPoint</li><li>Claude Cowork for multi-document work; Projects as persistent matter workspaces; scheduled tasks for recurring sweeps</li></ul>
+  <p class="pf-extra"><span class="lbl">Access</span>Enterprise via sales; discounted access for qualifying nonprofits through Claude for Nonprofits; A2J partnerships with Free Law Project and the Justice Technology Association</p>
+  <p class="pf-extra"><span class="lbl">Ecosystem</span>Harvey, Legora, Thomson Reuters (CoCounsel), Relativity, Everlaw, Consilio, Ironclad, DocuSign, Definely, iManage, NetDocuments, Box, Datasite, Midpage, Trellis, Legal Data Hunter, Solve Intelligence, Crosby, Eve, Lawve AI, The L Suite (Lloyd, TopCounsel), BoardWise, Courtroom5, Descrybe, Free Law Project</p>
+  <p class="pf-extra"><span class="lbl">Named firms</span>Freshfields, Accenture Legal, Holland &amp; Knight, Quinn Emanuel, EvenUp, Crosby Legal</p>
+  <p class="pf-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a> <a href="https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html" target="_blank" rel="noopener">[2]</a> <a href="https://www.artificiallawyer.com/2026/05/12/claude-for-legal-launches-may-reshape-the-legal-tech-world/" target="_blank" rel="noopener">[3]</a> <a href="https://github.com/anthropics/claude-for-legal" target="_blank" rel="noopener">[4]</a></p>
+</article>
+
+<article class="pf pf--openai">
+  <header>
+    <div class="pf-vendor">OpenAI</div>
+    <h3>Astra for Law</h3>
+    <div class="pf-date">Launched 2026-09-17</div>
+  </header>
+  <p class="pf-shape">Content play: own the primary-law retrieval layer, then sell trusted access to the Am Law 200 direct.</p>
+  <p class="pf-model"><span class="lbl">Model</span>GPT-6 Astra, configured for legal work — not a separate model</p>
+  <ul class="pf-comps"><li>Legal Search Index across 230M+ URLs of US case law, statutes, regulations, court rules and administrative decisions, built using CourtListener data</li><li>Legal-specific instructions for analysis and writing</li><li>26 vendor plugins plus 9 community plugins (LegalQuants, LegalEng Consulting Group, Skills.law) and 47 user-built skills</li><li>ChatGPT for Word</li><li>Trusted Access program for Am Law 200 firms: zero data retention on the API, ChatGPT Enterprise excluded from human review; built with Latham &amp; Watkins on permissions and ethical walls (~30-page agreement)</li></ul>
+  <p class="pf-extra"><span class="lbl">Benchmarks</span>Passed correctness evals on 54% of legal research questions vs 38.7% for GPT-6 with web search alone; retrieved 24% more case law references and up to 54% more relevant passages</p><p class="pf-extra"><span class="lbl">People</span>Jason Boehmig, Ironclad co-founder, leads OpenAI&#x27;s legal effort</p>
+  <p class="pf-extra"><span class="lbl">Ecosystem</span>Thomson Reuters, Harvey, Legora, iManage, Intapp, DeepJudge, Clio, Relativity</p>
+  <p class="pf-extra"><span class="lbl">Named firms</span>&mdash;</p>
+  <p class="pf-src"><a href="https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html" target="_blank" rel="noopener">[1]</a> <a href="https://openai.com/solutions/industries/law/" target="_blank" rel="noopener">[2]</a> <a href="https://www.pymnts.com/news/artificial-intelligence/2026/openai-targets-legal-tech-market-with-astra-for-law/" target="_blank" rel="noopener">[3]</a></p>
+</article>
+
+<article class="pf pf--google">
+  <header>
+    <div class="pf-vendor">Google Cloud</div>
+    <h3>Gemini Enterprise for Legal</h3>
+    <div class="pf-date">Launched 2026-08-25</div>
+  </header>
+  <p class="pf-shape">Integration play: don&#x27;t own the workflow, be the substrate the firm&#x27;s existing stack runs agents on. Sold through SIs.</p>
+  <p class="pf-model"><span class="lbl">Model</span>Gemini, packaged on Gemini Enterprise</p>
+  <ul class="pf-comps"><li>Legal-specific skills and pre-built agents for contract review, diligence, regulatory monitoring and privacy requests</li><li>Connectors into DMS, e-discovery and legal research systems with existing permissions preserved</li><li>First industry-specific packaging of Gemini Enterprise, alongside a financial services edition; healthcare and life sciences flagged as next</li><li>Available in preview at launch</li></ul>
+  
+  <p class="pf-extra"><span class="lbl">Ecosystem</span>Accenture, Deloitte, Devoteam, Factor Law, KPMG, Tribe.ai, Valtech, Zazmic, Zencore, 66degrees</p>
+  <p class="pf-extra"><span class="lbl">Named firms</span>Cleary Gottlieb, Freshfields, Weil, Williams &amp; Connolly</p>
+  <p class="pf-src"><a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal" target="_blank" rel="noopener">[1]</a> <a href="https://www.artificiallawyer.com/2026/08/25/google-launches-gemini-enterprise-for-legal/" target="_blank" rel="noopener">[2]</a> <a href="https://www.googlecloudpresscorner.com/2026-08-25-Google-Cloud-Launches-Gemini-Enterprise-for-Legal" target="_blank" rel="noopener">[3]</a></p>
+</article>
+  </div>
+</div></section>
+
+<section id="matrix"><div class="wrap">
+  <h2>02 &mdash; Integration matrix</h2>
+  <p class="lede">Who has plugged into which platform. The pattern worth noticing: almost nobody picked one. Harvey, Legora, Thomson Reuters and iManage all sit in multiple ecosystems &mdash; and so do the firms. <strong>Being a connector everywhere is the hedge against being disintermediated anywhere.</strong></p>
+  <div class="mx-scroll"><table class="mx">
+    <thead><tr><th>Company</th><th>Anthropic</th><th>OpenAI</th><th>Google</th></tr></thead>
+    <tbody>
+<tr><th scope="row">Harvey<span class="mx-cat" title="Horizontal legal AI assistant / firm-wide platform">Assistant / platform</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="yes openai" title="Astra for Law API customer + ChatGPT plugin"><span class="dot"></span><span class="mx-note">Astra for Law API customer + ChatGPT plugin</span></td><td class="no"></td></tr>
+<tr><th scope="row">Legora<span class="mx-cat" title="Horizontal legal AI assistant / firm-wide platform">Assistant / platform</span></th><td class="yes anthropic" title="Named Claude for Legal partner + published Claude customer"><span class="dot"></span><span class="mx-note">Named Claude for Legal partner + published Claude customer</span></td><td class="yes openai" title="Astra for Law API customer + ChatGPT plugin"><span class="dot"></span><span class="mx-note">Astra for Law API customer + ChatGPT plugin</span></td><td class="no"></td></tr>
+<tr><th scope="row">Thomson Reuters — CoCounsel Legal<span class="mx-cat" title="Horizontal legal AI assistant / firm-wide platform">Assistant / platform</span></th><td class="yes anthropic" title="Built on Claude Agent SDK; CoCounsel MCP connector exposes Westlaw + Practical Law inside Claude"><span class="dot"></span><span class="mx-note">Built on Claude Agent SDK; CoCounsel MCP connector exposes Westlaw + Practical Law inside Claude</span></td><td class="yes openai" title="ChatGPT plugin (HighQ matter context)"><span class="dot"></span><span class="mx-note">ChatGPT plugin (HighQ matter context)</span></td><td class="no"></td></tr>
+<tr><th scope="row">Clio<span class="mx-cat" title="Practice management for small and mid-size firms">Practice management</span></th><td class="no"></td><td class="yes openai" title="ChatGPT ecosystem plugin partner"><span class="dot"></span><span class="mx-note">ChatGPT ecosystem plugin partner</span></td><td class="no"></td></tr>
+<tr><th scope="row">Relativity<span class="mx-cat" title="Litigation, e-discovery and plaintiff-side workflow">Litigation &amp; e-discovery</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="yes openai" title="ecosystem partner"><span class="dot"></span><span class="mx-note">ecosystem partner</span></td><td class="no"></td></tr>
+<tr><th scope="row">Everlaw<span class="mx-cat" title="Litigation, e-discovery and plaintiff-side workflow">Litigation &amp; e-discovery</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Consilio<span class="mx-cat" title="Litigation, e-discovery and plaintiff-side workflow">Litigation &amp; e-discovery</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">EvenUp<span class="mx-cat" title="Litigation, e-discovery and plaintiff-side workflow">Litigation &amp; e-discovery</span></th><td class="yes anthropic" title="Named customer"><span class="dot"></span><span class="mx-note">Named customer</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Eve<span class="mx-cat" title="Litigation, e-discovery and plaintiff-side workflow">Litigation &amp; e-discovery</span></th><td class="yes anthropic" title="Named partner"><span class="dot"></span><span class="mx-note">Named partner</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Trellis<span class="mx-cat" title="Primary law, case law data and research">Research &amp; data</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Midpage<span class="mx-cat" title="Primary law, case law data and research">Research &amp; data</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Free Law Project / CourtListener<span class="mx-cat" title="Primary law, case law data and research">Research &amp; data</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal (A2J partner)"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal (A2J partner)</span></td><td class="yes openai" title="Data source for the Astra Legal Search Index"><span class="dot"></span><span class="mx-note">Data source for the Astra Legal Search Index</span></td><td class="no"></td></tr>
+<tr><th scope="row">Descrybe.ai<span class="mx-cat" title="Primary law, case law data and research">Research &amp; data</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal (A2J)"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal (A2J)</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Legal Data Hunter<span class="mx-cat" title="Primary law, case law data and research">Research &amp; data</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Ironclad<span class="mx-cat" title="Contract drafting, review and CLM">Contract &amp; CLM</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Definely<span class="mx-cat" title="Contract drafting, review and CLM">Contract &amp; CLM</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">DocuSign<span class="mx-cat" title="Contract drafting, review and CLM">Contract &amp; CLM</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Crosby<span class="mx-cat" title="AI-native law firm or legal service provider (sells outcomes, not seats)">AI-native firm</span></th><td class="yes anthropic" title="Named partner and user"><span class="dot"></span><span class="mx-note">Named partner and user</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Solve Intelligence<span class="mx-cat" title="Patent and IP prosecution">IP &amp; patents</span></th><td class="yes anthropic" title="MCP connector + named partner"><span class="dot"></span><span class="mx-note">MCP connector + named partner</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">iManage<span class="mx-cat" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="yes openai" title="Astra plugin — draft negotiation briefs to matter files"><span class="dot"></span><span class="mx-note">Astra plugin — draft negotiation briefs to matter files</span></td><td class="yes google" title="connector"><span class="dot"></span><span class="mx-note">connector</span></td></tr>
+<tr><th scope="row">NetDocuments<span class="mx-cat" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Intapp<span class="mx-cat" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure</span></th><td class="no"></td><td class="yes openai" title="Astra ecosystem plugin"><span class="dot"></span><span class="mx-note">Astra ecosystem plugin</span></td><td class="no"></td></tr>
+<tr><th scope="row">DeepJudge<span class="mx-cat" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure</span></th><td class="no"></td><td class="yes openai" title="Astra plugin — compare prior deals side by side"><span class="dot"></span><span class="mx-note">Astra plugin — compare prior deals side by side</span></td><td class="no"></td></tr>
+<tr><th scope="row">Box<span class="mx-cat" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Datasite<span class="mx-cat" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure</span></th><td class="yes anthropic" title="MCP connector in Claude for Legal"><span class="dot"></span><span class="mx-note">MCP connector in Claude for Legal</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Freshfields<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="yes anthropic" title="Named user"><span class="dot"></span><span class="mx-note">Named user</span></td><td class="no"></td><td class="yes google" title="Launch firm"><span class="dot"></span><span class="mx-note">Launch firm</span></td></tr>
+<tr><th scope="row">Latham &amp; Watkins<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="no"></td><td class="yes openai" title="Design partner on Trusted Access"><span class="dot"></span><span class="mx-note">Design partner on Trusted Access</span></td><td class="no"></td></tr>
+<tr><th scope="row">Holland &amp; Knight<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="yes anthropic" title="Named user"><span class="dot"></span><span class="mx-note">Named user</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Quinn Emanuel<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="yes anthropic" title="Named user"><span class="dot"></span><span class="mx-note">Named user</span></td><td class="no"></td><td class="no"></td></tr>
+<tr><th scope="row">Cleary Gottlieb<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="no"></td><td class="no"></td><td class="yes google" title="Launch firm"><span class="dot"></span><span class="mx-note">Launch firm</span></td></tr>
+<tr><th scope="row">Weil, Gotshal &amp; Manges<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="no"></td><td class="no"></td><td class="yes google" title="Launch firm"><span class="dot"></span><span class="mx-note">Launch firm</span></td></tr>
+<tr><th scope="row">Williams &amp; Connolly<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="no"></td><td class="no"></td><td class="yes google" title="Launch firm"><span class="dot"></span><span class="mx-note">Launch firm</span></td></tr>
+<tr><th scope="row">Accenture Legal<span class="mx-cat" title="Law firm or legal department building rather than buying">Firms building</span></th><td class="yes anthropic" title="Named user"><span class="dot"></span><span class="mx-note">Named user</span></td><td class="no"></td><td class="yes google" title="SI partner"><span class="dot"></span><span class="mx-note">SI partner</span></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="companies"><div class="wrap">
+  <h2>03 &mdash; Who does what</h2>
+  <p class="lede">The app layer, sorted by what it actually sells. Filter by segment, or by which model platform a company has publicly connected to.</p>
+  <div class="controls">
+<button class="fb is-on" data-cat="all">All <em>53</em></button>
+<button class="fb" data-cat="assistant" title="Horizontal legal AI assistant / firm-wide platform">Assistant / platform <em>4</em></button>
+<button class="fb" data-cat="contract" title="Contract drafting, review and CLM">Contract &amp; CLM <em>12</em></button>
+<button class="fb" data-cat="litigation" title="Litigation, e-discovery and plaintiff-side workflow">Litigation &amp; e-discovery <em>6</em></button>
+<button class="fb" data-cat="research" title="Primary law, case law data and research">Research &amp; data <em>5</em></button>
+<button class="fb" data-cat="inhouse" title="In-house / GC department tooling">In-house tooling <em>3</em></button>
+<button class="fb" data-cat="ip" title="Patent and IP prosecution">IP &amp; patents <em>2</em></button>
+<button class="fb" data-cat="infra" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure <em>7</em></button>
+<button class="fb" data-cat="practice_mgmt" title="Practice management for small and mid-size firms">Practice management <em>1</em></button>
+<button class="fb" data-cat="ai_native_firm" title="AI-native law firm or legal service provider (sells outcomes, not seats)">AI-native firm <em>4</em></button>
+<button class="fb" data-cat="buyer" title="Law firm or legal department building rather than buying">Firms building <em>9</em></button>
+  </div>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search name, product, geography, model&hellip;" autocomplete="off">
+    <div class="pfilter">
+      <button class="pf-toggle" data-p="anthropic">Anthropic</button>
+      <button class="pf-toggle" data-p="openai">OpenAI</button>
+      <button class="pf-toggle" data-p="google">Google</button>
+    </div>
+  </div>
+  <div id="count"></div>
+  <div class="co-grid" id="grid">
+
+<article class="co" data-cat="assistant" data-search="harvey firm-wide assistant for research, drafting, diligence and workflow automation, sold to large firms and enterprise legal departments. san francisco openai anthropic google originally openai-exclusive (an openai startup fund portfolio company from dec 2022). opened to anthropic and google models in may 2025; users can pick a model or let harvey auto-route. publishing its own model research (tenet) and moving toward a proprietary legal model."
+         data-anthropic="1"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.harvey.ai" target="_blank" rel="noopener">Harvey</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span><span class="chip chip--openai" title="Astra for Law API customer + ChatGPT plugin">OpenAI</span></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2022 · $11B (Mar 2026)</div>
+  <p class="co-desc">Firm-wide assistant for research, drafting, diligence and workflow automation, sold to large firms and enterprise legal departments.</p>
+  <div class="co-models"><span class="m">OpenAI</span><span class="m">Anthropic</span><span class="m">Google</span></div>
+  <p class="line"><span class="lbl">Last round</span>$200M co-led by GIC and Sequoia, Mar 2026</p><p class="line"><span class="lbl">Model use</span>Originally OpenAI-exclusive (an OpenAI Startup Fund portfolio company from Dec 2022). Opened to Anthropic and Google models in May 2025; users can pick a model or let Harvey auto-route. Publishing its own model research (Tenet) and moving toward a proprietary legal model.</p><p class="line"><span class="lbl">Traction</span>Reported 40+ Am Law 100 firms; publishes BigLaw Bench</p>
+  <p class="co-src"><a href="https://www.harvey.ai/blog/expanding-harveys-model-offerings" target="_blank" rel="noopener">[1]</a> <a href="https://techcrunch.com/2026/04/30/legal-ai-startup-legora-hits-5-6-valuation-and-its-battle-with-harvey-just-got-hotter/" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="assistant" data-search="legora collaborative legal ai platform. best known for tabular review — turning a folder of contracts into an interactive grid for clause comparison and extraction at scale — plus agentic workflows spanning drafting, review, research and translation. stockholm / new york anthropic openai anthropic publishes legora as a claude customer, using claude across assistant, document review and workflows. also an openai api customer with astra for law access."
+         data-anthropic="1"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://legora.com" target="_blank" rel="noopener">Legora</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named Claude for Legal partner + published Claude customer">Anthropic</span><span class="chip chip--openai" title="Astra for Law API customer + ChatGPT plugin">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Stockholm / New York · est. 2023 · $5.6B (Apr 2026)</div>
+  <p class="co-desc">Collaborative legal AI platform. Best known for Tabular Review — turning a folder of contracts into an interactive grid for clause comparison and extraction at scale — plus agentic workflows spanning drafting, review, research and translation.</p>
+  <div class="co-models"><span class="m">Anthropic</span><span class="m">OpenAI</span></div>
+  <p class="line"><span class="lbl">Last round</span>$550M Series D at $5.55B (Mar 10 2026), extended +$50M in Apr 2026 with Atlassian and NVentures (NVIDIA)</p><p class="line"><span class="lbl">Model use</span>Anthropic publishes Legora as a Claude customer, using Claude across assistant, document review and workflows. Also an OpenAI API customer with Astra for Law access.</p><p class="line"><span class="lbl">Traction</span>Aggressive US buildout: NY (11 Madison Ave, ~100k sq ft), Denver, Houston, Chicago; 300+ US staff targeted by end of 2026</p>
+  <p class="co-src"><a href="https://legora.com/newsroom/legora-raises-550-million-series-d-to-fuel-us-growth" target="_blank" rel="noopener">[1]</a> <a href="https://legora.com/newsroom/legora-extends-series-d-with-additional-50-million-welcomes-atlassian-and-nventures-as-investors" target="_blank" rel="noopener">[2]</a> <a href="https://www.anthropic.com/customers/legora" target="_blank" rel="noopener">[3]</a></p>
+</article>
+
+<article class="co" data-cat="assistant" data-search="lexisnexis — lexis+ ai / protégé agentic legal assistant across research, analysis, drafting and review, preserving matter context between steps. expanded agentic capabilities announced 2026-08-24, four days after cocounsel&#x27;s next-gen ga. new york multiple, undisclosed historically multi-model across anthropic, openai and mistral; routing not publicly disclosed."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.lexisnexis.com" target="_blank" rel="noopener">LexisNexis — Lexis+ AI / Protégé</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · Division of RELX</div>
+  <p class="co-desc">Agentic legal assistant across research, analysis, drafting and review, preserving matter context between steps. Expanded agentic capabilities announced 2026-08-24, four days after CoCounsel&#x27;s next-gen GA.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Model use</span>Historically multi-model across Anthropic, OpenAI and Mistral; routing not publicly disclosed.</p><p class="line"><span class="lbl">Traction</span>The other half of the research duopoly; competing head-on with CoCounsel for the layer where lawyers finish work</p><p class="line line--caveat"><span class="lbl">Caveat</span>model attribution: low</p>
+  <p class="co-src"><a href="https://abovethelaw.com/2026/08/lexisnexis-and-thomson-reuters-ilta-announcements-closing-the-conference-room-door/" target="_blank" rel="noopener">[1]</a> <a href="https://runtimewire.com/article/lexisnexis-expands-protege-end-to-end-legal-work-cocounsel" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="assistant" data-search="thomson reuters — cocounsel legal agentic legal platform grounded in westlaw primary law and practical law, taking a matter from research and issue analysis to work product in one workflow. next generation reached ga 2026-08-20. toronto / eagan anthropic next-gen cocounsel legal is built on anthropic&#x27;s claude agent sdk — it plans, selects tools, retrieves authoritative content and adapts mid-workflow."
+         data-anthropic="1"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://legal.thomsonreuters.com/en/products/cocounsel-legal" target="_blank" rel="noopener">Thomson Reuters — CoCounsel Legal</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Built on Claude Agent SDK; CoCounsel MCP connector exposes Westlaw + Practical Law inside Claude">Anthropic</span><span class="chip chip--openai" title="ChatGPT plugin (HighQ matter context)">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Toronto / Eagan · Public (TRI)</div>
+  <p class="co-desc">Agentic legal platform grounded in Westlaw primary law and Practical Law, taking a matter from research and issue analysis to work product in one workflow. Next generation reached GA 2026-08-20.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Model use</span>Next-gen CoCounsel Legal is built on Anthropic&#x27;s Claude Agent SDK — it plans, selects tools, retrieves authoritative content and adapts mid-workflow.</p><p class="line"><span class="lbl">Traction</span>Distribution is the moat: bundled with Westlaw and Practical Law, already the default research stack in most large US firms</p>
+  <p class="co-src"><a href="https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-launches-next-generation-of-cocounsel-legal-the-ai-ecosystem-built-for-legal-professionals" target="_blank" rel="noopener">[1]</a> <a href="https://legal.thomsonreuters.com/blog/the-next-generation-of-cocounsel-legal/" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="definely drafting-assistant layer inside word — definition and cross-reference navigation, now extended with ai review. london multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.definely.com" target="_blank" rel="noopener">Definely</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">London · est. 2019</div>
+  <p class="co-desc">Drafting-assistant layer inside Word — definition and cross-reference navigation, now extended with AI review.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="docusign e-signature plus intelligent agreement management — the execution and obligation layer. san francisco multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.docusign.com" target="_blank" rel="noopener">DocuSign</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2003 · Public (DOCU)</div>
+  <p class="co-desc">E-signature plus Intelligent Agreement Management — the execution and obligation layer.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="icertis enterprise clm for the fortune 500 — obligation management at procurement scale. bellevue multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.icertis.com" target="_blank" rel="noopener">Icertis</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Bellevue · est. 2009 · $5B (2022)</div>
+  <p class="co-desc">Enterprise CLM for the Fortune 500 — obligation management at procurement scale.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line line--caveat"><span class="lbl">Caveat</span>valuation: dated</p>
+  <p class="co-src"><a href="https://www.botmemo.com/ai-legal-tech-startups-20-companies" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="ironclad clm for in-house teams — workflow, repository, ai review and playbook enforcement. san francisco multiple, undisclosed co-founder jason boehmig now leads openai&#x27;s legal effort — a direct pipeline from the clm incumbent into the model layer"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://ironcladapp.com" target="_blank" rel="noopener">Ironclad</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2014 · $3.2B (2022)</div>
+  <p class="co-desc">CLM for in-house teams — workflow, repository, AI review and playbook enforcement.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Last round</span>$333M total raised</p><p class="line"><span class="lbl">Why it matters</span>Co-founder Jason Boehmig now leads OpenAI&#x27;s legal effort — a direct pipeline from the CLM incumbent into the model layer</p>
+  <p class="co-src"><a href="https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="ivo ai contract review tuned to an in-house team&#x27;s own positions and playbook. san francisco multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.ivo.ai" target="_blank" rel="noopener">Ivo</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2022</div>
+  <p class="co-desc">AI contract review tuned to an in-house team&#x27;s own positions and playbook.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="legalon contract review grounded in attorney-authored playbooks and standards; strong in japan, expanding in the us. tokyo / san francisco multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.legalontech.com" target="_blank" rel="noopener">LegalOn</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Tokyo / San Francisco · est. 2017</div>
+  <p class="co-desc">Contract review grounded in attorney-authored playbooks and standards; strong in Japan, expanding in the US.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://www.botmemo.com/ai-legal-tech-startups-20-companies" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="linksquares clm and contract analytics for in-house legal. boston multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://linksquares.com" target="_blank" rel="noopener">LinkSquares</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Boston · est. 2015</div>
+  <p class="co-desc">CLM and contract analytics for in-house legal.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://www.botmemo.com/ai-legal-tech-startups-20-companies" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="luminance contract analysis and negotiation across the contract lifecycle; deep roots in diligence-scale document review. london / cambridge proprietary + multiple runs its own legal-domain models alongside third-party llms."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.luminance.com" target="_blank" rel="noopener">Luminance</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">London / Cambridge · est. 2015</div>
+  <p class="co-desc">Contract analysis and negotiation across the contract lifecycle; deep roots in diligence-scale document review.</p>
+  <div class="co-models"><span class="m">proprietary + multiple</span></div>
+  <p class="line"><span class="lbl">Last round</span>~$115M total raised</p><p class="line"><span class="lbl">Model use</span>Runs its own legal-domain models alongside third-party LLMs.</p>
+  <p class="co-src"><a href="https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="robin ai contract review plus lightweight clm for mid-market teams with recurring contract types. london anthropic long-standing public claude user; among the earliest anthropic legal customers."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.robinai.com" target="_blank" rel="noopener">Robin AI</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">London · est. 2019</div>
+  <p class="co-desc">Contract review plus lightweight CLM for mid-market teams with recurring contract types.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Model use</span>Long-standing public Claude user; among the earliest Anthropic legal customers.</p>
+  <p class="co-src"><a href="https://legalaiinsight.com/buying-guides/best-ai-contract-review-software" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="spellbook contract drafting and review inside microsoft word, aimed at small and mid-size firms and lean in-house teams. halifax openai anthropic word-native positioning is now directly contested by both chatgpt for word and claude&#x27;s native m365 integration historically gpt-based; now multi-model."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.spellbook.legal" target="_blank" rel="noopener">Spellbook</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Halifax · est. 2021</div>
+  <p class="co-desc">Contract drafting and review inside Microsoft Word, aimed at small and mid-size firms and lean in-house teams.</p>
+  <div class="co-models"><span class="m">OpenAI</span><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Last round</span>$40M debt facility from RBCx (Mar 2026), earmarked for acquisitions</p><p class="line"><span class="lbl">Model use</span>Historically GPT-based; now multi-model.</p><p class="line"><span class="lbl">Why it matters</span>Word-native positioning is now directly contested by both ChatGPT for Word and Claude&#x27;s native M365 integration</p>
+  <p class="co-src"><a href="https://sacra.com/c/spellbook/" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="spotdraft clm for high-velocity in-house teams, with ai review and self-serve business workflows. bengaluru / san francisco multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.spotdraft.com" target="_blank" rel="noopener">SpotDraft</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Bengaluru / San Francisco · est. 2017</div>
+  <p class="co-desc">CLM for high-velocity in-house teams, with AI review and self-serve business workflows.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://www.botmemo.com/ai-legal-tech-startups-20-companies" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="contract" data-search="summize contract workflow that meets the business where it works — slack, teams, word — rather than in a legal portal. manchester multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.summize.com" target="_blank" rel="noopener">Summize</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Manchester · est. 2018</div>
+  <p class="co-desc">Contract workflow that meets the business where it works — Slack, Teams, Word — rather than in a legal portal.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="litigation" data-search="consilio managed review and legal services at scale — the human layer under e-discovery, now automating itself. washington dc multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.consilio.com" target="_blank" rel="noopener">Consilio</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Washington DC · est. 2011</div>
+  <p class="co-desc">Managed review and legal services at scale — the human layer under e-discovery, now automating itself.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="litigation" data-search="eve end-to-end plaintiff-side case platform — intake, case evaluation, demand drafting. san francisco anthropic reported as built on claude; named claude for legal partner."
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.eve.legal" target="_blank" rel="noopener">Eve</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named partner">Anthropic</span></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2023 · $1B+ (Sep 2025)</div>
+  <p class="co-desc">End-to-end plaintiff-side case platform — intake, case evaluation, demand drafting.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Model use</span>Reported as built on Claude; named Claude for Legal partner.</p>
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="litigation" data-search="evenup personal injury automation — medical record review, damages modelling and demand package generation for plaintiff firms. san francisco anthropic named by anthropic as a claude for legal customer."
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.evenuplaw.com" target="_blank" rel="noopener">EvenUp</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named customer">Anthropic</span></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2019 · $2B+ (Oct 2025)</div>
+  <p class="co-desc">Personal injury automation — medical record review, damages modelling and demand package generation for plaintiff firms.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Model use</span>Named by Anthropic as a Claude for Legal customer.</p><p class="line"><span class="lbl">Traction</span>Part of the plaintiff-side cohort that minted three unicorns in autumn 2025</p>
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a> <a href="https://blog.platinumids.com/blog/legal-ai-billion-dollar-arms-race-2026" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="litigation" data-search="everlaw cloud e-discovery and litigation platform with generative review, chronologies and storybuilding. oakland multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.everlaw.com" target="_blank" rel="noopener">Everlaw</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Oakland · est. 2010 · $2B+ (2021)</div>
+  <p class="co-desc">Cloud e-discovery and litigation platform with generative review, chronologies and storybuilding.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line line--caveat"><span class="lbl">Caveat</span>valuation: low</p>
+  <p class="co-src"><a href="https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="litigation" data-search="filevine case management for plaintiff and contingency firms, with ai document and demand tooling layered on. salt lake city multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.filevine.com" target="_blank" rel="noopener">Filevine</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Salt Lake City · est. 2014 · ~$3B (Sep 2025, reported)</div>
+  <p class="co-desc">Case management for plaintiff and contingency firms, with AI document and demand tooling layered on.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line line--caveat"><span class="lbl">Caveat</span>valuation: reported estimate</p>
+  <p class="co-src"><a href="https://blog.platinumids.com/blog/legal-ai-billion-dollar-arms-race-2026" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="litigation" data-search="relativity dominant e-discovery platform (relativityone), with air for review and related generative layers. chicago multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.relativity.com" target="_blank" rel="noopener">Relativity</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span><span class="chip chip--openai" title="ecosystem partner">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Chicago · est. 2001 · $3.6B (2021)</div>
+  <p class="co-desc">Dominant e-discovery platform (RelativityOne), with aiR for Review and related generative layers.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Traction</span>Incumbent with the corpus — review data is the asset everyone else lacks</p>
+  <p class="co-src"><a href="https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="research" data-search="descrybe.ai free ai-summarised case law search, aimed at access to justice. us multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://descrybe.ai" target="_blank" rel="noopener">Descrybe.ai</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal (A2J)">Anthropic</span></div>
+  </div>
+  <div class="co-meta">US · est. 2023</div>
+  <p class="co-desc">Free AI-summarised case law search, aimed at access to justice.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="research" data-search="free law project / courtlistener open primary law and pacer archive. quietly one of the most consequential entities in the market — openai built the astra for law legal search index using courtlistener data. oakland"
+         data-anthropic="1"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.courtlistener.com" target="_blank" rel="noopener">Free Law Project / CourtListener</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal (A2J partner)">Anthropic</span><span class="chip chip--openai" title="Data source for the Astra Legal Search Index">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Oakland · est. 2010 · Nonprofit</div>
+  <p class="co-desc">Open primary law and PACER archive. Quietly one of the most consequential entities in the market — OpenAI built the Astra for Law legal search index using CourtListener data.</p>
+  
+  
+  <p class="co-src"><a href="https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html" target="_blank" rel="noopener">[1]</a> <a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="research" data-search="legal data hunter legal research and data retrieval connector."
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4>Legal Data Hunter</h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta"></div>
+  <p class="co-desc">Legal research and data retrieval connector.</p>
+  
+  <p class="line line--caveat"><span class="lbl">Caveat</span>thin public information</p>
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="research" data-search="midpage ai legal research built around verifiable citation to primary sources — litigator-first research workflow. new york multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.midpage.ai" target="_blank" rel="noopener">Midpage</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">New York · est. 2022</div>
+  <p class="co-desc">AI legal research built around verifiable citation to primary sources — litigator-first research workflow.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="research" data-search="trellis state trial court records and judge analytics — the layer neither westlaw nor lexis covers well. los angeles"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://trellis.law" target="_blank" rel="noopener">Trellis</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Los Angeles · est. 2018</div>
+  <p class="co-desc">State trial court records and judge analytics — the layer neither Westlaw nor Lexis covers well.</p>
+  
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="inhouse" data-search="gc ai ai assistant purpose-built for in-house generalist counsel — the one-lawyer-department use case. san francisco anthropic publicly claude-forward; publishes analysis of the claude legal plugins."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://gc.ai" target="_blank" rel="noopener">GC AI</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2023</div>
+  <p class="co-desc">AI assistant purpose-built for in-house generalist counsel — the one-lawyer-department use case.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Model use</span>Publicly Claude-forward; publishes analysis of the Claude legal plugins.</p>
+  <p class="co-src"><a href="https://gc.ai/blog/claude-legal-plugin" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="inhouse" data-search="norm ai converts regulation into executable code — regulatory compliance agents that check actions against rules pre-emptively. heaviest traction in financial services. new york multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.norm.ai" target="_blank" rel="noopener">Norm Ai</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · est. 2022</div>
+  <p class="co-desc">Converts regulation into executable code — regulatory compliance agents that check actions against rules pre-emptively. Heaviest traction in financial services.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="inhouse" data-search="wordsmith ai the &#x27;legal front door&#x27; — ai agents that intercept and handle inbound business requests to in-house legal before they reach a lawyer. edinburgh / london multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.wordsmith.ai" target="_blank" rel="noopener">Wordsmith AI</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Edinburgh / London · est. 2023</div>
+  <p class="co-desc">The &#x27;legal front door&#x27; — AI agents that intercept and handle inbound business requests to in-house legal before they reach a lawyer.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Last round</span>$70M Series B (Jun 2026); Series A led by Index Ventures</p>
+  <p class="co-src"><a href="https://gc.ai/blog/ironclad-vs-wordsmith" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="ip" data-search="deepip patent drafting assistant embedded in the attorney&#x27;s word workflow. new york / paris multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.deepip.ai" target="_blank" rel="noopener">DeepIP</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York / Paris · est. 2024</div>
+  <p class="co-desc">Patent drafting assistant embedded in the attorney&#x27;s Word workflow.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="ip" data-search="solve intelligence ai copilot for patent drafting and prosecution. san francisco / london anthropic reported as built on claude; named claude for legal partner with an mcp connector."
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.solveintelligence.com" target="_blank" rel="noopener">Solve Intelligence</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector + named partner">Anthropic</span></div>
+  </div>
+  <div class="co-meta">San Francisco / London · est. 2023</div>
+  <p class="co-desc">AI copilot for patent drafting and prosecution.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Model use</span>Reported as built on Claude; named Claude for Legal partner with an MCP connector.</p>
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="infra" data-search="box content cloud used as a deal room and matter repository. redwood city multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.box.com" target="_blank" rel="noopener">Box</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Redwood City · est. 2005 · Public (BOX)</div>
+  <p class="co-desc">Content cloud used as a deal room and matter repository.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="infra" data-search="datasite virtual data rooms for m&amp;a — where diligence documents actually live. minneapolis multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.datasite.com" target="_blank" rel="noopener">Datasite</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Minneapolis · est. 1968</div>
+  <p class="co-desc">Virtual data rooms for M&amp;A — where diligence documents actually live.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="infra" data-search="deepjudge knowledge search across a firm&#x27;s own work product — semantic retrieval over the dms, permissions intact. zurich multiple, undisclosed sits exactly on helen fan&#x27;s level 3: the firm&#x27;s proprietary data layer"
+         data-anthropic="0"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.deepjudge.ai" target="_blank" rel="noopener">DeepJudge</a></h4>
+    <div class="co-chips"><span class="chip chip--openai" title="Astra plugin — compare prior deals side by side">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Zurich · est. 2022</div>
+  <p class="co-desc">Knowledge search across a firm&#x27;s own work product — semantic retrieval over the DMS, permissions intact.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>Sits exactly on Helen Fan&#x27;s Level 3: the firm&#x27;s proprietary data layer</p>
+  <p class="co-src"><a href="https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="infra" data-search="hebbia matrix — document-set analysis at scale. horizontal, but heavily used for diligence and legal/finance document work. new york multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.hebbia.com" target="_blank" rel="noopener">Hebbia</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · est. 2020 · $700M (2024)</div>
+  <p class="co-desc">Matrix — document-set analysis at scale. Horizontal, but heavily used for diligence and legal/finance document work.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line line--caveat"><span class="lbl">Caveat</span>valuation: dated</p>
+  <p class="co-src"><a href="https://www.botmemo.com/ai-legal-tech-startups-20-companies" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="infra" data-search="intapp firm operations — intake, conflicts, ethical walls, pricing, time. the compliance plumbing ai has to respect. palo alto multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.intapp.com" target="_blank" rel="noopener">Intapp</a></h4>
+    <div class="co-chips"><span class="chip chip--openai" title="Astra ecosystem plugin">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Palo Alto · est. 2000 · Public (INTA)</div>
+  <p class="co-desc">Firm operations — intake, conflicts, ethical walls, pricing, time. The compliance plumbing AI has to respect.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="infra" data-search="netdocuments cloud dms and the other half of the firm-knowledge gate, strong in mid-market firms. salt lake city multiple, undisclosed"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.netdocuments.com" target="_blank" rel="noopener">NetDocuments</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Salt Lake City · est. 1999</div>
+  <p class="co-desc">Cloud DMS and the other half of the firm-knowledge gate, strong in mid-market firms.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="infra" data-search="imanage the document management system most large firms run on — and therefore the gate to firm knowledge for every ai vendor. chicago multiple, undisclosed connected to all three model platforms. whoever controls the dms connector controls context."
+         data-anthropic="1"
+         data-openai="1"
+         data-google="1">
+  <div class="co-head">
+    <h4><a href="https://imanage.com" target="_blank" rel="noopener">iManage</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="MCP connector in Claude for Legal">Anthropic</span><span class="chip chip--openai" title="Astra plugin — draft negotiation briefs to matter files">OpenAI</span><span class="chip chip--google" title="connector">Google</span></div>
+  </div>
+  <div class="co-meta">Chicago · est. 1995</div>
+  <p class="co-desc">The document management system most large firms run on — and therefore the gate to firm knowledge for every AI vendor.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>Connected to all three model platforms. Whoever controls the DMS connector controls context.</p>
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a> <a href="https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="practice_mgmt" data-search="clio practice management for small and mid-size firms — intake, matters, billing, payments — now with ai layered across. acquired vlex (~$1b, 2025), buying its way into legal research. vancouver multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.clio.com" target="_blank" rel="noopener">Clio</a></h4>
+    <div class="co-chips"><span class="chip chip--openai" title="ChatGPT ecosystem plugin partner">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Vancouver · est. 2008 · $5B (Nov 2025)</div>
+  <p class="co-desc">Practice management for small and mid-size firms — intake, matters, billing, payments — now with AI layered across. Acquired vLex (~$1B, 2025), buying its way into legal research.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Traction</span>Owns the long tail of the profession — the segment BigLaw-focused vendors don&#x27;t serve</p>
+  <p class="co-src"><a href="https://blog.platinumids.com/blog/legal-ai-billion-dollar-arms-race-2026" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="crosby an actual law firm running on ai: high-volume contract review with licensed attorney sign-off in a median of 58 minutes, priced per document rather than per hour. san francisco anthropic named claude for legal partner and named as using claude on live matters."
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.crosby.ai" target="_blank" rel="noopener">Crosby</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named partner and user">Anthropic</span></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2024 · ~$400M (Apr 2026, reported)</div>
+  <p class="co-desc">An actual law firm running on AI: high-volume contract review with licensed attorney sign-off in a median of 58 minutes, priced per document rather than per hour.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  <p class="line"><span class="lbl">Last round</span>$60M Series B, Apr 2026</p><p class="line"><span class="lbl">Model use</span>Named Claude for Legal partner and named as using Claude on live matters.</p><p class="line"><span class="lbl">Traction</span>Clients include Cursor and Clay</p>
+  <p class="co-src"><a href="https://www.lupl.com/blog/10-ai-law-firms-to-watch-in-2026/" target="_blank" rel="noopener">[1]</a> <a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="eudia augmented legal for enterprise departments — ai plus its own legal professionals delivering contracting, litigation support and compliance work as a service. palo alto multiple, undisclosed acquired traditional alsp capacity to pair with the model layer — the services-roll-up pattern"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.eudia.com" target="_blank" rel="noopener">Eudia</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Palo Alto · est. 2023</div>
+  <p class="co-desc">Augmented legal for enterprise departments — AI plus its own legal professionals delivering contracting, litigation support and compliance work as a service.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Last round</span>$105M+ total raised</p><p class="line"><span class="lbl">Why it matters</span>Acquired traditional ALSP capacity to pair with the model layer — the services-roll-up pattern</p>
+  <p class="co-src"><a href="https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="garfield ai small-claims and debt recovery run end-to-end by ai. the first fully ai-driven law firm authorised by the uk solicitors regulation authority. london multiple, undisclosed the regulatory precedent matters more than the product — sra authorisation is the template others will cite"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.garfield.law" target="_blank" rel="noopener">Garfield AI</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">London · est. 2024</div>
+  <p class="co-desc">Small-claims and debt recovery run end-to-end by AI. The first fully AI-driven law firm authorised by the UK Solicitors Regulation Authority.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>The regulatory precedent matters more than the product — SRA authorisation is the template others will cite</p>
+  <p class="co-src"><a href="https://www.ibanet.org/AI-native-law-firm-regulatory-innovation-and-fundamental-restructuring-of-legal-service-delivery" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="lawhive consumer legal services delivered by ai plus a network of solicitors, at fixed prices. london multiple, undisclosed acquired woodstock legal services (sep 2025) — believed to be the first acquisition of a traditional law firm by an ai company"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://lawhive.co.uk" target="_blank" rel="noopener">Lawhive</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">London · est. 2020</div>
+  <p class="co-desc">Consumer legal services delivered by AI plus a network of solicitors, at fixed prices.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Last round</span>Google-backed</p><p class="line"><span class="lbl">Why it matters</span>Acquired Woodstock Legal Services (Sep 2025) — believed to be the first acquisition of a traditional law firm by an AI company</p>
+  <p class="co-src"><a href="https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="accenture legal named claude for legal user; also a gemini enterprise for legal systems-integrator partner. dublin anthropic google"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="1">
+  <div class="co-head">
+    <h4><a href="https://www.accenture.com" target="_blank" rel="noopener">Accenture Legal</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named user">Anthropic</span><span class="chip chip--google" title="SI partner">Google</span></div>
+  </div>
+  <div class="co-meta">Dublin · est. 1989</div>
+  <p class="co-desc">Named Claude for Legal user; also a Gemini Enterprise for Legal systems-integrator partner.</p>
+  <div class="co-models"><span class="m">Anthropic</span><span class="m">Google</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="cleary gottlieb gemini enterprise for legal launch firm. new york google"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="1">
+  <div class="co-head">
+    <h4><a href="https://www.clearygottlieb.com" target="_blank" rel="noopener">Cleary Gottlieb</a></h4>
+    <div class="co-chips"><span class="chip chip--google" title="Launch firm">Google</span></div>
+  </div>
+  <div class="co-meta">New York · est. 1946</div>
+  <p class="co-desc">Gemini Enterprise for Legal launch firm.</p>
+  <div class="co-models"><span class="m">Google</span></div>
+  
+  <p class="co-src"><a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="freshfields buying across the platform layer — named by both anthropic (claude for legal user) and google (gemini enterprise for legal launch firm). london anthropic google the clearest example of firms refusing to pick one model vendor"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="1">
+  <div class="co-head">
+    <h4><a href="https://www.freshfields.com" target="_blank" rel="noopener">Freshfields</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named user">Anthropic</span><span class="chip chip--google" title="Launch firm">Google</span></div>
+  </div>
+  <div class="co-meta">London · est. 1743</div>
+  <p class="co-desc">Buying across the platform layer — named by both Anthropic (Claude for Legal user) and Google (Gemini Enterprise for Legal launch firm).</p>
+  <div class="co-models"><span class="m">Anthropic</span><span class="m">Google</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>The clearest example of firms refusing to pick one model vendor</p>
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="holland &amp; knight named claude for legal user, running claude on live matters. miami anthropic"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.hklaw.com" target="_blank" rel="noopener">Holland &amp; Knight</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named user">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Miami · est. 1968</div>
+  <p class="co-desc">Named Claude for Legal user, running Claude on live matters.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  
+  <p class="co-src"><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="kirkland &amp; ellis building rather than buying: $500m over three to four years on a proprietary ai platform, with $100m committed in 2026. chicago multiple, undisclosed the reference case for build-vs-buy at the top of the market. one gc called it &#x27;a few steps closer to killing the billable hour.&#x27;"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.kirkland.com" target="_blank" rel="noopener">Kirkland &amp; Ellis</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Chicago · est. 1909</div>
+  <p class="co-desc">Building rather than buying: $500M over three to four years on a proprietary AI platform, with $100M committed in 2026.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Traction</span>~50 AI engineers engaged — roughly 35 via strategic partnerships and 15+ in-house, and growing. Still licensing some third-party AI.</p><p class="line"><span class="lbl">Why it matters</span>The reference case for build-vs-buy at the top of the market. One GC called it &#x27;a few steps closer to killing the billable hour.&#x27;</p>
+  <p class="co-src"><a href="https://news.bloomberglaw.com/business-and-practice/kirklands-500-million-ai-gambit-requires-a-cast-of-hundreds" target="_blank" rel="noopener">[1]</a> <a href="https://modern-counsel.com/2026/kirklands-500-million-ai-bet-could-reshape-the-future-of-big-law/" target="_blank" rel="noopener">[2]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="latham &amp; watkins worked with openai on information permissions and ethical walls for the astra for law trusted access program. los angeles openai"
+         data-anthropic="0"
+         data-openai="1"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.lw.com" target="_blank" rel="noopener">Latham &amp; Watkins</a></h4>
+    <div class="co-chips"><span class="chip chip--openai" title="Design partner on Trusted Access">OpenAI</span></div>
+  </div>
+  <div class="co-meta">Los Angeles · est. 1934</div>
+  <p class="co-desc">Worked with OpenAI on information permissions and ethical walls for the Astra for Law Trusted Access program.</p>
+  <div class="co-models"><span class="m">OpenAI</span></div>
+  
+  <p class="co-src"><a href="https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="quinn emanuel named as using claude on live matters. los angeles anthropic"
+         data-anthropic="1"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.quinnemanuel.com" target="_blank" rel="noopener">Quinn Emanuel</a></h4>
+    <div class="co-chips"><span class="chip chip--anthropic" title="Named user">Anthropic</span></div>
+  </div>
+  <div class="co-meta">Los Angeles · est. 1986</div>
+  <p class="co-desc">Named as using Claude on live matters.</p>
+  <div class="co-models"><span class="m">Anthropic</span></div>
+  
+  <p class="co-src"><a href="https://fortune.com/2026/05/12/anthropic-legal-plug-in-release-claude-cowork-big-law/" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="weil, gotshal &amp; manges gemini enterprise for legal launch firm. new york google"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="1">
+  <div class="co-head">
+    <h4><a href="https://www.weil.com" target="_blank" rel="noopener">Weil, Gotshal &amp; Manges</a></h4>
+    <div class="co-chips"><span class="chip chip--google" title="Launch firm">Google</span></div>
+  </div>
+  <div class="co-meta">New York · est. 1931</div>
+  <p class="co-desc">Gemini Enterprise for Legal launch firm.</p>
+  <div class="co-models"><span class="m">Google</span></div>
+  
+  <p class="co-src"><a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal" target="_blank" rel="noopener">[1]</a></p>
+</article>
+
+<article class="co" data-cat="buyer" data-search="williams &amp; connolly gemini enterprise for legal launch firm. washington dc google"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="1">
+  <div class="co-head">
+    <h4><a href="https://www.wc.com" target="_blank" rel="noopener">Williams &amp; Connolly</a></h4>
+    <div class="co-chips"><span class="chip chip--google" title="Launch firm">Google</span></div>
+  </div>
+  <div class="co-meta">Washington DC · est. 1967</div>
+  <p class="co-desc">Gemini Enterprise for Legal launch firm.</p>
+  <div class="co-models"><span class="m">Google</span></div>
+  
+  <p class="co-src"><a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal" target="_blank" rel="noopener">[1]</a></p>
+</article>
+  </div>
+</div></section>
+
+<section id="reading"><div class="wrap">
+  <h2>04 &mdash; Reading</h2>
+  <div class="reads">
+    <div class="read"><a href="https://helenfan1.substack.com/" target="_blank" rel="noopener">Helen's Legal AI Lab &mdash; Helen Fan</a>
+      <p>The Legal AI Value Stack (V2): five levels from raw model, to workflow redesigned around agents, to a self-learning data layer within client and ethical-wall boundaries, to AI as system of record, to the AI-native firm. The most useful framework for judging whether a vendor has anything defensible.</p></div>
+    <div class="read"><a href="https://www.lawnext.com/" target="_blank" rel="noopener">LawSites &mdash; Bob Ambrogi</a>
+      <p>Still the fastest, most sceptical reporting on launches. His framing of the Anthropic launch &mdash; how much appetite does a model vendor have to compete in legal, and how do vendors built on it respond &mdash; is the open question of the year.</p></div>
+    <div class="read"><a href="https://www.artificiallawyer.com/" target="_blank" rel="noopener">Artificial Lawyer</a>
+      <p>Europe-weighted, opinionated, early on the AI-native firm and regulatory-authorisation stories.</p></div>
+    <div class="read"><a href="https://www.legaltechnologyhub.com/" target="_blank" rel="noopener">Legaltech Hub</a>
+      <p>The closest thing to a maintained vendor directory; useful for checking whether a product is real or a landing page.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Compiled from public reporting and vendor announcements. Valuations and funding are as last publicly reported and go stale fast. &ldquo;Models&rdquo; reflects publicly disclosed foundation-model use only &mdash; most vendors are multi-model and do not disclose routing, so an empty field means undisclosed, not none. Entries carrying a caveat line are lower-confidence. Bracketed numbers link to sources.</p>
+</div></footer>
+
+<script>
+(function(){
+  var grid=document.getElementById('grid'), cards=[].slice.call(grid.querySelectorAll('.co'));
+  var q=document.getElementById('q'), count=document.getElementById('count');
+  var cat='all', plats=[];
+  function apply(){
+    var t=q.value.trim().toLowerCase(), n=0;
+    cards.forEach(function(c){
+      var ok=(cat==='all'||c.dataset.cat===cat)
+        && (!t||c.dataset.search.indexOf(t)>-1)
+        && plats.every(function(p){return c.dataset[p]==='1';});
+      c.classList.toggle('hide',!ok); if(ok) n++;
+    });
+    count.textContent=n+(n===1?' entity':' entities');
+  }
+  document.querySelectorAll('.fb').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.fb').forEach(function(x){x.classList.remove('is-on');});
+      b.classList.add('is-on'); cat=b.dataset.cat; apply();
+    });
+  });
+  document.querySelectorAll('.pf-toggle').forEach(function(b){
+    b.addEventListener('click',function(){
+      var p=b.dataset.p, i=plats.indexOf(p);
+      if(i>-1){plats.splice(i,1);b.classList.remove('is-on');}
+      else{plats.push(p);b.classList.add('is-on');}
+      apply();
+    });
+  });
+  q.addEventListener('input',apply);
+  apply();
+})();
+</script>
+</body>
+</html>
