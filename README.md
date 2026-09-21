@@ -22,7 +22,8 @@ That compresses the interesting question for every app-layer company into one th
 
 ```
 data/platforms.json    the three model-vendor legal products, in detail
-data/companies.json    53 companies/firms: what they sell, funding, model use, integrations
+data/companies.json    60 companies/firms: what they sell, funding, model use, integrations
+data/frictions.json    bottlenecks and openings, with the survey/sanctions data behind them
 build.py               renders site/ from data/ — no dependencies
 site/index.html        generated, self-contained, filterable
 site/data.json         the full dataset as one file

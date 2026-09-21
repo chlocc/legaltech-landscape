@@ -130,7 +130,81 @@ follows Arizona, and what happens to UPL and fee-sharing rules when one does. Ev
 the pricing experiments, the talent flow out of Big Law, the equity-instead-of-lockstep pitch — is
 downstream of that one regulatory fact.
 
-## 7. What I'd watch next
+## 7. Where it's stuck, and what's open
+
+Worth stating plainly: **almost none of the stated blockers are about whether the models are good
+enough.** The capability argument is largely over. What's left is commercial, organisational and
+regulatory — and that's where the openings are too.
+
+### Bottlenecks
+
+**The verification tax.** Damien Charlotin's public database tracks ~1,490 court decisions worldwide
+where a party relied on AI-hallucinated material and a court responded — 1,000+ of them US, running
+at more than one new decision per day. Penalties went from four figures to $15,000 per attorney in a
+federal appeals court, ~$109,700 aggregate across two lawyers in one matter, and the first
+suspensions: Colorado (a year and a day, 90 to serve) and an indefinite suspension in Nebraska. The
+time the model saves is being spent back on checking it.
+
+**Per-seat pricing against outcome value.** Cut a five-hour task to one and billable revenue falls
+80% for identical work product. Firms have mostly responded by not responding: 58% say AI changed
+neither billing nor hours, 86% of solo and 78% of small firms haven't touched pricing, only ~a third
+report any revenue increase. And only 6% say clients are explicitly pushing for AI-linked cost cuts —
+so the pressure isn't coming from where everyone assumed.
+
+**Individuals adopted; institutions didn't.** 27% → 31% → 69% of individual practitioners in three
+years, against 46% of firms with general-purpose tools and 34% with legal-specific ones. The delta is
+shadow AI: the work is already being done on unsanctioned tools.
+
+**The governance vacuum.** 43% of firms have no AI policy and no plans to write one; 9% have one
+that's actually enforced. 54% provide no training; 11% make it mandatory. 19% call themselves "very
+prepared." Every sanctions case above happened at a firm with better-than-even odds of having no
+policy at all.
+
+**Security, privilege, trust — not accuracy.** Stated blockers: data security 46%, ethics 42%,
+privilege 39%, trust in outputs 39%, cost a distant fifth. This is exactly why OpenAI's Trusted
+Access (ZDR, no human review, Latham-designed ethical walls) is aimed at the contract rather than the
+benchmark.
+
+**The data layer is an org chart problem.** Level 3 is where defensibility lives and the blocker
+isn't technical — someone has to decide who owns which precedent, what a client's data may train,
+and how reader-writer separation maps onto information barriers. No vendor can sell a firm past that.
+
+**Clients are ahead of their firms.** 87% of GCs use genAI, up from 44% a year earlier; corporate
+legal adoption went 23% → 52%. 64% of in-house teams expect to need outside counsel less. And 60%
+don't know whether their firms use genAI on their matters — a disclosure gap that will close on the
+client's terms, not the firm's.
+
+**Regulation caps the best business model.** Outcome pricing with an AI first pass needs non-lawyer
+ownership to take capital, and in the US that is Arizona and essentially nowhere else.
+
+### Openings
+
+1. **Citation integrity as infrastructure.** A thousand sanctions decisions is a market signal, not a
+   cautionary tale. The gap isn't better retrieval — it's court-defensible provenance with an audit
+   artefact a judge or a malpractice carrier would accept. Midpage is closest in research; nobody
+   owns it across drafting, and no insurer has productised it.
+2. **Permissions-aware knowledge plumbing.** The thing that makes the Level 3 decision executable:
+   ethical walls, reader-writer separation, per-client training consent, enforced at retrieval.
+   DeepJudge, iManage, NetDocuments sit here. This is the one asset a model vendor can't ship from
+   a connector directory — expect acquisitions.
+3. **Pricing and margin tooling.** 86% of small firms haven't changed pricing because nobody gave
+   them a way to. Scoping an AFA, measuring realisation when a model did 80% of the work, proving
+   the saving to a client — all unserved. Manifest OS is the first real attempt and it raised the
+   largest Series A in the sector's history, which tells you how empty the space is.
+4. **Governance, training and attestation as product.** Policy generated against the firm's actual
+   tool estate, enforced logging, mandatory training with completion records, client-facing
+   attestation. It's what insurers will start pricing against.
+5. **Client-facing AI.** Closing the 60% disclosure gap turns a transparency liability into the
+   reason the client stays. Helen Fan's thesis; almost nobody is building the client-side surface.
+6. **The long tail and the plaintiff bar.** Contingency firms buy on ROI, which is why Eve, EvenUp
+   and Filevine all crossed a billion in one autumn. Same logic for solo and small firms, where
+   adoption is highest and tooling is priced for a market they're not in.
+7. **Primary law outside the US.** OpenAI's index is 230M+ US URLs; Anthropic's research connectors
+   are US-weighted. Non-US and non-English primary law is substantially unbuilt at frontier quality —
+   and CourtListener shows the data can come from public sources.
+8. **A second ABS state.** The highest-leverage single event in the sector.
+
+## 8. What I'd watch next
 
 1. **Does Anthropic go further up the stack?** The plugins already do practice-area workflow with
    playbook configuration. The gap between that and competing with Harvey is one product decision.

@@ -1,0 +1,95 @@
+{
+  "as_of": "2026-09-21",
+  "bottlenecks": [
+    {
+      "title": "The verification tax",
+      "body": "The time a model saves is being spent back on checking its work — and the penalty for not checking has stopped being theoretical. Damien Charlotin's public database tracks roughly 1,490 court decisions worldwide where a party relied on AI-hallucinated material and a court responded, more than 1,000 of them US, running at more than one new decision per day. Penalties escalated from four-figure fines to $15,000 per attorney in a federal appeals court, an aggregate ~$109,700 across two lawyers in one matter, and the first suspensions: a Colorado attorney (a year and a day, 90 days to serve) and an indefinite suspension in Nebraska.",
+      "stats": [["~1,490", "tracked decisions worldwide, 1,000+ US"], ["$15,000", "per-attorney sanction, federal appeals court"], ["2", "US bar suspensions tied to AI filings"]],
+      "sources": ["https://www.nortonrosefulbright.com/en-us/knowledge/publications/792d8bf3/ai-in-litigation-update-on-gen-ai-sanctions-in-2026", "https://gc.ai/blog/ai-hallucination-legal-cases"]
+    },
+    {
+      "title": "Per-seat pricing against outcome value",
+      "body": "The deepest structural problem isn't capability, it's that the business model points the wrong way. Cut a five-hour task to one and billable revenue falls 80% while the work product is identical. Firms have mostly responded by not responding: 58% say AI has changed neither billing practices nor billable hours, 86% of solo and 78% of small firms haven't touched their pricing model, and only about a third report any associated revenue increase. Vendors have the mirror-image problem — seat licences priced against a value that is variable and outcome-shaped.",
+      "stats": [["58%", "of firms: AI changed neither billing nor hours"], ["86% / 78%", "of solo / small firms have not adjusted pricing"], ["6%", "of firms report clients explicitly pushing for AI-linked cost cuts"]],
+      "sources": ["https://www.ncbar.org/nc-lawyer/2026-05/by-the-numbers-what-surveys-show-about-law-firm-ai-adoption/", "https://modern-counsel.com/2026/wall-street-wants-its-share-of-big-laws-ai-savings/"]
+    },
+    {
+      "title": "Individuals adopted; institutions didn't",
+      "body": "Adoption among individual practitioners went 27% → 31% → 69% in three years. Firm-level adoption did not keep pace: 46% of firms have general-purpose AI tools and 34% have legal-specific ones (58% at firms of 21+ lawyers). The gap is shadow AI — the work is already being done on models the firm has not sanctioned, trained for, or insured against.",
+      "stats": [["69%", "of legal professionals use genAI, from 31% in 2025"], ["34%", "of firms have adopted legal-specific AI tools"], ["19%", "describe their firm as 'very prepared'"]],
+      "sources": ["https://www.lawnext.com/2026/03/ai-adoption-among-legal-professionals-has-more-than-doubled-in-a-year-new-8am-report-finds-but-firms-lag-far-behind-individual-practitioners.html"]
+    },
+    {
+      "title": "The governance vacuum",
+      "body": "This is the one that turns into malpractice exposure. 43% of firms have no formal AI policy and no plans to write one; only 9% have a written policy that is actually enforced. 54% provide no AI training and have no plans to; only 11% make training mandatory. Every sanctions case above happened inside a firm that had, on these numbers, better-than-even odds of having no policy at all.",
+      "stats": [["43%", "no AI policy and no plans to write one"], ["9%", "have a written, enforced policy"], ["54%", "provide no AI training at all"]],
+      "sources": ["https://www.lawnext.com/2026/03/ai-adoption-among-legal-professionals-has-more-than-doubled-in-a-year-new-8am-report-finds-but-firms-lag-far-behind-individual-practitioners.html"]
+    },
+    {
+      "title": "Security, privilege and trust",
+      "body": "The stated blockers are remarkably consistent and they are not about accuracy: data security (46%), ethics (42%), privilege (39%) and lack of trust in outputs (39%), with cost a distant concern. This is why the model vendors' enterprise terms are doing real commercial work — OpenAI's Trusted Access (zero data retention, no human review, ethical walls designed with Latham) and Anthropic's enterprise posture are aimed squarely at this list rather than at benchmark scores.",
+      "stats": [["46%", "cite data security"], ["42% / 39%", "ethics / privilege"], ["39%", "lack of trust in results"]],
+      "sources": ["https://www.lawnext.com/2026/03/ai-adoption-among-legal-professionals-has-more-than-doubled-in-a-year-new-8am-report-finds-but-firms-lag-far-behind-individual-practitioners.html"]
+    },
+    {
+      "title": "The data layer is an org chart problem",
+      "body": "Helen Fan's Level 3 — a system that learns from the work, inside agent, client and ethical-wall boundaries — is where defensibility actually lives, and it is the hardest crossing precisely because the blocker isn't technical. Somebody has to decide who owns which precedent, what a client's data may train, and how reader-writer separation maps onto information barriers. No vendor can sell a firm its way past that decision.",
+      "stats": [],
+      "sources": ["https://helenfan1.substack.com/p/introducing-the-legal-ai-value-stack", "https://helenfan1.substack.com/p/the-real-work-of-legal-ai-transformation"]
+    },
+    {
+      "title": "Clients are ahead of their firms",
+      "body": "The demand-side pressure is inverting. 87% of GCs report using genAI in their teams, up from 44% a year earlier; corporate legal adoption more than doubled from 23% to 52%. 64% of in-house teams expect to depend less on outside counsel because of what they're building internally. And 60% don't know whether their firms use genAI on their matters at all — a disclosure gap that will close, on the client's terms.",
+      "stats": [["87%", "of GCs using genAI, from 44% a year earlier"], ["64%", "of in-house expect to need outside counsel less"], ["60%", "don't know if their firm uses genAI on their matters"]],
+      "sources": ["https://blog.platinumids.com/blog/in-house-ai-adoption-gap-2026", "https://www.vaquill.ai/blog/in-house-legal-ai-adoption-what-leaders-do"]
+    },
+    {
+      "title": "Regulation caps the best business model",
+      "body": "The AI-native firm — outcome pricing, AI first pass, lawyer as last checkpoint — needs non-lawyer ownership to take capital. In the US that is essentially Arizona's ABS programme and nowhere else. Every venture-scale AI-native firm is therefore structured around one state's rule, and UPL and fee-sharing rules elsewhere are a hard ceiling rather than a friction.",
+      "stats": [["1", "US state with a general ABS regime"], ["100+", "ABSs approved in Arizona since 2021"]],
+      "sources": ["https://www.hklaw.com/en/insights/publications/2025/12/so-you-want-to-start-an-arizona-alternative-business-structure", "https://arizonastatelawjournal.org/2026/01/27/arizonas-alternative-business-structures-innovation-meets-neighboring-resistance/"]
+    }
+  ],
+  "opportunities": [
+    {
+      "title": "Citation integrity as infrastructure",
+      "body": "A thousand US sanctions decisions is not a cautionary tale, it's a market signal. The gap is not better retrieval — it's court-defensible provenance: every proposition traceable to a verified source, with an audit artefact a judge or a malpractice carrier would accept. Midpage is closest in research; nobody owns it across drafting, and no carrier has productised it.",
+      "stats": [], "sources": []
+    },
+    {
+      "title": "Permissions-aware knowledge plumbing",
+      "body": "If Level 3 is the moat and the blocker is organisational, the buyable product is the thing that makes the organisational decision executable: ethical walls, reader-writer separation, per-client training consent, all enforced at retrieval time. DeepJudge, iManage and NetDocuments sit on this. Expect the platforms to buy here rather than build — it's the one asset a model vendor cannot ship from Ecosystems.",
+      "stats": [], "sources": []
+    },
+    {
+      "title": "Pricing and margin tooling",
+      "body": "86% of small firms haven't changed pricing because nobody has given them a way to. Scoping an AFA, measuring realisation on a matter where a model did 80% of the work, and proving the saving to a client are all unserved. Manifest OS is the first real attempt and it raised the largest Series A in the sector's history — which tells you how empty the space is.",
+      "stats": [], "sources": ["https://www.artificiallawyer.com/2026/04/28/newmod-manifest-os-bags-60m-at-750m-valuation/"]
+    },
+    {
+      "title": "Governance, training and attestation",
+      "body": "43% of firms have no policy, 54% no training, and clients are about to start asking. That is a product, not a consulting engagement: policy generation against the firm's actual tool estate, enforced logging, mandatory training with completion records, and a client-facing attestation that survives an audit. It also happens to be what insurers will start pricing against.",
+      "stats": [], "sources": []
+    },
+    {
+      "title": "Client-facing AI and the disclosure gap",
+      "body": "60% of in-house teams don't know whether their firms use genAI on their matters. Closing that gap is Helen Fan's 'client-facing AI' thesis — the firm exposes its AI work product and provenance to the client directly, which turns a transparency liability into the reason the client stays. Almost nobody is building the client-side surface for this.",
+      "stats": [], "sources": ["https://helenfan1.substack.com/p/client-facing-ai-the-new-paradigm"]
+    },
+    {
+      "title": "The long tail and the plaintiff bar",
+      "body": "Contingency firms buy on ROI, not headcount — which is why Eve, EvenUp and Filevine all crossed a billion in one autumn while BigLaw tools were still being piloted. The same logic applies to solo and small firms, where adoption is highest and tooling is priced for a market they aren't in. Clio owns the seat; almost nobody owns the AI layer on top of it.",
+      "stats": [], "sources": []
+    },
+    {
+      "title": "Primary law outside the US",
+      "body": "OpenAI's Legal Search Index is 230M+ URLs of US material. Anthropic's research connectors are US-weighted. Non-US and non-English primary law is substantially unbuilt at frontier quality — and the CourtListener precedent shows the data can come from public and nonprofit sources rather than from Westlaw or Lexis.",
+      "stats": [], "sources": []
+    },
+    {
+      "title": "A second ABS state",
+      "body": "The single highest-leverage event in the sector. If one more US state opens to non-lawyer ownership, the AI-native firm stops being Arizona regulatory arbitrage and becomes the default structure for commodity legal work — and every firm currently defending an hourly P&L has to re-underwrite its business at once.",
+      "stats": [], "sources": []
+    }
+  ]
+}

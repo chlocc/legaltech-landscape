@@ -9,6 +9,7 @@ SITE.mkdir(exist_ok=True)
 
 companies = json.loads((D / "companies.json").read_text())
 platforms = json.loads((D / "platforms.json").read_text())
+frictions = json.loads((D / "frictions.json").read_text())
 
 e = lambda s: html.escape(str(s), quote=True)
 
@@ -177,6 +178,26 @@ def ainative_block():
 
 AI_FIRMS, AI_REFS, AI_NAMES = ainative_block()
 
+
+def friction_cards(key, kind):
+    out = []
+    for i, f in enumerate(frictions[key], 1):
+        stats = ""
+        if f.get("stats"):
+            stats = '<div class="stats">' + "".join(
+                f'<div class="stat"><b>{e(v)}</b><span>{e(lab)}</span></div>' for v, lab in f["stats"]
+            ) + "</div>"
+        out.append(f"""
+<article class="fr fr--{kind}">
+  <div class="fr-n">{i:02d}</div>
+  <h4>{e(f['title'])}</h4>
+  {stats}
+  <p>{e(f['body'])}</p>
+  {sources(f.get('sources', []), 'co-src')}
+</article>""")
+    return "\n".join(out)
+
+
 def filter_buttons():
     counts = {}
     for c in companies["companies"]:
@@ -258,6 +279,20 @@ table.mx th[scope=row] a:hover {{ color:var(--accent); }}
 .callout p {{ margin:0 0 10px; font-size:14px; color:var(--ink2); }}
 .callout p:last-child {{ margin-bottom:0; }}
 .callout a {{ color:var(--accent); }}
+.fr-grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; margin-bottom:12px; }}
+.fr {{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px 22px; position:relative; }}
+.fr--block {{ border-left:3px solid #b4564a; }}
+.fr--opp {{ border-left:3px solid #4f9d7a; }}
+.fr-n {{ font:10.5px var(--mono); color:var(--ink3); letter-spacing:.12em; }}
+.fr h4 {{ margin:4px 0 12px; font-size:16.5px; letter-spacing:-.01em; }}
+.fr p {{ margin:0; font-size:14px; color:var(--ink2); }}
+.stats {{ display:flex; flex-wrap:wrap; gap:18px; margin:0 0 14px; padding:12px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }}
+.stat b {{ display:block; font-size:19px; font-weight:600; color:var(--ink); letter-spacing:-.02em; }}
+.fr--block .stat b {{ color:#e08a7d; }}
+.stat span {{ font:10.5px var(--mono); color:var(--ink3); text-transform:uppercase; letter-spacing:.06em; display:block; max-width:24ch; line-height:1.5; margin-top:2px; }}
+.split-h {{ display:flex; align-items:baseline; gap:12px; margin:36px 0 18px; }}
+.split-h h3 {{ margin:0; font-size:17px; letter-spacing:-.01em; }}
+.split-h span {{ font:11px var(--mono); color:var(--ink3); text-transform:uppercase; letter-spacing:.1em; }}
 .pf-extra a, .firmlist a {{ color:var(--ink); text-decoration:none;
   border-bottom:1px solid var(--line); }}
 .pf-extra a:hover, .firmlist a:hover {{ color:var(--accent); border-color:var(--accent); }}
@@ -343,6 +378,7 @@ footer p {{ max-width:75ch; }}
     <a href="#matrix">Integration matrix</a>
     <a href="#ainative">AI-native firms</a>
     <a href="#companies">Who does what</a>
+    <a href="#frictions">Bottlenecks &amp; openings</a>
     <a href="#reading">Reading</a>
   </nav>
 </div></header>
@@ -403,8 +439,23 @@ footer p {{ max-width:75ch; }}
   </div>
 </div></section>
 
+<section id="frictions"><div class="wrap">
+  <h2>05 &mdash; Where it's stuck, and what's open</h2>
+  <p class="lede">The capability argument is mostly over. What's left is a set of problems that are commercial, organisational and regulatory &mdash; and the gaps those leave are the actual opportunity. <strong>Almost none of the stated blockers are about whether the models are good enough.</strong></p>
+
+  <div class="split-h"><h3>Bottlenecks</h3><span>What is actually holding it up</span></div>
+  <div class="fr-grid">
+{friction_cards("bottlenecks", "block")}
+  </div>
+
+  <div class="split-h"><h3>Openings</h3><span>What nobody has built yet</span></div>
+  <div class="fr-grid">
+{friction_cards("opportunities", "opp")}
+  </div>
+</div></section>
+
 <section id="reading"><div class="wrap">
-  <h2>05 &mdash; Reading</h2>
+  <h2>06 &mdash; Reading</h2>
   <div class="reads">
     <div class="read"><a href="https://helenfan1.substack.com/" target="_blank" rel="noopener">Helen's Legal AI Lab &mdash; Helen Fan</a>
       <p>The Legal AI Value Stack (V2): five levels from raw model, to workflow redesigned around agents, to a self-learning data layer within client and ethical-wall boundaries, to AI as system of record, to the AI-native firm. The most useful framework for judging whether a vendor has anything defensible.</p></div>
