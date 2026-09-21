@@ -24,9 +24,9 @@ That compresses the interesting question for every app-layer company into one th
 data/platforms.json    the three model-vendor legal products, in detail
 data/companies.json    60 companies/firms: what they sell, funding, model use, integrations
 data/frictions.json    bottlenecks and openings, with the survey/sanctions data behind them
-build.py               renders site/ from data/ — no dependencies
-site/index.html        generated, self-contained, filterable
-site/data.json         the full dataset as one file
+build.py               renders docs/ from data/ — no dependencies
+docs/index.html        generated, self-contained, filterable (GitHub Pages serves this)
+docs/data.json         the full dataset as one file
 NOTES.md               the landscape read — what the data adds up to
 scripts/refresh.md     the prompt used by the scheduled update
 ```
@@ -37,7 +37,7 @@ scripts/refresh.md     the prompt used by the scheduled update
 python3 build.py
 ```
 
-Then open `site/index.html`. Editing `data/*.json` and re-running is the whole workflow.
+Then open `docs/index.html`. Editing `data/*.json` and re-running is the whole workflow.
 
 ## Data conventions
 

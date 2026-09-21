@@ -4,7 +4,7 @@ import json, pathlib, html, re
 
 ROOT = pathlib.Path(__file__).parent
 D = ROOT / "data"
-SITE = ROOT / "site"
+SITE = ROOT / "docs"
 SITE.mkdir(exist_ok=True)
 
 companies = json.loads((D / "companies.json").read_text())
@@ -512,4 +512,4 @@ footer p {{ max-width:75ch; }}
 (SITE / "index.html").write_text(HTML)
 (SITE / "data.json").write_text(json.dumps({"platforms": platforms, "companies": companies}, indent=2))
 (SITE / ".nojekyll").write_text("")
-print(f"built site/index.html  ({len(HTML):,} bytes, {len(companies['companies'])} companies, {len(platforms['platforms'])} platforms)")
+print(f"built docs/index.html  ({len(HTML):,} bytes, {len(companies['companies'])} companies, {len(platforms['platforms'])} platforms)")
