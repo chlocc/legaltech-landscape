@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Render site/index.html from data/*.json. No dependencies."""
-import json, pathlib, html, datetime
+import json, pathlib, html, re
 
 ROOT = pathlib.Path(__file__).parent
 D = ROOT / "data"
@@ -28,13 +28,48 @@ SHORT = {
     "buyer": "Firms building",
 }
 
+# --- linking -------------------------------------------------------------
+NAME_TO_URL = {c["name"]: c["url"] for c in companies["companies"] if c.get("url")}
+# Names as the platforms write them, mapped onto the tracked entity.
+ALIASES = {
+    "Thomson Reuters": "Thomson Reuters — CoCounsel Legal",
+    "Thomson Reuters (CoCounsel)": "Thomson Reuters — CoCounsel Legal",
+    "Crosby Legal": "Crosby",
+    "Accenture": "Accenture Legal",
+    "Manifest Law": "Manifest OS / Manifest Law",
+}
+
+
+def link_name(n):
+    """Render a partner/customer name as a link when we track it."""
+    key = ALIASES.get(n, n)
+    url = NAME_TO_URL.get(key)
+    if not url:
+        stripped = re.sub(r"\s*\(.*?\)", "", n).strip()
+        url = NAME_TO_URL.get(ALIASES.get(stripped, stripped))
+    return f'<a href="{e(url)}" target="_blank" rel="noopener">{e(n)}</a>' if url else e(n)
+
+
+def domain(u):
+    d = re.sub(r"^https?://(www\.)?", "", u).split("/")[0]
+    return d
+
+
+def sources(items, cls="src"):
+    if not items:
+        return ""
+    links = "".join(
+        f'<a href="{e(u)}" target="_blank" rel="noopener">{e(domain(u))}</a>' for u in items
+    )
+    return f'<div class="{cls}"><span class="src-lbl">Sources</span>{links}</div>'
+
 
 def platform_cards():
     out = []
     for p in platforms["platforms"]:
         comps = "".join(f"<li>{e(c)}</li>" for c in p["components"])
-        partners = ", ".join(e(x) for x in p.get("partners", [])) or "&mdash;"
-        users = ", ".join(e(x) for x in p.get("named_users", [])) or "&mdash;"
+        partners = ", ".join(link_name(x) for x in p.get("partners", [])) or "&mdash;"
+        users = ", ".join(link_name(x) for x in p.get("named_users", [])) or "&mdash;"
         extra = ""
         if p.get("benchmarks"):
             extra += f'<p class="pf-extra"><span class="lbl">Benchmarks</span>{e(p["benchmarks"])}</p>'
@@ -42,16 +77,15 @@ def platform_cards():
             extra += f'<p class="pf-extra"><span class="lbl">People</span>{e(p["people"])}</p>'
         if p.get("access"):
             extra += f'<p class="pf-extra"><span class="lbl">Access</span>{e(p["access"])}</p>'
-        srcs = " ".join(
-            f'<a href="{e(s)}" target="_blank" rel="noopener">[{i+1}]</a>'
-            for i, s in enumerate(p.get("sources", []))
-        )
+        srcs = sources(p.get("sources", []), "pf-src")
+        repo = (f'<a class="repo" href="{e(p["repo"])}" target="_blank" rel="noopener">'
+                f'{e(domain(p["repo"]))} &#8599;</a>') if p.get("repo") else ""
         out.append(f"""
 <article class="pf pf--{e(p['id'])}">
   <header>
     <div class="pf-vendor">{e(p['vendor'])}</div>
-    <h3>{e(p['product'])}</h3>
-    <div class="pf-date">Launched {e(p['launched'])}</div>
+    <h3><a href="{e(p['url'])}" target="_blank" rel="noopener">{e(p['product'])} &#8599;</a></h3>
+    <div class="pf-date">Launched {e(p['launched'])} {repo}</div>
   </header>
   <p class="pf-shape">{e(p['shape'])}</p>
   <p class="pf-model"><span class="lbl">Model</span>{e(p['model'])}</p>
@@ -59,7 +93,7 @@ def platform_cards():
   {extra}
   <p class="pf-extra"><span class="lbl">Ecosystem</span>{partners}</p>
   <p class="pf-extra"><span class="lbl">Named firms</span>{users}</p>
-  <p class="pf-src">{srcs}</p>
+  {srcs}
 </article>""")
     return "\n".join(out)
 
@@ -78,7 +112,7 @@ def matrix_rows():
             else:
                 cells += '<td class="no"></td>'
         rows.append(
-            f'<tr><th scope="row">{e(c["name"])}'
+            f'<tr><th scope="row"><a href="{e(c["url"])}" target="_blank" rel="noopener">{e(c["name"])}</a>'
             f'<span class="mx-cat" title="{e(companies["categories"][c["category"]])}">'
             f'{e(SHORT[c["category"]])}</span></th>{cells}</tr>'
         )
@@ -106,10 +140,7 @@ def company_cards():
             if c.get(key):
                 cls = " line--caveat" if key == "confidence" else ""
                 lines += f'<p class="line{cls}"><span class="lbl">{label}</span>{e(c[key])}</p>'
-        srcs = " ".join(
-            f'<a href="{e(s)}" target="_blank" rel="noopener">[{i+1}]</a>'
-            for i, s in enumerate(c.get("sources", []))
-        )
+        srcs = sources(c.get("sources", []), "co-src")
         name = (f'<a href="{e(c["url"])}" target="_blank" rel="noopener">{e(c["name"])}</a>'
                 if c.get("url") else e(c["name"]))
         search_blob = e(" ".join(filter(None, [
@@ -129,10 +160,22 @@ def company_cards():
   <p class="co-desc">{e(c.get('what_it_does',''))}</p>
   {f'<div class="co-models">{models}</div>' if models else ''}
   {lines}
-  <p class="co-src">{srcs}</p>
+  {srcs}
 </article>""")
     return "\n".join(out)
 
+
+
+def ainative_block():
+    firms = [c for c in companies["companies"] if c["category"] == "ai_native_firm"]
+    refs = ""
+    for r in companies.get("references", []):
+        refs += (f'<div class="read"><a href="{e(r["url"])}" target="_blank" rel="noopener">'
+                 f'{e(r["name"])} &#8599;</a><p>{e(r["note"])}</p>{sources(r.get("sources", []), "co-src")}</div>')
+    names = " &middot; ".join(link_name(c["name"]) for c in sorted(firms, key=lambda x: x["name"]))
+    return firms, refs, names
+
+AI_FIRMS, AI_REFS, AI_NAMES = ainative_block()
 
 def filter_buttons():
     counts = {}
@@ -196,9 +239,33 @@ h2 {{ font-size:13px; font-family:var(--mono); text-transform:uppercase; letter-
 .pf-model, .pf-extra, .line {{ font-size:13px; color:var(--ink2); margin:0 0 10px; }}
 .lbl {{ display:block; font:10.5px var(--mono); text-transform:uppercase; letter-spacing:.1em;
   color:var(--ink3); margin-bottom:3px; }}
-.pf-src, .co-src {{ font:11px var(--mono); margin:14px 0 0; }}
-.pf-src a, .co-src a {{ color:var(--ink3); text-decoration:none; margin-right:4px; }}
-.pf-src a:hover, .co-src a:hover {{ color:var(--accent); }}
+.pf-src, .co-src {{ margin:16px 0 0; padding-top:12px; border-top:1px solid var(--line); }}
+.src-lbl {{ display:block; font:10.5px var(--mono); text-transform:uppercase; letter-spacing:.1em;
+  color:var(--ink3); margin-bottom:6px; }}
+.pf-src a, .co-src a {{ display:inline-block; font:11px var(--mono); color:var(--ink2);
+  text-decoration:none; background:var(--panel2); border:1px solid var(--line);
+  border-radius:4px; padding:3px 7px; margin:0 4px 4px 0; }}
+.pf-src a:hover, .co-src a:hover {{ color:var(--accent); border-color:var(--accent); }}
+a.repo {{ color:var(--ink3); text-decoration:none; margin-left:8px; }}
+a.repo:hover {{ color:var(--accent); }}
+.pf h3 a {{ text-decoration:none; }}
+.pf h3 a:hover {{ color:var(--accent); }}
+table.mx th[scope=row] a {{ text-decoration:none; }}
+table.mx th[scope=row] a:hover {{ color:var(--accent); }}
+.callout {{ background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--accent);
+  border-radius:8px; padding:20px 22px; margin-bottom:26px; }}
+.callout h4 {{ margin:0 0 8px; font-size:15px; }}
+.callout p {{ margin:0 0 10px; font-size:14px; color:var(--ink2); }}
+.callout p:last-child {{ margin-bottom:0; }}
+.callout a {{ color:var(--accent); }}
+.pf-extra a, .firmlist a {{ color:var(--ink); text-decoration:none;
+  border-bottom:1px solid var(--line); }}
+.pf-extra a:hover, .firmlist a:hover {{ color:var(--accent); border-color:var(--accent); }}
+.firmlist {{ font-size:15px; line-height:2.1; color:var(--ink3); margin:0 0 26px; }}
+.pf-extra a, .firmlist a {{ color:var(--ink); text-decoration:none;
+  border-bottom:1px solid var(--line); }}
+.pf-extra a:hover, .firmlist a:hover {{ color:var(--accent); border-color:var(--accent); }}
+.firmlist {{ font-size:15px; line-height:2.1; color:var(--ink3); margin:0 0 26px; max-width:none; }}
 
 table.mx {{ width:100%; border-collapse:collapse; font-size:13.5px; }}
 table.mx th, table.mx td {{ border-bottom:1px solid var(--line); padding:11px 10px; text-align:left; vertical-align:top; }}
@@ -274,6 +341,7 @@ footer p {{ max-width:75ch; }}
   <nav class="jump">
     <a href="#platforms">The platform layer</a>
     <a href="#matrix">Integration matrix</a>
+    <a href="#ainative">AI-native firms</a>
     <a href="#companies">Who does what</a>
     <a href="#reading">Reading</a>
   </nav>
@@ -298,8 +366,25 @@ footer p {{ max-width:75ch; }}
   </table></div>
 </div></section>
 
+<section id="ainative"><div class="wrap">
+  <h2>03 &mdash; AI-native law firms</h2>
+  <p class="lede">The smallest segment and the only one not retrofitting. These are <strong>regulated law firms</strong>, not software: the first pass is a model, the lawyer is the last checkpoint, and the price is per artefact or per outcome rather than per hour. {len(AI_FIRMS)} tracked here &mdash; the category directory counts just over 50 globally, 31 of them US.</p>
+  <div class="callout">
+    <h4>The unlock is regulatory, not technical</h4>
+    <p>You cannot build this firm in most US states. Non-lawyer ownership is the blocker, and
+    <strong>Arizona's Alternative Business Structure programme</strong> is the workaround &mdash; 100+ ABSs approved
+    since 2021, including KPMG Law. Justpoint Law took the first ABS licence for an AI-native PI and mass tort
+    firm in July 2025; Manifest is incubating its first firm the same way. In the UK the equivalent precedent is
+    <strong>Garfield AI</strong>, the first fully AI-driven firm authorised by the SRA.</p>
+    <p>So the question underneath this whole segment isn't whether the models are good enough. It's whether a
+    second US state follows Arizona &mdash; and what happens to UPL and fee-sharing rules when one does.</p>
+  </div>
+  <p class="firmlist">{AI_NAMES}</p>
+  <div class="reads">{AI_REFS}</div>
+</div></section>
+
 <section id="companies"><div class="wrap">
-  <h2>03 &mdash; Who does what</h2>
+  <h2>04 &mdash; Who does what</h2>
   <p class="lede">The app layer, sorted by what it actually sells. Filter by segment, or by which model platform a company has publicly connected to.</p>
   <div class="controls">
 {filter_buttons()}
@@ -319,7 +404,7 @@ footer p {{ max-width:75ch; }}
 </div></section>
 
 <section id="reading"><div class="wrap">
-  <h2>04 &mdash; Reading</h2>
+  <h2>05 &mdash; Reading</h2>
   <div class="reads">
     <div class="read"><a href="https://helenfan1.substack.com/" target="_blank" rel="noopener">Helen's Legal AI Lab &mdash; Helen Fan</a>
       <p>The Legal AI Value Stack (V2): five levels from raw model, to workflow redesigned around agents, to a self-learning data layer within client and ethical-wall boundaries, to AI as system of record, to the AI-native firm. The most useful framework for judging whether a vendor has anything defensible.</p></div>

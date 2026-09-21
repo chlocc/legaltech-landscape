@@ -59,7 +59,9 @@
           "https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html",
           "https://www.artificiallawyer.com/2026/05/12/claude-for-legal-launches-may-reshape-the-legal-tech-world/",
           "https://github.com/anthropics/claude-for-legal"
-        ]
+        ],
+        "url": "https://claude.com/blog/claude-for-the-legal-industry",
+        "repo": "https://github.com/anthropics/claude-for-legal"
       },
       {
         "id": "openai",
@@ -91,7 +93,8 @@
           "https://www.lawnext.com/2026/09/openai-releases-astra-for-law-a-gpt-6-model-configured-for-legal-work.html",
           "https://openai.com/solutions/industries/law/",
           "https://www.pymnts.com/news/artificial-intelligence/2026/openai-targets-legal-tech-market-with-astra-for-law/"
-        ]
+        ],
+        "url": "https://openai.com/solutions/industries/law/"
       },
       {
         "id": "google",
@@ -128,7 +131,8 @@
           "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal",
           "https://www.artificiallawyer.com/2026/08/25/google-launches-gemini-enterprise-for-legal/",
           "https://www.googlecloudpresscorner.com/2026-08-25-Google-Cloud-Launches-Gemini-Enterprise-for-Legal"
-        ]
+        ],
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal"
       }
     ]
   },
@@ -378,7 +382,7 @@
       {
         "id": "eve",
         "name": "Eve",
-        "url": "https://www.eve.legal",
+        "url": "https://eve.legal",
         "category": "litigation",
         "hq": "San Francisco",
         "founded": 2023,
@@ -446,7 +450,7 @@
       {
         "id": "midpage",
         "name": "Midpage",
-        "url": "https://www.midpage.ai",
+        "url": "https://midpage.ai",
         "category": "research",
         "hq": "New York",
         "founded": 2022,
@@ -514,7 +518,7 @@
       {
         "id": "legaldatahunter",
         "name": "Legal Data Hunter",
-        "url": null,
+        "url": "https://claude.com/blog/claude-for-the-legal-industry",
         "category": "research",
         "hq": null,
         "founded": null,
@@ -583,7 +587,7 @@
       {
         "id": "spellbook",
         "name": "Spellbook",
-        "url": "https://www.spellbook.legal",
+        "url": "https://spellbook.legal",
         "category": "contract",
         "hq": "Halifax",
         "founded": 2021,
@@ -608,7 +612,7 @@
       {
         "id": "robinai",
         "name": "Robin AI",
-        "url": "https://www.robinai.com",
+        "url": "https://robinai.com",
         "category": "contract",
         "hq": "London",
         "founded": 2019,
@@ -631,7 +635,7 @@
       {
         "id": "definely",
         "name": "Definely",
-        "url": "https://www.definely.com",
+        "url": "https://definely.com",
         "category": "contract",
         "hq": "London",
         "founded": 2019,
@@ -677,7 +681,7 @@
       {
         "id": "legalon",
         "name": "LegalOn",
-        "url": "https://www.legalontech.com",
+        "url": "https://legalontech.com",
         "category": "contract",
         "hq": "Tokyo / San Francisco",
         "founded": 2017,
@@ -747,7 +751,7 @@
       {
         "id": "spotdraft",
         "name": "SpotDraft",
-        "url": "https://www.spotdraft.com",
+        "url": "https://spotdraft.com",
         "category": "contract",
         "hq": "Bengaluru / San Francisco",
         "founded": 2017,
@@ -770,7 +774,7 @@
       {
         "id": "ivo",
         "name": "Ivo",
-        "url": "https://www.ivo.ai",
+        "url": "https://ivo.ai",
         "category": "contract",
         "hq": "San Francisco",
         "founded": 2022,
@@ -793,7 +797,7 @@
       {
         "id": "summize",
         "name": "Summize",
-        "url": "https://www.summize.com",
+        "url": "https://summize.com",
         "category": "contract",
         "hq": "Manchester",
         "founded": 2018,
@@ -816,7 +820,7 @@
       {
         "id": "wordsmith",
         "name": "Wordsmith AI",
-        "url": "https://www.wordsmith.ai",
+        "url": "https://wordsmith.ai",
         "category": "inhouse",
         "hq": "Edinburgh / London",
         "founded": 2023,
@@ -862,7 +866,7 @@
       {
         "id": "eudia",
         "name": "Eudia",
-        "url": "https://www.eudia.com",
+        "url": "https://eudia.com",
         "category": "ai_native_firm",
         "hq": "Palo Alto",
         "founded": 2023,
@@ -886,7 +890,7 @@
       {
         "id": "crosby",
         "name": "Crosby",
-        "url": "https://www.crosby.ai",
+        "url": "https://crosby.ai",
         "category": "ai_native_firm",
         "hq": "San Francisco",
         "founded": 2024,
@@ -911,7 +915,7 @@
       {
         "id": "garfield",
         "name": "Garfield AI",
-        "url": "https://www.garfield.law",
+        "url": "https://garfield.law",
         "category": "ai_native_firm",
         "hq": "London",
         "founded": 2024,
@@ -959,7 +963,7 @@
       {
         "id": "normai",
         "name": "Norm Ai",
-        "url": "https://www.norm.ai",
+        "url": "https://norm.ai",
         "category": "inhouse",
         "hq": "New York",
         "founded": 2022,
@@ -982,7 +986,7 @@
       {
         "id": "solveintelligence",
         "name": "Solve Intelligence",
-        "url": "https://www.solveintelligence.com",
+        "url": "https://solveintelligence.com",
         "category": "ip",
         "hq": "San Francisco / London",
         "founded": 2023,
@@ -1005,7 +1009,7 @@
       {
         "id": "deepip",
         "name": "DeepIP",
-        "url": "https://www.deepip.ai",
+        "url": "https://deepip.ai",
         "category": "ip",
         "hq": "New York / Paris",
         "founded": 2024,
@@ -1099,7 +1103,7 @@
       {
         "id": "deepjudge",
         "name": "DeepJudge",
-        "url": "https://www.deepjudge.ai",
+        "url": "https://deepjudge.ai",
         "category": "infra",
         "hq": "Zurich",
         "founded": 2022,
@@ -1123,7 +1127,7 @@
       {
         "id": "hebbia",
         "name": "Hebbia",
-        "url": "https://www.hebbia.com",
+        "url": "https://hebbia.com",
         "category": "infra",
         "hq": "New York",
         "founded": 2020,
@@ -1403,6 +1407,188 @@
         "sources": [
           "https://claude.com/blog/claude-for-the-legal-industry",
           "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal"
+        ]
+      },
+      {
+        "id": "manifest",
+        "name": "Manifest OS / Manifest Law",
+        "url": "https://manifestos.com",
+        "category": "ai_native_firm",
+        "hq": "United States",
+        "founded": 2024,
+        "valuation": "$750M (Apr 2026)",
+        "last_round": "$60M Series A, Apr 2026 \u2014 Menlo Ventures, Kleiner Perkins, First Round Capital, Quiet Capital. Reported as the largest Series A in legal tech history.",
+        "what_it_does": "Operating system for AI-native law firms: outcomes-based fixed pricing instead of the billable hour. Firms running on it practise under the Manifest Law brand; the first incubated firm is in business immigration, structured under Arizona's ABS programme.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "100+ attorneys serving 3,000+ clients across the US",
+        "notable": "The clearest expression of the 'services as software' thesis \u2014 capital is funding the firm, not the tool, and Arizona ABS is what makes the ownership structure legal",
+        "sources": [
+          "https://www.artificiallawyer.com/2026/04/28/newmod-manifest-os-bags-60m-at-750m-valuation/",
+          "https://www.globallegalpost.com/news/ai-legaltech-start-up-manifest-os-secures-60m-funding-at-750m-valuation-906906832"
+        ]
+      },
+      {
+        "id": "moritz",
+        "name": "Moritz",
+        "url": "https://www.moritzlegal.com",
+        "category": "ai_native_firm",
+        "hq": "Oslo / global",
+        "founded": 2025,
+        "valuation": null,
+        "last_round": "$9M seed/pre-seed \u2014 Y Combinator, 20VC, Urban Innovation",
+        "what_it_does": "AI-native firm for in-house teams. AI does the first ~80% of the work and clients pay lawyers for the final 20%, at flat upfront prices with same-day turnaround.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "Since launching in early 2026: 100+ companies supported, deals representing $2B+ in aggregate contract value across Europe, the US and Australia; reported ~4-hour average turnaround",
+        "sources": [
+          "https://www.globallegalpost.com/news/ai-native-law-firm-start-up-moritz-secures-9m-in-seed-funding-round-533457054",
+          "https://sifted.eu/articles/y-combinator-alum-moritz-raises-9m"
+        ]
+      },
+      {
+        "id": "alaro",
+        "name": "Alaro",
+        "url": "https://alaro.com",
+        "category": "ai_native_firm",
+        "hq": "Seattle",
+        "founded": 2025,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "AI-native firm built around 'AI coworkers' for legal teams \u2014 founded by a former Paul Hastings corporate lawyer, with AI handling research, drafting and analysis as the first pass.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Explicitly testing whether AI can replace the associate pyramid rather than assist it",
+        "sources": [
+          "https://alaro.com/blog/building-an-ai-native-law-firm-with-alaro",
+          "https://www.geekwire.com/2026/can-ai-replace-an-army-of-associates-these-lawyers-are-betting-their-new-firm-on-it/"
+        ]
+      },
+      {
+        "id": "soxton",
+        "name": "Soxton",
+        "url": "https://soxton.ai",
+        "category": "ai_native_firm",
+        "hq": "United States",
+        "founded": 2025,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Startup contract work with AI doing the first pass. Usage pricing, no billable hour: roughly $100\u2013200 per contract and $50\u2013100 per attorney conversation.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "The most legible pricing in the category \u2014 per artefact and per conversation, which is what unbundling actually looks like",
+        "sources": [
+          "https://news.bloomberglaw.com/business-and-practice/ai-native-firms-are-luring-frustrated-lawyers-away-from-big-law"
+        ]
+      },
+      {
+        "id": "talairis",
+        "name": "Talairis Law Group",
+        "url": "https://talairis.com",
+        "category": "ai_native_firm",
+        "hq": "United States",
+        "founded": 2026,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Launched May 2026 to advise startups using AI agents. Work product typically priced at 10\u201315% of a comparable large-firm bill.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://news.bloomberglaw.com/business-and-practice/ai-native-firms-are-luring-frustrated-lawyers-away-from-big-law"
+        ]
+      },
+      {
+        "id": "generallegal",
+        "name": "General Legal",
+        "url": "https://general.legal",
+        "category": "ai_native_firm",
+        "hq": "United States",
+        "founded": 2024,
+        "valuation": null,
+        "last_round": "$11.5M raised; Y Combinator alum",
+        "what_it_does": "AI-native firm for startups, staffed almost entirely by Big Law alumni with AI doing first-pass work.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "14 full-time lawyers; ~$2M annualised revenue",
+        "sources": [
+          "https://news.bloomberglaw.com/business-and-practice/ai-native-firms-are-luring-frustrated-lawyers-away-from-big-law"
+        ]
+      },
+      {
+        "id": "justpoint",
+        "name": "Justpoint Law",
+        "url": "https://justpoint.com",
+        "category": "ai_native_firm",
+        "hq": "New York",
+        "founded": 2019,
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "AI-driven personal injury and mass tort \u2014 data-led case identification and valuation.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Approved by the Arizona Supreme Court in July 2025 as the first AI-native PI/mass tort firm under an ABS licence \u2014 the US regulatory precedent that Garfield is to the UK",
+        "sources": [
+          "https://www.llamalab.ai/blog/first-ai-native-mass-tort-firm-arizona-abs"
+        ]
+      }
+    ],
+    "references": [
+      {
+        "name": "The AI Firm Index",
+        "url": "https://aifirmindex.com/",
+        "note": "Matt Pollins' (Lupl co-founder, ex-CMS partner) directory of AI-native law firms. Launched March 2026 with 27 entries, 40 by late April, just over 50 globally by late June \u2014 31 of them US. Scopes to regulated entities, not SaaS or marketplace models.",
+        "sources": [
+          "https://www.artificiallawyer.com/2026/03/30/ai-native-law-firm-directory-launches/",
+          "https://legaltechnology.com/2026/04/24/ai-native-law-firm-index-hits-40-listings/"
         ]
       }
     ]

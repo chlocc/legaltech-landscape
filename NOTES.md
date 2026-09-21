@@ -97,7 +97,40 @@ capability gap between labs to keep closing and the switching costs to stay low.
 Reported adoption: 40+ Am Law 100 firms with active enterprise AI contracts, Harvey claiming the
 largest share. Treat these as vendor claims — none are independently audited.
 
-## 6. What I'd watch next
+## 6. AI-native law firms — the segment where the constraint is law, not AI
+
+Eleven tracked here; the category directory (Matt Pollins' [AI Firm Index](https://aifirmindex.com/),
+launched March 2026) counted 27 at launch, 40 by late April, and just over 50 globally by late June —
+31 of them US. Its scoping rule is the useful one: **regulated entities**, not SaaS and not marketplaces.
+
+What makes these different from vendors is that they sell outcomes and price per artefact:
+
+- **Manifest OS** — $60M Series A at $750M (Apr 2026, Menlo/Kleiner/First Round/Quiet), reported as
+  the largest Series A in legal tech history. Not a firm itself: an operating system that firms
+  practise on under the Manifest Law brand. 100+ attorneys, 3,000+ clients. First incubated firm is
+  business immigration, under Arizona ABS.
+- **Crosby** — $60M Series B at ~$400M. Contract review with licensed attorney sign-off in a median
+  of 58 minutes, priced per document. Clients include Cursor and Clay.
+- **Moritz** — $9M seed (YC, 20VC, Urban Innovation). AI does ~80%, clients pay lawyers for the last
+  20%, flat price, same-day. 100+ companies and $2B+ aggregate contract value since launching in 2026.
+- **Soxton** — the most legible pricing in the category: ~$100–200 per contract, $50–100 per attorney
+  conversation. That is what unbundling actually looks like on an invoice.
+- **General Legal** ($11.5M, ~$2M ARR, 14 lawyers), **Alaro** (ex-Paul Hastings, Seattle),
+  **Talairis** (May 2026, 10–15% of a comparable BigLaw bill), **Eudia** ($105M+), **Lawhive**,
+  **Garfield**, **Justpoint**.
+
+**The binding constraint is regulatory, not technical.** You cannot build most of these firms in most
+US states, because non-lawyer ownership is prohibited. Arizona's Alternative Business Structure
+programme is the workaround — 100+ ABSs approved since 2021, including KPMG Law — and in July 2025
+Justpoint Law took the first ABS licence for an AI-native PI and mass tort firm. Manifest is
+incubating the same way. The UK equivalent is Garfield AI's SRA authorisation.
+
+So the interesting question in this segment is not model quality. It is whether a second US state
+follows Arizona, and what happens to UPL and fee-sharing rules when one does. Everything else here —
+the pricing experiments, the talent flow out of Big Law, the equity-instead-of-lockstep pitch — is
+downstream of that one regulatory fact.
+
+## 7. What I'd watch next
 
 1. **Does Anthropic go further up the stack?** The plugins already do practice-area workflow with
    playbook configuration. The gap between that and competing with Harvey is one product decision.
@@ -105,9 +138,9 @@ largest share. Treat these as vendor claims — none are independently audited.
    Claude Cowork plus an iManage connector, seat pricing at Level 2 is hard to defend.
 3. **Primary-law licensing.** OpenAI routed around Westlaw and Lexis using nonprofit data. Whether
    the incumbents respond by restricting, litigating, or partnering will shape the research layer.
-4. **AI-native firm regulation.** Garfield's SRA authorisation is the precedent. Whether a US state
-   follows — and what happens to UPL and fee-sharing rules if one does — is the real structural
-   question underneath all of this.
+4. **A second ABS state.** Arizona is currently the whole US story. Utah's sandbox is narrower and
+   other states have actively resisted. If one more opens, the AI-native segment stops being a
+   regulatory-arbitrage niche and becomes the default structure for commodity legal work.
 5. **Level 3 M&A.** If the moat is the proprietary data layer, expect the platforms to start buying
    DMS and knowledge-search companies rather than building against them.
 
