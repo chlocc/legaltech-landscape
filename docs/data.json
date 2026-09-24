@@ -209,7 +209,7 @@
           "https://legora.com/newsroom",
           "https://legora.com/newsroom/legora-raises-550-million-series-d-to-fuel-us-growth",
           "https://legora.com/newsroom/legora-extends-series-d-with-additional-50-million-welcomes-atlassian-and-nventures-as-investors",
-          "https://www.anthropic.com/customers/legora",
+          "https://claude.com/customers/legora",
           "https://en.wikipedia.org/wiki/Legora"
         ],
         "funding_history": "Founded 2023 in Stockholm as Leya, rebranded to Legora Feb 2025. Y Combinator W24; $80M Series B (May 2025, General Catalyst and Iconiq); $150M Series C (Oct 2025) at $1.8B; $550M Series D (Mar 2026, Accel) at $5.55B; +$50M extension (Apr 2026) at $5.6B. Founders Max Junestrand (CEO), Sigge Labor, August Ers\u00e9us.",
@@ -239,19 +239,19 @@
               "what": "Intapp",
               "when": "2026-08-25",
               "note": "Governed AI plus time capture \u2014 the billing and compliance side of agent work.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/legora-and-intapp-integrate-to-deliver-governed-ai-and-ai-driven-time-capture-for-lawyers"
             },
             {
               "what": "Everlaw",
               "when": "2026-05",
               "note": "Connects discovery to drafting: Legora's research assistant with Everlaw's AI Deep Dive.",
-              "url": "https://www.lawnext.com/2026/05/everlaw-and-legora-announce-integration-to-connect-discovery-and-drafting.html"
+              "url": "https://legora.com/newsroom/everlaw-and-legora-partner-to-create-end-to-end-ai-litigation-workflows"
             },
             {
               "what": "Avvoka",
               "when": "2026-08-24",
               "note": "Document automation and drafting.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/legora-and-avvoka-integrate-to-deliver-every-first-draft-inside-the-agentic-operating-system-for-legal-work"
             }
           ],
           "content": [
@@ -259,7 +259,7 @@
               "what": "The American Law Institute",
               "when": "2026-09-23",
               "note": "Restatements of the Law brought into the research platform \u2014 the first serious challenge to the Westlaw/Lexis content advantage from a startup.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/legora-partners-with-the-american-law-institute"
             }
           ],
           "firm_customers": [
@@ -285,7 +285,7 @@
               "what": "Bradley",
               "when": "2026-09-23",
               "note": "Adopted firm-wide.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/bradley-goes-firm-wide-with-legora"
             },
             {
               "what": "HWLE Lawyers",
@@ -297,7 +297,7 @@
               "what": "Edwin Coe",
               "when": "2026-09-11",
               "note": "Launched across all 14 practice groups.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/edwin-coe-rolls-out-legora-firm-wide-across-all-14-practice-groups"
             },
             {
               "what": "Harrison LLP",
@@ -308,26 +308,26 @@
             {
               "what": "Cleary Gottlieb",
               "when": null,
-              "note": "Also a Google Gemini Enterprise for Legal launch firm \u2014 running both.",
-              "url": null
+              "note": "Also a Google Gemini Enterprise for Legal launch firm \u2014 running both. Named as a Portal design partner.",
+              "url": "https://legora.com/newsroom/portal-announcement"
             },
             {
               "what": "Linklaters",
               "when": null,
-              "note": null,
-              "url": null
+              "note": "Named as a Portal design partner.",
+              "url": "https://legora.com/newsroom/portal-announcement"
             },
             {
               "what": "Goodwin",
               "when": null,
-              "note": null,
-              "url": null
+              "note": "Named as a Portal design partner.",
+              "url": "https://legora.com/newsroom/portal-announcement"
             },
             {
               "what": "Debevoise & Plimpton",
               "when": null,
-              "note": null,
-              "url": null
+              "note": "Named in vendor customer listings; no dedicated announcement found \u2014 lower confidence than the rest.",
+              "url": "https://gc.ai/blog/legora-legal-ai-review"
             }
           ],
           "inhouse_customers": [
@@ -335,27 +335,53 @@
               "what": "Salesforce",
               "when": "2026-09-16",
               "note": "Selected for the global legal team.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/salesforce-selects-legora-to-further-support-its-global-legal-team-operations"
             },
             {
               "what": "Veolia",
               "when": "2026-09-24",
               "note": "Selected to support the global legal function.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/veolia-selects-legora-to-power-ai-enabled-legal-work-across-its-global-legal-function"
             }
           ],
           "other": [
             {
+              "what": "Portal",
+              "when": "2026",
+              "note": "Its own product, not a partner: a shared surface for firm-client work, built with Linklaters, Cleary Gottlieb and Goodwin as design partners.",
+              "url": "https://legora.com/newsroom/portal-announcement"
+            },
+            {
               "what": "Singapore Management University",
               "when": "2026-09-09",
               "note": "Law school AI education partnership.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/singapore-management-university-partners-with-legora-to-bring-agentic-ai-to-its-law-school"
             },
             {
               "what": "Venus Williams",
               "when": "2026-08-25",
               "note": "Brand partnership.",
-              "url": "https://legora.com/newsroom"
+              "url": "https://legora.com/newsroom/legora-announces-brand-partnership-with-tennis-champion-and-entrepreneur-venus-williams"
+            }
+          ],
+          "platform": [
+            {
+              "what": "Anthropic \u2014 Claude",
+              "when": null,
+              "note": "Published Claude customer: Claude powers the assistant, document review and workflows. Also a named Claude for Legal partner.",
+              "url": "https://claude.com/customers/legora"
+            },
+            {
+              "what": "Google Cloud \u2014 Gemini Enterprise for Legal",
+              "when": "2026-08-25",
+              "note": "Joined as a legal AI partner at launch.",
+              "url": "https://legora.com/newsroom/legora-joins-google-cloud%E2%80%99s-gemini-enterprise-for-legal-launch-as-a-legal-ai-partner"
+            },
+            {
+              "what": "OpenAI \u2014 ChatGPT Enterprise plugin",
+              "when": "2026-09-17",
+              "note": "Shipped on Astra for Law launch day; Legora is also an Astra API customer.",
+              "url": "https://legora.com/newsroom/legora-announces-its-plugin-for-chatgpt-enterprise"
             }
           ]
         }

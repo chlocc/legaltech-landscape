@@ -201,6 +201,7 @@ def friction_cards(key, kind):
 
 
 PARTNER_GROUPS = [
+    ("platform", "Model platforms"),
     ("acquisitions", "Acquired"),
     ("tech_integrations", "Integrations"),
     ("content", "Content partners"),
