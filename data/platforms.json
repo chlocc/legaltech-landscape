@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-21",
+  "as_of": "2026-09-24",
   "note": "The foundation-model layer's direct moves into legal. This is the layer the rest of the market now has to position against.",
   "platforms": [
     {
@@ -106,9 +106,11 @@
         "Legal-specific skills and pre-built agents for contract review, diligence, regulatory monitoring and privacy requests",
         "Connectors into DMS, e-discovery and legal research systems with existing permissions preserved",
         "First industry-specific packaging of Gemini Enterprise, alongside a financial services edition; healthcare and life sciences flagged as next",
-        "Available in preview at launch"
+        "Available in preview at launch",
+        "App-layer partners joined at launch, Legora among them — Google is packaging the ecosystem rather than replacing it"
       ],
       "partners": [
+        "Legora",
         "Accenture",
         "Deloitte",
         "Devoteam",

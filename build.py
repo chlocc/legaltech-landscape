@@ -135,7 +135,7 @@ def company_cards():
         if c.get("founded"): meta.append(f'est. {e(c["founded"])}')
         if c.get("valuation"): meta.append(e(c["valuation"]))
         lines = ""
-        for label, key in (("Last round", "last_round"), ("Model use", "model_note"),
+        for label, key in (("Last round", "last_round"), ("History", "funding_history"), ("Model use", "model_note"),
                            ("Traction", "traction"), ("Why it matters", "notable"),
                            ("Caveat", "confidence")):
             if c.get(key):
@@ -161,6 +161,7 @@ def company_cards():
   <p class="co-desc">{e(c.get('what_it_does',''))}</p>
   {f'<div class="co-models">{models}</div>' if models else ''}
   {lines}
+  {partnerships_block(c)}
   {srcs}
 </article>""")
     return "\n".join(out)
@@ -196,6 +197,40 @@ def friction_cards(key, kind):
   {sources(f.get('sources', []), 'co-src')}
 </article>""")
     return "\n".join(out)
+
+
+
+PARTNER_GROUPS = [
+    ("acquisitions", "Acquired"),
+    ("tech_integrations", "Integrations"),
+    ("content", "Content partners"),
+    ("firm_customers", "Law firm customers"),
+    ("inhouse_customers", "In-house customers"),
+    ("other", "Other"),
+]
+
+
+def partnerships_block(c):
+    """Render a company's collaboration map when we have one."""
+    pt = c.get("partnerships")
+    if not pt:
+        return ""
+    groups = ""
+    for key, label in PARTNER_GROUPS:
+        items = pt.get(key) or []
+        if not items:
+            continue
+        rows = ""
+        for it in items:
+            nm = (f'<a href="{e(it["url"])}" target="_blank" rel="noopener">{e(it["what"])}</a>'
+                  if it.get("url") else e(it["what"]))
+            when = f'<span class="pn-when">{e(it["when"])}</span>' if it.get("when") else ""
+            note = f'<span class="pn-note">{e(it["note"])}</span>' if it.get("note") else ""
+            rows += f'<li><span class="pn-name">{nm}</span>{when}{note}</li>'
+        groups += f'<div class="pn-group"><span class="lbl">{label}</span><ul>{rows}</ul></div>'
+    n = sum(len(pt.get(k) or []) for k, _ in PARTNER_GROUPS)
+    return (f'<details class="pn"><summary>Collaboration map '
+            f'<em>{n} tracked</em></summary>{groups}</details>')
 
 
 def filter_buttons():
@@ -279,6 +314,22 @@ table.mx th[scope=row] a:hover {{ color:var(--accent); }}
 .callout p {{ margin:0 0 10px; font-size:14px; color:var(--ink2); }}
 .callout p:last-child {{ margin-bottom:0; }}
 .callout a {{ color:var(--accent); }}
+.pn {{ margin:12px 0 0; border-top:1px solid var(--line); padding-top:12px; }}
+.pn > summary {{ cursor:pointer; font:11px var(--mono); text-transform:uppercase; letter-spacing:.1em;
+  color:var(--ink2); list-style:none; }}
+.pn > summary::-webkit-details-marker {{ display:none; }}
+.pn > summary::before {{ content:"+ "; color:var(--accent); }}
+.pn[open] > summary::before {{ content:"\2212 "; }}
+.pn > summary:hover {{ color:var(--accent); }}
+.pn > summary em {{ font-style:normal; color:var(--ink3); text-transform:none; letter-spacing:0; margin-left:4px; }}
+.pn-group {{ margin-top:14px; }}
+.pn-group ul {{ list-style:none; margin:0; padding:0; }}
+.pn-group li {{ margin-bottom:9px; font-size:13px; }}
+.pn-name a {{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }}
+.pn-name a:hover {{ color:var(--accent); border-color:var(--accent); }}
+.pn-name {{ font-weight:500; color:var(--ink); }}
+.pn-when {{ font:10.5px var(--mono); color:var(--ink3); margin-left:7px; }}
+.pn-note {{ display:block; color:var(--ink2); font-size:12.5px; margin-top:2px; }}
 .fr-grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; margin-bottom:12px; }}
 .fr {{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px 22px; position:relative; }}
 .fr--block {{ border-left:3px solid #b4564a; }}

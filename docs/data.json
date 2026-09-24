@@ -1,6 +1,6 @@
 {
   "platforms": {
-    "as_of": "2026-09-21",
+    "as_of": "2026-09-24",
     "note": "The foundation-model layer's direct moves into legal. This is the layer the rest of the market now has to position against.",
     "platforms": [
       {
@@ -107,9 +107,11 @@
           "Legal-specific skills and pre-built agents for contract review, diligence, regulatory monitoring and privacy requests",
           "Connectors into DMS, e-discovery and legal research systems with existing permissions preserved",
           "First industry-specific packaging of Gemini Enterprise, alongside a financial services edition; healthcare and life sciences flagged as next",
-          "Available in preview at launch"
+          "Available in preview at launch",
+          "App-layer partners joined at launch, Legora among them \u2014 Google is packaging the ecosystem rather than replacing it"
         ],
         "partners": [
+          "Legora",
           "Accenture",
           "Deloitte",
           "Devoteam",
@@ -137,7 +139,7 @@
     ]
   },
   "companies": {
-    "as_of": "2026-09-21",
+    "as_of": "2026-09-24",
     "disclaimer": "Compiled from public reporting and vendor announcements. Valuations and funding are as last publicly reported and may be stale. 'Models' reflects publicly disclosed foundation-model use only; most vendors are multi-model and do not disclose routing. Fields left null are genuinely unknown, not zero.",
     "categories": {
       "platform": "Foundation-model vendor selling directly into legal",
@@ -189,24 +191,174 @@
         "hq": "Stockholm / New York",
         "founded": 2023,
         "valuation": "$5.6B (Apr 2026)",
-        "last_round": "$550M Series D at $5.55B (Mar 10 2026), extended +$50M in Apr 2026 with Atlassian and NVentures (NVIDIA)",
-        "what_it_does": "Collaborative legal AI platform. Best known for Tabular Review \u2014 turning a folder of contracts into an interactive grid for clause comparison and extraction at scale \u2014 plus agentic workflows spanning drafting, review, research and translation.",
+        "last_round": "$550M Series D led by Accel at $5.55B (Mar 10 2026), extended +$50M in Apr 2026 with Atlassian and NVentures (NVIDIA)",
+        "what_it_does": "Collaborative legal AI platform. Best known for Tabular Review \u2014 turning a folder of contracts into an interactive grid for clause comparison and extraction at scale \u2014 plus agentic workflows spanning drafting, review, research and translation, and a client portal for firm-client work.",
         "models": [
           "Anthropic",
-          "OpenAI"
+          "OpenAI",
+          "Google"
         ],
-        "model_note": "Anthropic publishes Legora as a Claude customer, using Claude across assistant, document review and workflows. Also an OpenAI API customer with Astra for Law access.",
+        "model_note": "Anthropic publishes Legora as a Claude customer, using Claude across assistant, document review and workflows. Also an OpenAI API customer with Astra for Law access, and now inside Google's Gemini Enterprise for Legal. Legora is in all three model ecosystems \u2014 the most complete hedge in the market.",
         "platform_integrations": {
           "anthropic": "Named Claude for Legal partner + published Claude customer",
-          "openai": "Astra for Law API customer + ChatGPT plugin",
-          "google": null
+          "openai": "Astra for Law API customer; ChatGPT Enterprise plugin (2026-09-17)",
+          "google": "Joined Gemini Enterprise for Legal at launch (2026-08-25)"
         },
-        "traction": "Aggressive US buildout: NY (11 Madison Ave, ~100k sq ft), Denver, Houston, Chicago; 300+ US staff targeted by end of 2026",
+        "traction": "Reported $100M ARR by April 2026, roughly 18 months in. 1,000+ law firms and in-house teams across 50+ countries. US buildout: NY (11 Madison Ave, ~100k sq ft), Denver, Houston, Chicago; 300+ US staff targeted by end of 2026.",
         "sources": [
+          "https://legora.com/newsroom",
           "https://legora.com/newsroom/legora-raises-550-million-series-d-to-fuel-us-growth",
           "https://legora.com/newsroom/legora-extends-series-d-with-additional-50-million-welcomes-atlassian-and-nventures-as-investors",
-          "https://www.anthropic.com/customers/legora"
-        ]
+          "https://www.anthropic.com/customers/legora",
+          "https://en.wikipedia.org/wiki/Legora"
+        ],
+        "funding_history": "Founded 2023 in Stockholm as Leya, rebranded to Legora Feb 2025. Y Combinator W24; $80M Series B (May 2025, General Catalyst and Iconiq); $150M Series C (Oct 2025) at $1.8B; $550M Series D (Mar 2026, Accel) at $5.55B; +$50M extension (Apr 2026) at $5.6B. Founders Max Junestrand (CEO), Sigge Labor, August Ers\u00e9us.",
+        "partnerships": {
+          "acquisitions": [
+            {
+              "what": "Walter AI",
+              "when": "2026-03",
+              "note": "Canadian agentic legal AI platform. Bought for the agentic roadmap and for Walter's relationships across major Canadian firms.",
+              "url": "https://legora.com/newsroom/legora-acquires-walter-ai-to-expand-its-agentic-platform-for-legal-teams"
+            }
+          ],
+          "tech_integrations": [
+            {
+              "what": "iManage",
+              "when": "expanded 2026",
+              "note": "API and MCP access so Legora's agents reach governed DMS content inside one workspace.",
+              "url": "https://legora.com/newsroom/legora-and-imanage-expand-partnership-to-power-a-faster-more-connected-workflow-for-legal-teams"
+            },
+            {
+              "what": "NetDocuments",
+              "when": "2025-07-31, deepened 2026-08-26",
+              "note": "Launch partner for the ndConnect interoperability programme; later an MCP connection giving Legora governed access to institutional knowledge.",
+              "url": "https://legora.com/newsroom/legora-deepens-its-netdocuments-partnership-to-bring-governed-institutional-knowledge-into-agentic-legal-work"
+            },
+            {
+              "what": "Intapp",
+              "when": "2026-08-25",
+              "note": "Governed AI plus time capture \u2014 the billing and compliance side of agent work.",
+              "url": "https://legora.com/newsroom"
+            },
+            {
+              "what": "Everlaw",
+              "when": "2026-05",
+              "note": "Connects discovery to drafting: Legora's research assistant with Everlaw's AI Deep Dive.",
+              "url": "https://www.lawnext.com/2026/05/everlaw-and-legora-announce-integration-to-connect-discovery-and-drafting.html"
+            },
+            {
+              "what": "Avvoka",
+              "when": "2026-08-24",
+              "note": "Document automation and drafting.",
+              "url": "https://legora.com/newsroom"
+            }
+          ],
+          "content": [
+            {
+              "what": "The American Law Institute",
+              "when": "2026-09-23",
+              "note": "Restatements of the Law brought into the research platform \u2014 the first serious challenge to the Westlaw/Lexis content advantage from a startup.",
+              "url": "https://legora.com/newsroom"
+            }
+          ],
+          "firm_customers": [
+            {
+              "what": "White & Case",
+              "when": "2025-12-18",
+              "note": "Global rollout to all lawyers across 43 offices in 29 countries.",
+              "url": "https://legora.com/newsroom/white-case-announces-global-rollout-of-legora-across-43-offices"
+            },
+            {
+              "what": "Herbert Smith Freehills Kramer",
+              "when": "2026",
+              "note": "Firmwide partnership.",
+              "url": "https://legora.com/newsroom/herbert-smith-freehills-kramer-partners-with-legora-to-empower-lawyers-with-advanced-ai-tools"
+            },
+            {
+              "what": "BCLP",
+              "when": "2026",
+              "note": "Selected as firmwide AI platform provider.",
+              "url": "https://legora.com/newsroom/legora-selected-by-bclp-as-firmwide-ai-platform-provider"
+            },
+            {
+              "what": "Bradley",
+              "when": "2026-09-23",
+              "note": "Adopted firm-wide.",
+              "url": "https://legora.com/newsroom"
+            },
+            {
+              "what": "HWLE Lawyers",
+              "when": "2026",
+              "note": "Firmwide AI platform (Australia).",
+              "url": "https://legora.com/newsroom/hwle-lawyers-selects-legora-as-firmwide-ai-platform"
+            },
+            {
+              "what": "Edwin Coe",
+              "when": "2026-09-11",
+              "note": "Launched across all 14 practice groups.",
+              "url": "https://legora.com/newsroom"
+            },
+            {
+              "what": "Harrison LLP",
+              "when": "2025-08",
+              "note": "Private wealth practice partnership.",
+              "url": "https://www.businesswire.com/news/home/20250825108430/en/Legora-and-Harrison-LLP-announce-partnership-to-bring-cutting-edge-AI-to-private-wealth-law-clients"
+            },
+            {
+              "what": "Cleary Gottlieb",
+              "when": null,
+              "note": "Also a Google Gemini Enterprise for Legal launch firm \u2014 running both.",
+              "url": null
+            },
+            {
+              "what": "Linklaters",
+              "when": null,
+              "note": null,
+              "url": null
+            },
+            {
+              "what": "Goodwin",
+              "when": null,
+              "note": null,
+              "url": null
+            },
+            {
+              "what": "Debevoise & Plimpton",
+              "when": null,
+              "note": null,
+              "url": null
+            }
+          ],
+          "inhouse_customers": [
+            {
+              "what": "Salesforce",
+              "when": "2026-09-16",
+              "note": "Selected for the global legal team.",
+              "url": "https://legora.com/newsroom"
+            },
+            {
+              "what": "Veolia",
+              "when": "2026-09-24",
+              "note": "Selected to support the global legal function.",
+              "url": "https://legora.com/newsroom"
+            }
+          ],
+          "other": [
+            {
+              "what": "Singapore Management University",
+              "when": "2026-09-09",
+              "note": "Law school AI education partnership.",
+              "url": "https://legora.com/newsroom"
+            },
+            {
+              "what": "Venus Williams",
+              "when": "2026-08-25",
+              "note": "Brand partnership.",
+              "url": "https://legora.com/newsroom"
+            }
+          ]
+        }
       },
       {
         "id": "cocounsel",
@@ -1324,11 +1476,13 @@
         "founded": 1946,
         "valuation": null,
         "last_round": null,
-        "what_it_does": "Gemini Enterprise for Legal launch firm.",
+        "what_it_does": "Gemini Enterprise for Legal launch firm, and also a named Legora customer \u2014 running both the model platform and the app layer on top of it.",
         "models": [
-          "Google"
+          "Google",
+          "Anthropic",
+          "OpenAI"
         ],
-        "model_note": null,
+        "model_note": "Google directly via Gemini Enterprise for Legal; Anthropic and OpenAI indirectly through Legora, which sits in all three ecosystems.",
         "platform_integrations": {
           "anthropic": null,
           "openai": null,
