@@ -139,7 +139,7 @@
     ]
   },
   "companies": {
-    "as_of": "2026-09-24",
+    "as_of": "2026-09-27",
     "disclaimer": "Compiled from public reporting and vendor announcements. Valuations and funding are as last publicly reported and may be stale. 'Models' reflects publicly disclosed foundation-model use only; most vendors are multi-model and do not disclose routing. Fields left null are genuinely unknown, not zero.",
     "categories": {
       "platform": "Foundation-model vendor selling directly into legal",
@@ -152,7 +152,9 @@
       "infra": "DMS, knowledge, firm operations and deal infrastructure",
       "practice_mgmt": "Practice management for small and mid-size firms",
       "ai_native_firm": "AI-native law firm or legal service provider (sells outcomes, not seats)",
-      "buyer": "Law firm or legal department building rather than buying"
+      "buyer": "Law firm or legal department building rather than buying",
+      "entity_mgmt": "Entity management, corporate secretarial and formation",
+      "alsp": "Flexible senior legal talent and managed legal services"
     },
     "companies": [
       {
@@ -1063,7 +1065,8 @@
         "notable": "Acquired traditional ALSP capacity to pair with the model layer \u2014 the services-roll-up pattern",
         "sources": [
           "https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms"
-        ]
+        ],
+        "scope": "US"
       },
       {
         "id": "crosby",
@@ -1088,7 +1091,8 @@
         "sources": [
           "https://www.lupl.com/blog/10-ai-law-firms-to-watch-in-2026/",
           "https://claude.com/blog/claude-for-the-legal-industry"
-        ]
+        ],
+        "scope": "US"
       },
       {
         "id": "garfield",
@@ -1112,7 +1116,8 @@
         "notable": "The regulatory precedent matters more than the product \u2014 SRA authorisation is the template others will cite",
         "sources": [
           "https://www.ibanet.org/AI-native-law-firm-regulatory-innovation-and-fundamental-restructuring-of-legal-service-delivery"
-        ]
+        ],
+        "scope": "UK (England & Wales)"
       },
       {
         "id": "lawhive",
@@ -1136,7 +1141,8 @@
         "notable": "Acquired Woodstock Legal Services (Sep 2025) \u2014 believed to be the first acquisition of a traditional law firm by an AI company",
         "sources": [
           "https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms"
-        ]
+        ],
+        "scope": "UK"
       },
       {
         "id": "normai",
@@ -1159,7 +1165,8 @@
         },
         "sources": [
           "https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms"
-        ]
+        ],
+        "scope": "US"
       },
       {
         "id": "solveintelligence",
@@ -1613,7 +1620,8 @@
         "sources": [
           "https://www.artificiallawyer.com/2026/04/28/newmod-manifest-os-bags-60m-at-750m-valuation/",
           "https://www.globallegalpost.com/news/ai-legaltech-start-up-manifest-os-secures-60m-funding-at-750m-valuation-906906832"
-        ]
+        ],
+        "scope": "US (Arizona ABS)"
       },
       {
         "id": "moritz",
@@ -1638,7 +1646,8 @@
         "sources": [
           "https://www.globallegalpost.com/news/ai-native-law-firm-start-up-moritz-secures-9m-in-seed-funding-round-533457054",
           "https://sifted.eu/articles/y-combinator-alum-moritz-raises-9m"
-        ]
+        ],
+        "scope": "Global \u2014 Europe, US, Australia"
       },
       {
         "id": "alaro",
@@ -1663,7 +1672,8 @@
         "sources": [
           "https://alaro.com/blog/building-an-ai-native-law-firm-with-alaro",
           "https://www.geekwire.com/2026/can-ai-replace-an-army-of-associates-these-lawyers-are-betting-their-new-firm-on-it/"
-        ]
+        ],
+        "scope": "US"
       },
       {
         "id": "soxton",
@@ -1687,7 +1697,8 @@
         "notable": "The most legible pricing in the category \u2014 per artefact and per conversation, which is what unbundling actually looks like",
         "sources": [
           "https://news.bloomberglaw.com/business-and-practice/ai-native-firms-are-luring-frustrated-lawyers-away-from-big-law"
-        ]
+        ],
+        "scope": "US"
       },
       {
         "id": "talairis",
@@ -1710,7 +1721,8 @@
         },
         "sources": [
           "https://news.bloomberglaw.com/business-and-practice/ai-native-firms-are-luring-frustrated-lawyers-away-from-big-law"
-        ]
+        ],
+        "scope": "US"
       },
       {
         "id": "generallegal",
@@ -1734,7 +1746,8 @@
         "traction": "14 full-time lawyers; ~$2M annualised revenue",
         "sources": [
           "https://news.bloomberglaw.com/business-and-practice/ai-native-firms-are-luring-frustrated-lawyers-away-from-big-law"
-        ]
+        ],
+        "scope": "US"
       },
       {
         "id": "justpoint",
@@ -1758,6 +1771,473 @@
         "notable": "Approved by the Arizona Supreme Court in July 2025 as the first AI-native PI/mass tort firm under an ABS licence \u2014 the US regulatory precedent that Garfield is to the UK",
         "sources": [
           "https://www.llamalab.ai/blog/first-ai-native-mass-tort-firm-arizona-abs"
+        ],
+        "scope": "US (Arizona ABS)"
+      },
+      {
+        "id": "piersonferdinand",
+        "name": "Pierson Ferdinand",
+        "url": "https://pierferd.com",
+        "category": "ai_native_firm",
+        "hq": "Distributed (no offices)",
+        "founded": 2024,
+        "scope": "US + UK",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Partner-only, fully distributed law firm across 90+ practice areas including corporate. No associates and no junior training by design \u2014 AI absorbs the work the junior layer would have done. Launched Jan 2024 with 130+ partners, one of the largest launches in US history; now near 300.",
+        "models": [
+          "Anthropic",
+          "OpenAI",
+          "Google"
+        ],
+        "model_note": "Runs on Harvey, chosen for legal purpose-build and for SOC 2 Type II / ISO 27001 / GDPR posture. Harvey is multi-model, so this is indirect exposure to all three labs.",
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "~300 partners, 90+ practice areas, US and UK. Partners retain a far larger share of billings; the firm reports most joiners earning 2\u20133x their prior Big Law income.",
+        "notable": "The largest working example of partner-only economics paired with AI: at scale, across two jurisdictions, with AI named explicitly as the replacement for the associate layer.",
+        "sources": [
+          "https://www.harvey.ai/customers/pierson-ferdinand",
+          "https://www.law360.com/pulse/articles/2519822/how-a-partner-only-law-firm-uses-ai-to-replace-associates",
+          "https://www.cityam.com/fully-remote-with-no-associates-meet-the-elite-law-firm-of-the-future/"
+        ]
+      },
+      {
+        "id": "fisherbroyles",
+        "name": "FisherBroyles",
+        "url": "https://fisherbroyles.com",
+        "category": "ai_native_firm",
+        "hq": "Distributed",
+        "founded": 2002,
+        "scope": "US + UK + Germany",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "The original partner-only distributed firm \u2014 'Law Firm 2.0' \u2014 founded two decades before the AI wave. No associates, no offices, partners keep most of their billings.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Proof the senior-only economic model works without AI at all. AI makes it cheaper to run, it did not make it possible. Pierson Ferdinand's founders and 130+ of its launch partners came from here.",
+        "sources": [
+          "https://fisherbroyles.com/",
+          "https://www.abajournal.com/news/article/is-virtual-law-firm-fisherbroyles-about-to-lose-140-lawyers-details-of-significant-new-venture-to-come"
+        ]
+      },
+      {
+        "id": "cartalaw",
+        "name": "Carta Law (fka Avantia)",
+        "url": "https://carta.com/blog/avantia-law-acquisition/",
+        "category": "ai_native_firm",
+        "hq": "London / San Francisco",
+        "founded": 2019,
+        "scope": "Global \u2014 funds across $15T AUM",
+        "valuation": null,
+        "last_round": "Acquired by Carta, announced 2026-05-13",
+        "what_it_does": "AI-native legal and compliance for asset managers, now a division of Carta. Runs an AI workflow engine (Ava) folded into Carta's ERP so fund legal and compliance sit next to fund operations.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "200+ asset managers including 30% of the world's largest funds, across ~$15T AUM. Carta's fourth acquisition since Oct 2025.",
+        "notable": "The single most important structural event for this question: a SaaS platform bought a law firm rather than partnering with one, explicitly to remove the need to instruct outside counsel for routine work. The SaaS/law-firm boundary is not holding.",
+        "sources": [
+          "https://www.businesswire.com/news/home/20260513917345/en/Carta-Launches-Carta-Law-with-Acquisition-of-Avantia",
+          "https://www.artificiallawyer.com/2026/05/13/carta-buys-alsp-avantia-launches-ai-first-law-firm/",
+          "https://www.globallegalpost.com/news/us-private-capital-focused-erp-provider-carta-acquires-uk-alsp-avantia-833132983"
+        ]
+      },
+      {
+        "id": "arcline",
+        "name": "Arcline",
+        "url": "https://www.ycombinator.com/launches/PEh-arcline-ai-native-legal-services-for-startups",
+        "category": "ai_native_firm",
+        "hq": "San Francisco",
+        "founded": 2025,
+        "scope": "US + Europe",
+        "valuation": null,
+        "last_round": "Y Combinator W26",
+        "what_it_does": "AI-native legal services for startups: AI generates first drafts, lawyers do final revisions, flat fee per document rather than hourly. Claims ~80% reduction in lawyer work and frequent same-day turnaround.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "traction": "50+ venture-backed startups across the US and Europe. Lawyers drawn from Cooley, Goodwin and Fenwick; founder was outside counsel to OpenAI.",
+        "sources": [
+          "https://www.artificiallawyer.com/2026/02/04/y-combinator-picks-3-newmods-general-legal-arcline-legalos/"
+        ]
+      },
+      {
+        "id": "agilecounsel",
+        "name": "AgileCounsel",
+        "url": "https://agilecounsel.com",
+        "category": "ai_native_firm",
+        "hq": "San Francisco / Singapore",
+        "founded": null,
+        "scope": "Global \u2014 US + Asia cross-border",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Startup, venture capital and M&A firm serving founders, investors and tech companies on cross-border US\u2013Asia matters.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "One of very few in this category built cross-border from the start rather than US-first with expansion later.",
+        "sources": [
+          "https://agilecounsel.com/",
+          "https://aifirmindex.com/"
+        ]
+      },
+      {
+        "id": "vector",
+        "name": "Vector",
+        "url": "https://aifirmindex.com/",
+        "category": "ai_native_firm",
+        "hq": "United States",
+        "founded": null,
+        "scope": "US",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Startup legal combining lawyers and paralegals averaging 10+ years of Big Law experience with custom-built AI, priced well below Big Law rates.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "confidence": "thin public information; details from directory listings",
+        "sources": [
+          "https://aifirmindex.com/"
+        ]
+      },
+      {
+        "id": "ontra",
+        "name": "Ontra",
+        "url": "https://www.ontra.ai",
+        "category": "contract",
+        "hq": "San Francisco",
+        "founded": 2014,
+        "scope": "Global \u2014 private markets",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "High-volume routine contract negotiation for private fund managers and investment banks \u2014 NDAs above all. Sold two ways: Accord as in-house software, and Contract Automation as a fully outsourced service pairing AI with Ontra's global network of lawyers.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "The clearest example of the hybrid that isn't a law firm: it does the negotiation, not just the tooling, and reports an early adopter saving 67% of time per contract.",
+        "sources": [
+          "https://www.ontra.ai/blog/contract-outsourcing/",
+          "https://finance.yahoo.com/news/ontra-unveils-accord-ai-powered-133000905.html"
+        ]
+      },
+      {
+        "id": "athennian",
+        "name": "Athennian",
+        "url": "https://www.athennian.com",
+        "category": "entity_mgmt",
+        "hq": "Calgary",
+        "founded": 2017,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Cloud-native entity management: corporate records, minute books, cap tables, filings and real-time org charts. Used by corporate paralegals, law clerks, corporate secretaries and legal ops.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "The modern default for the corporate secretarial workstream \u2014 minute books, registers, filings and org charts as software rather than as billable paralegal hours.",
+        "sources": [
+          "https://www.athennian.com/company-types/corporate-groups"
+        ]
+      },
+      {
+        "id": "diligent_entities",
+        "name": "Diligent Entities",
+        "url": "https://www.diligent.com",
+        "category": "entity_mgmt",
+        "hq": "New York",
+        "founded": null,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Enterprise entity management and governance \u2014 centralises the corporate record as a single source of truth, tied to board and compliance tooling.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://www.anywherer.com/best-corporate-entity-management-software/"
+        ]
+      },
+      {
+        "id": "csc",
+        "name": "CSC",
+        "url": "https://www.cscglobal.com",
+        "category": "entity_mgmt",
+        "hq": "Wilmington, DE",
+        "founded": 1899,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Registered agent, entity management and filings at enterprise scale, tying minute book and resolution workflows to the entity record. Software plus a managed service layer.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "The incumbent that already does corp sec as a service globally. Competing on corp sec means competing with CSC's filing footprint, not just with software.",
+        "sources": [
+          "https://www.anywherer.com/best-corporate-entity-management-software/"
+        ]
+      },
+      {
+        "id": "klea",
+        "name": "Klea",
+        "url": "https://klealegal.com",
+        "category": "entity_mgmt",
+        "hq": "Belgium",
+        "founded": 2019,
+        "scope": "Global \u2014 100+ countries",
+        "valuation": null,
+        "last_round": "Acquired by Quantios (2026)",
+        "what_it_does": "AI-embedded legal entity management for multinationals: formation, registers, ownership, officers, subsidiary governance, annual filings and approvals, with local know-how modules across 100+ jurisdictions.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Proven across 100+ multinationals in 120+ countries \u2014 the closest existing product to automated corp sec at global scale, and it is software, not a firm.",
+        "sources": [
+          "https://klealegal.com/entity-management/legal-entity-management-software",
+          "https://news.quantios.com/press-centre/quantios-acquires-klea-accelerates-automation-in-corporate-services"
+        ]
+      },
+      {
+        "id": "vistra",
+        "name": "Vistra",
+        "url": "https://www.vistra.com",
+        "category": "entity_mgmt",
+        "hq": "Hong Kong",
+        "founded": 1986,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Corporate services at global scale \u2014 entity formation, corporate secretarial, accounting and compliance across jurisdictions, with Blueprint as the workflow layer.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "With TMF and CSC, one of the incumbents that has offered end-to-end corporate secretarial work across jurisdictions at fixed prices for decades \u2014 without AI and without being a law firm.",
+        "sources": [
+          "https://www.anywherer.com/best-corporate-entity-management-software/"
+        ]
+      },
+      {
+        "id": "clerky",
+        "name": "Clerky",
+        "url": "https://www.clerky.com",
+        "category": "entity_mgmt",
+        "hq": "San Francisco",
+        "founded": 2011,
+        "scope": "US only (Delaware C-corp)",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Automates incorporation and ongoing corporate paperwork for venture-track Delaware C-corps: formation, SAFEs, board consents, equity grants and the long tail of routine corporate documents.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Has automated startup corporate paperwork end to end, from formation onward, for over a decade \u2014 as document automation, not advice, which is how it avoids practising law.",
+        "sources": [
+          "https://pulley.com/blog-posts/clerky-pulley-partnership"
+        ]
+      },
+      {
+        "id": "carta",
+        "name": "Carta",
+        "url": "https://carta.com",
+        "category": "entity_mgmt",
+        "hq": "San Francisco",
+        "founded": 2012,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Cap table, equity and fund administration, now positioned as an agentic ERP for private capital \u2014 and, since acquiring Avantia, the owner of a law firm.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Went from adjacent SaaS to legal provider by acquisition. The pattern to watch: platforms that already hold the corporate record adding the legal layer on top.",
+        "sources": [
+          "https://www.businesswire.com/news/home/20260513917345/en/Carta-Launches-Carta-Law-with-Acquisition-of-Avantia"
+        ]
+      },
+      {
+        "id": "pulley",
+        "name": "Pulley",
+        "url": "https://pulley.com",
+        "category": "entity_mgmt",
+        "hq": "San Francisco",
+        "founded": 2019,
+        "scope": "US",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Cap table and equity management for startups; integrates with Clerky so incorporation flows straight into a cap table.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://pulley.com/blog-posts/clerky-pulley-partnership"
+        ]
+      },
+      {
+        "id": "firstbase",
+        "name": "Firstbase",
+        "url": "https://www.firstbase.io",
+        "category": "entity_mgmt",
+        "hq": "New York",
+        "founded": 2017,
+        "scope": "Global \u2014 US entity formation for non-US founders",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Formation plus the operational wrap \u2014 registered address, mailroom, bookkeeping, tax and compliance from one vendor.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://sparklaun.ch/compare/stripe-atlas-alternatives"
+        ]
+      },
+      {
+        "id": "axiom",
+        "name": "Axiom",
+        "url": "https://www.axiomlaw.com",
+        "category": "alsp",
+        "hq": "New York",
+        "founded": 2000,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "On-demand senior legal talent \u2014 secondments, fractional GC and specialised advice from lawyers with Am Law 200 and Fortune 500 backgrounds, now with an AI-enabled services layer.",
+        "models": [
+          "multiple, undisclosed"
+        ],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "notable": "Has sold senior-experience-without-the-pyramid for 25 years. The talent thesis is not new; pairing it with AI and fixed pricing is the new part.",
+        "sources": [
+          "https://www.axiomlaw.com/alsp"
+        ]
+      },
+      {
+        "id": "priori",
+        "name": "Priori Legal",
+        "url": "https://www.priorilegal.com",
+        "category": "alsp",
+        "hq": "New York",
+        "founded": 2013,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "Marketplace matching in-house teams to vetted outside counsel, including cross-border and specialist coverage, with managed pricing.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://www.priorilegal.com/"
+        ]
+      },
+      {
+        "id": "lawtrades",
+        "name": "Lawtrades",
+        "url": "https://www.lawtrades.com",
+        "category": "alsp",
+        "hq": "New York",
+        "founded": 2016,
+        "scope": "Global",
+        "valuation": null,
+        "last_round": null,
+        "what_it_does": "On-demand legal talent platform for in-house teams \u2014 fractional and project-based senior lawyers.",
+        "models": [],
+        "model_note": null,
+        "platform_integrations": {
+          "anthropic": null,
+          "openai": null,
+          "google": null
+        },
+        "sources": [
+          "https://www.lawtrades.com/"
         ]
       }
     ],

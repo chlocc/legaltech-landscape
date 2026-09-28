@@ -10,11 +10,12 @@ SITE.mkdir(exist_ok=True)
 companies = json.loads((D / "companies.json").read_text())
 platforms = json.loads((D / "platforms.json").read_text())
 frictions = json.loads((D / "frictions.json").read_text())
+corporate = json.loads((D / "corporate.json").read_text())
 
 e = lambda s: html.escape(str(s), quote=True)
 
 CAT_ORDER = ["assistant", "contract", "litigation", "research", "inhouse",
-             "ip", "infra", "practice_mgmt", "ai_native_firm", "buyer"]
+             "ip", "entity_mgmt", "infra", "practice_mgmt", "ai_native_firm", "alsp", "buyer"]
 
 PLATFORM_KEYS = [("anthropic", "Anthropic"), ("openai", "OpenAI"), ("google", "Google")]
 
@@ -26,6 +27,7 @@ SHORT = {
     "research": "Research & data", "inhouse": "In-house tooling",
     "ip": "IP & patents", "infra": "DMS & infrastructure",
     "practice_mgmt": "Practice management", "ai_native_firm": "AI-native firm",
+    "entity_mgmt": "Entity &amp; corp sec", "alsp": "Senior talent / ALSP",
     "buyer": "Firms building",
 }
 
@@ -134,6 +136,7 @@ def company_cards():
         if c.get("hq"): meta.append(e(c["hq"]))
         if c.get("founded"): meta.append(f'est. {e(c["founded"])}')
         if c.get("valuation"): meta.append(e(c["valuation"]))
+        if c.get("scope"): meta.append(e(c["scope"]))
         lines = ""
         for label, key in (("Last round", "last_round"), ("History", "funding_history"), ("Model use", "model_note"),
                            ("Traction", "traction"), ("Why it matters", "notable"),
@@ -234,6 +237,36 @@ def partnerships_block(c):
             f'<em>{n} tracked</em></summary>{groups}</details>')
 
 
+
+def corporate_table():
+    ws = corporate["workstreams"]
+    head = "".join('<th class="ws">' + lab + "</th>" for _, lab in ws)
+    url_by_id = {c["id"]: c.get("url") for c in companies["companies"]}
+    rows = ""
+    for pr in corporate["providers"]:
+        url = url_by_id.get(pr["id"])
+        nm = ('<a href="' + e(url) + '" target="_blank" rel="noopener">' + e(pr["name"]) + "</a>"
+              if url else e(pr["name"]))
+        cells = ""
+        for key, _ in ws:
+            v = (pr["cov"].get(key) or "").strip()
+            if v == "y":
+                cells += '<td class="cv cv-y"><span>&#9679;</span></td>'
+            elif v == "part":
+                cells += '<td class="cv cv-p"><span>&#9676;</span></td>'
+            else:
+                cells += '<td class="cv"></td>'
+        rows += ('<tr><th scope="row">' + nm
+                 + '<span class="cp-model cp-' + e(pr["model"]) + '">'
+                 + e(corporate["models"][pr["model"]]) + "</span>"
+                 + '<span class="cp-scope">' + e(pr["scope"]) + "</span></th>"
+                 + cells
+                 + '<td class="cp-detail"><b>' + e(pr["pricing"]) + "</b><span>"
+                 + e(pr["note"]) + "</span></td></tr>")
+    return ('<table class="cp"><thead><tr><th>Provider</th>' + head
+            + "<th>Pricing &amp; note</th></tr></thead><tbody>" + rows + "</tbody></table>")
+
+
 def filter_buttons():
     counts = {}
     for c in companies["companies"]:
@@ -315,6 +348,26 @@ table.mx th[scope=row] a:hover {{ color:var(--accent); }}
 .callout p {{ margin:0 0 10px; font-size:14px; color:var(--ink2); }}
 .callout p:last-child {{ margin-bottom:0; }}
 .callout a {{ color:var(--accent); }}
+.cp {{ width:100%; border-collapse:collapse; font-size:13px; min-width:900px; }}
+.cp th, .cp td {{ border-bottom:1px solid var(--line); padding:12px 9px; text-align:left; vertical-align:top; }}
+.cp thead th {{ font:10.5px var(--mono); text-transform:uppercase; letter-spacing:.09em; color:var(--ink3); }}
+.cp thead th.ws {{ text-align:center; width:92px; }}
+.cp th[scope=row] {{ font-weight:500; width:190px; }}
+.cp th[scope=row] a {{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }}
+.cp th[scope=row] a:hover {{ color:var(--accent); border-color:var(--accent); }}
+.cp-model {{ display:inline-block; font:9.5px var(--mono); text-transform:uppercase; letter-spacing:.06em;
+  padding:2px 6px; border-radius:4px; margin-top:5px; }}
+.cp-firm {{ background:rgba(217,119,87,.16); color:var(--anthropic); }}
+.cp-hybrid {{ background:rgba(168,132,214,.18); color:#b492d8; }}
+.cp-saas {{ background:rgba(91,141,239,.16); color:var(--google); }}
+.cp-services {{ background:rgba(79,157,122,.18); color:#68b894; }}
+.cp-scope {{ display:block; font:10px var(--mono); color:var(--ink3); margin-top:4px; }}
+.cv {{ text-align:center; }}
+.cv-y span {{ color:var(--accent); font-size:13px; }}
+.cv-p span {{ color:var(--ink3); font-size:13px; }}
+.cp-detail b {{ display:block; font-weight:500; color:var(--ink); font-size:12.5px; margin-bottom:4px; }}
+.cp-detail span {{ color:var(--ink2); font-size:12.5px; }}
+.legend {{ display:flex; gap:20px; flex-wrap:wrap; font:11px var(--mono); color:var(--ink3); margin:14px 0 0; }}
 .pn {{ margin:12px 0 0; border-top:1px solid var(--line); padding-top:12px; }}
 .pn > summary {{ cursor:pointer; font:11px var(--mono); text-transform:uppercase; letter-spacing:.1em;
   color:var(--ink2); list-style:none; }}
@@ -430,6 +483,7 @@ footer p {{ max-width:75ch; }}
     <a href="#matrix">Integration matrix</a>
     <a href="#ainative">AI-native firms</a>
     <a href="#companies">Who does what</a>
+    <a href="#corporate">Corporate coverage</a>
     <a href="#frictions">Bottlenecks &amp; openings</a>
     <a href="#reading">Reading</a>
   </nav>
@@ -491,8 +545,19 @@ footer p {{ max-width:75ch; }}
   </div>
 </div></section>
 
+<section id="corporate"><div class="wrap">
+  <h2>05 &mdash; Corporate work: who covers what</h2>
+  <p class="lede">Corporate legal work &mdash; NDAs and commercial paper, formation, corporate secretarial, equity, deals &mdash; is served by four different kinds of provider at once, and they are converging. <strong>The line between &ldquo;law firm&rdquo; and &ldquo;software&rdquo; stopped holding in May 2026, when Carta bought a law firm outright.</strong> Geography is the other axis worth reading: most AI-native firms are US-only, while the corporate secretarial incumbents have been global for decades.</p>
+  <div class="mx-scroll">{corporate_table()}</div>
+  <div class="legend">
+    <span><span style="color:var(--accent)">&#9679;</span> core offering</span>
+    <span><span style="color:var(--ink3)">&#9676;</span> partial or adjacent</span>
+    <span>blank &mdash; not covered</span>
+  </div>
+</div></section>
+
 <section id="frictions"><div class="wrap">
-  <h2>05 &mdash; Where it's stuck, and what's open</h2>
+  <h2>06 &mdash; Where it's stuck, and what's open</h2>
   <p class="lede">The capability argument is mostly over. What's left is a set of problems that are commercial, organisational and regulatory &mdash; and the gaps those leave are the actual opportunity. <strong>Almost none of the stated blockers are about whether the models are good enough.</strong></p>
 
   <div class="split-h"><h3>Bottlenecks</h3><span>What is actually holding it up</span></div>
@@ -507,7 +572,7 @@ footer p {{ max-width:75ch; }}
 </div></section>
 
 <section id="reading"><div class="wrap">
-  <h2>06 &mdash; Reading</h2>
+  <h2>07 &mdash; Reading</h2>
   <div class="reads">
     <div class="read"><a href="https://helenfan1.substack.com/" target="_blank" rel="noopener">Helen's Legal AI Lab &mdash; Helen Fan</a>
       <p>The Legal AI Value Stack (V2): five levels from raw model, to workflow redesigned around agents, to a self-learning data layer within client and ethical-wall boundaries, to AI as system of record, to the AI-native firm. The most useful framework for judging whether a vendor has anything defensible.</p></div>

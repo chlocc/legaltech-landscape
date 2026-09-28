@@ -25,6 +25,7 @@ That compresses the interesting question for every app-layer company into one th
 data/platforms.json    the three model-vendor legal products, in detail
 data/companies.json    60 companies/firms: what they sell, funding, model use, integrations
 data/frictions.json    bottlenecks and openings, with the survey/sanctions data behind them
+data/corporate.json    corporate-work coverage matrix: provider x workstream, by model type and geography
 build.py               renders docs/ from data/ — no dependencies
 docs/index.html        generated, self-contained, filterable (GitHub Pages serves this)
 docs/data.json         the full dataset as one file
@@ -53,6 +54,7 @@ Then open `docs/index.html`. Editing `data/*.json` and re-running is the whole w
 ## Known gaps
 
 - European and APAC vendors are under-covered relative to US ones.
+- The corporate coverage matrix is a judgement call per cell, not a vendor-confirmed feature list.
 - Pricing is almost entirely absent — legal AI pricing is rarely public, and what is public is list price.
 - Adoption figures ("40+ Am Law 100 firms") come from vendor claims and are not independently verified.
 - LexisNexis model attribution is low confidence.

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Legal AI Landscape &mdash; the model layer and everyone building on it</title>
-<meta name="description" content="Who is building what in legal AI, and which foundation-model platform they plug into. Updated 2026-09-24.">
+<meta name="description" content="Who is building what in legal AI, and which foundation-model platform they plug into. Updated 2026-09-27.">
 <style>
 :root {
   --bg:#0e1013; --panel:#16191e; --panel2:#1c2027; --line:#262b33;
@@ -67,6 +67,26 @@ table.mx th[scope=row] a:hover { color:var(--accent); }
 .callout p { margin:0 0 10px; font-size:14px; color:var(--ink2); }
 .callout p:last-child { margin-bottom:0; }
 .callout a { color:var(--accent); }
+.cp { width:100%; border-collapse:collapse; font-size:13px; min-width:900px; }
+.cp th, .cp td { border-bottom:1px solid var(--line); padding:12px 9px; text-align:left; vertical-align:top; }
+.cp thead th { font:10.5px var(--mono); text-transform:uppercase; letter-spacing:.09em; color:var(--ink3); }
+.cp thead th.ws { text-align:center; width:92px; }
+.cp th[scope=row] { font-weight:500; width:190px; }
+.cp th[scope=row] a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); }
+.cp th[scope=row] a:hover { color:var(--accent); border-color:var(--accent); }
+.cp-model { display:inline-block; font:9.5px var(--mono); text-transform:uppercase; letter-spacing:.06em;
+  padding:2px 6px; border-radius:4px; margin-top:5px; }
+.cp-firm { background:rgba(217,119,87,.16); color:var(--anthropic); }
+.cp-hybrid { background:rgba(168,132,214,.18); color:#b492d8; }
+.cp-saas { background:rgba(91,141,239,.16); color:var(--google); }
+.cp-services { background:rgba(79,157,122,.18); color:#68b894; }
+.cp-scope { display:block; font:10px var(--mono); color:var(--ink3); margin-top:4px; }
+.cv { text-align:center; }
+.cv-y span { color:var(--accent); font-size:13px; }
+.cv-p span { color:var(--ink3); font-size:13px; }
+.cp-detail b { display:block; font-weight:500; color:var(--ink); font-size:12.5px; margin-bottom:4px; }
+.cp-detail span { color:var(--ink2); font-size:12.5px; }
+.legend { display:flex; gap:20px; flex-wrap:wrap; font:11px var(--mono); color:var(--ink3); margin:14px 0 0; }
 .pn { margin:12px 0 0; border-top:1px solid var(--line); padding-top:12px; }
 .pn > summary { cursor:pointer; font:11px var(--mono); text-transform:uppercase; letter-spacing:.1em;
   color:var(--ink2); list-style:none; }
@@ -176,12 +196,13 @@ footer p { max-width:75ch; }
 <header class="top"><div class="wrap">
   <h1>Legal AI: the <span>model layer</span><br>and everyone building on it</h1>
   <p>Three foundation-model vendors shipped legal products in four months. Every incumbent had to decide whether to become a connector. This tracks who sells what, and which platform they plugged into.</p>
-  <div class="asof">As of 2026-09-24 &middot; 60 entities tracked</div>
+  <div class="asof">As of 2026-09-27 &middot; 79 entities tracked</div>
   <nav class="jump">
     <a href="#platforms">The platform layer</a>
     <a href="#matrix">Integration matrix</a>
     <a href="#ainative">AI-native firms</a>
     <a href="#companies">Who does what</a>
+    <a href="#corporate">Corporate coverage</a>
     <a href="#frictions">Bottlenecks &amp; openings</a>
     <a href="#reading">Reading</a>
   </nav>
@@ -284,7 +305,7 @@ footer p { max-width:75ch; }
 
 <section id="ainative"><div class="wrap">
   <h2>03 &mdash; AI-native law firms</h2>
-  <p class="lede">The smallest segment and the only one not retrofitting. These are <strong>regulated law firms</strong>, not software: the first pass is a model, the lawyer is the last checkpoint, and the price is per artefact or per outcome rather than per hour. 11 tracked here &mdash; the category directory counts just over 50 globally, 31 of them US.</p>
+  <p class="lede">The smallest segment and the only one not retrofitting. These are <strong>regulated law firms</strong>, not software: the first pass is a model, the lawyer is the last checkpoint, and the price is per artefact or per outcome rather than per hour. 17 tracked here &mdash; the category directory counts just over 50 globally, 31 of them US.</p>
   <div class="callout">
     <h4>The unlock is regulatory, not technical</h4>
     <p>You cannot build this firm in most US states. Non-lawyer ownership is the blocker, and
@@ -295,7 +316,7 @@ footer p { max-width:75ch; }
     <p>So the question underneath this whole segment isn't whether the models are good enough. It's whether a
     second US state follows Arizona &mdash; and what happens to UPL and fee-sharing rules when one does.</p>
   </div>
-  <p class="firmlist"><a href="https://alaro.com" target="_blank" rel="noopener">Alaro</a> &middot; <a href="https://crosby.ai" target="_blank" rel="noopener">Crosby</a> &middot; <a href="https://eudia.com" target="_blank" rel="noopener">Eudia</a> &middot; <a href="https://garfield.law" target="_blank" rel="noopener">Garfield AI</a> &middot; <a href="https://general.legal" target="_blank" rel="noopener">General Legal</a> &middot; <a href="https://justpoint.com" target="_blank" rel="noopener">Justpoint Law</a> &middot; <a href="https://lawhive.co.uk" target="_blank" rel="noopener">Lawhive</a> &middot; <a href="https://manifestos.com" target="_blank" rel="noopener">Manifest OS / Manifest Law</a> &middot; <a href="https://www.moritzlegal.com" target="_blank" rel="noopener">Moritz</a> &middot; <a href="https://soxton.ai" target="_blank" rel="noopener">Soxton</a> &middot; <a href="https://talairis.com" target="_blank" rel="noopener">Talairis Law Group</a></p>
+  <p class="firmlist"><a href="https://agilecounsel.com" target="_blank" rel="noopener">AgileCounsel</a> &middot; <a href="https://alaro.com" target="_blank" rel="noopener">Alaro</a> &middot; <a href="https://www.ycombinator.com/launches/PEh-arcline-ai-native-legal-services-for-startups" target="_blank" rel="noopener">Arcline</a> &middot; <a href="https://carta.com/blog/avantia-law-acquisition/" target="_blank" rel="noopener">Carta Law (fka Avantia)</a> &middot; <a href="https://crosby.ai" target="_blank" rel="noopener">Crosby</a> &middot; <a href="https://eudia.com" target="_blank" rel="noopener">Eudia</a> &middot; <a href="https://fisherbroyles.com" target="_blank" rel="noopener">FisherBroyles</a> &middot; <a href="https://garfield.law" target="_blank" rel="noopener">Garfield AI</a> &middot; <a href="https://general.legal" target="_blank" rel="noopener">General Legal</a> &middot; <a href="https://justpoint.com" target="_blank" rel="noopener">Justpoint Law</a> &middot; <a href="https://lawhive.co.uk" target="_blank" rel="noopener">Lawhive</a> &middot; <a href="https://manifestos.com" target="_blank" rel="noopener">Manifest OS / Manifest Law</a> &middot; <a href="https://www.moritzlegal.com" target="_blank" rel="noopener">Moritz</a> &middot; <a href="https://pierferd.com" target="_blank" rel="noopener">Pierson Ferdinand</a> &middot; <a href="https://soxton.ai" target="_blank" rel="noopener">Soxton</a> &middot; <a href="https://talairis.com" target="_blank" rel="noopener">Talairis Law Group</a> &middot; <a href="https://aifirmindex.com/" target="_blank" rel="noopener">Vector</a></p>
   <div class="reads"><div class="read"><a href="https://aifirmindex.com/" target="_blank" rel="noopener">The AI Firm Index &#8599;</a><p>Matt Pollins&#x27; (Lupl co-founder, ex-CMS partner) directory of AI-native law firms. Launched March 2026 with 27 entries, 40 by late April, just over 50 globally by late June — 31 of them US. Scopes to regulated entities, not SaaS or marketplace models.</p><div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.artificiallawyer.com/2026/03/30/ai-native-law-firm-directory-launches/" target="_blank" rel="noopener">artificiallawyer.com</a><a href="https://legaltechnology.com/2026/04/24/ai-native-law-firm-index-hits-40-listings/" target="_blank" rel="noopener">legaltechnology.com</a></div></div></div>
 </div></section>
 
@@ -303,16 +324,18 @@ footer p { max-width:75ch; }
   <h2>04 &mdash; Who does what</h2>
   <p class="lede">The app layer, sorted by what it actually sells. Filter by segment, or by which model platform a company has publicly connected to.</p>
   <div class="controls">
-<button class="fb is-on" data-cat="all">All <em>60</em></button>
+<button class="fb is-on" data-cat="all">All <em>79</em></button>
 <button class="fb" data-cat="assistant" title="Horizontal legal AI assistant / firm-wide platform">Assistant / platform <em>4</em></button>
-<button class="fb" data-cat="contract" title="Contract drafting, review and CLM">Contract &amp; CLM <em>12</em></button>
+<button class="fb" data-cat="contract" title="Contract drafting, review and CLM">Contract &amp; CLM <em>13</em></button>
 <button class="fb" data-cat="litigation" title="Litigation, e-discovery and plaintiff-side workflow">Litigation &amp; e-discovery <em>6</em></button>
 <button class="fb" data-cat="research" title="Primary law, case law data and research">Research &amp; data <em>5</em></button>
 <button class="fb" data-cat="inhouse" title="In-house / GC department tooling">In-house tooling <em>3</em></button>
 <button class="fb" data-cat="ip" title="Patent and IP prosecution">IP &amp; patents <em>2</em></button>
+<button class="fb" data-cat="entity_mgmt" title="Entity management, corporate secretarial and formation">Entity &amp;amp; corp sec <em>9</em></button>
 <button class="fb" data-cat="infra" title="DMS, knowledge, firm operations and deal infrastructure">DMS &amp; infrastructure <em>7</em></button>
 <button class="fb" data-cat="practice_mgmt" title="Practice management for small and mid-size firms">Practice management <em>1</em></button>
-<button class="fb" data-cat="ai_native_firm" title="AI-native law firm or legal service provider (sells outcomes, not seats)">AI-native firm <em>11</em></button>
+<button class="fb" data-cat="ai_native_firm" title="AI-native law firm or legal service provider (sells outcomes, not seats)">AI-native firm <em>17</em></button>
+<button class="fb" data-cat="alsp" title="Flexible senior legal talent and managed legal services">Senior talent / ALSP <em>3</em></button>
 <button class="fb" data-cat="buyer" title="Law firm or legal department building rather than buying">Firms building <em>9</em></button>
   </div>
   <div class="controls">
@@ -516,6 +539,22 @@ footer p { max-width:75ch; }
   <p class="line"><span class="lbl">Last round</span>~$115M total raised</p><p class="line"><span class="lbl">Model use</span>Runs its own legal-domain models alongside third-party LLMs.</p>
   
   <div class="co-src"><span class="src-lbl">Sources</span><a href="https://newmarketpitch.com/blogs/news/legal-ai-top-startups-fundraising" target="_blank" rel="noopener">newmarketpitch.com</a></div>
+</article>
+
+<article class="co" data-cat="contract" data-search="ontra high-volume routine contract negotiation for private fund managers and investment banks — ndas above all. sold two ways: accord as in-house software, and contract automation as a fully outsourced service pairing ai with ontra&#x27;s global network of lawyers. san francisco multiple, undisclosed the clearest example of the hybrid that isn&#x27;t a law firm: it does the negotiation, not just the tooling, and reports an early adopter saving 67% of time per contract."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.ontra.ai" target="_blank" rel="noopener">Ontra</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2014 · Global — private markets</div>
+  <p class="co-desc">High-volume routine contract negotiation for private fund managers and investment banks — NDAs above all. Sold two ways: Accord as in-house software, and Contract Automation as a fully outsourced service pairing AI with Ontra&#x27;s global network of lawyers.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>The clearest example of the hybrid that isn&#x27;t a law firm: it does the negotiation, not just the tooling, and reports an early adopter saving 67% of time per contract.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.ontra.ai/blog/contract-outsourcing/" target="_blank" rel="noopener">ontra.ai</a><a href="https://finance.yahoo.com/news/ontra-unveils-accord-ai-powered-133000905.html" target="_blank" rel="noopener">finance.yahoo.com</a></div>
 </article>
 
 <article class="co" data-cat="contract" data-search="robin ai contract review plus lightweight clm for mid-market teams with recurring contract types. london anthropic long-standing public claude user; among the earliest anthropic legal customers."
@@ -782,7 +821,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://norm.ai" target="_blank" rel="noopener">Norm Ai</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">New York · est. 2022</div>
+  <div class="co-meta">New York · est. 2022 · US</div>
   <p class="co-desc">Converts regulation into executable code — regulatory compliance agents that check actions against rules pre-emptively. Heaviest traction in financial services.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   
@@ -836,6 +875,150 @@ footer p { max-width:75ch; }
   <p class="line"><span class="lbl">Model use</span>Reported as built on Claude; named Claude for Legal partner with an MCP connector.</p>
   
   <div class="co-src"><span class="src-lbl">Sources</span><a href="https://claude.com/blog/claude-for-the-legal-industry" target="_blank" rel="noopener">claude.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="athennian cloud-native entity management: corporate records, minute books, cap tables, filings and real-time org charts. used by corporate paralegals, law clerks, corporate secretaries and legal ops. calgary multiple, undisclosed the modern default for the corporate secretarial workstream — minute books, registers, filings and org charts as software rather than as billable paralegal hours."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.athennian.com" target="_blank" rel="noopener">Athennian</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Calgary · est. 2017 · Global</div>
+  <p class="co-desc">Cloud-native entity management: corporate records, minute books, cap tables, filings and real-time org charts. Used by corporate paralegals, law clerks, corporate secretaries and legal ops.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>The modern default for the corporate secretarial workstream — minute books, registers, filings and org charts as software rather than as billable paralegal hours.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.athennian.com/company-types/corporate-groups" target="_blank" rel="noopener">athennian.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="csc registered agent, entity management and filings at enterprise scale, tying minute book and resolution workflows to the entity record. software plus a managed service layer. wilmington, de the incumbent that already does corp sec as a service globally. competing on corp sec means competing with csc&#x27;s filing footprint, not just with software."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.cscglobal.com" target="_blank" rel="noopener">CSC</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Wilmington, DE · est. 1899 · Global</div>
+  <p class="co-desc">Registered agent, entity management and filings at enterprise scale, tying minute book and resolution workflows to the entity record. Software plus a managed service layer.</p>
+  
+  <p class="line"><span class="lbl">Why it matters</span>The incumbent that already does corp sec as a service globally. Competing on corp sec means competing with CSC&#x27;s filing footprint, not just with software.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.anywherer.com/best-corporate-entity-management-software/" target="_blank" rel="noopener">anywherer.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="carta cap table, equity and fund administration, now positioned as an agentic erp for private capital — and, since acquiring avantia, the owner of a law firm. san francisco multiple, undisclosed went from adjacent saas to legal provider by acquisition. the pattern to watch: platforms that already hold the corporate record adding the legal layer on top."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://carta.com" target="_blank" rel="noopener">Carta</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2012 · Global</div>
+  <p class="co-desc">Cap table, equity and fund administration, now positioned as an agentic ERP for private capital — and, since acquiring Avantia, the owner of a law firm.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>Went from adjacent SaaS to legal provider by acquisition. The pattern to watch: platforms that already hold the corporate record adding the legal layer on top.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.businesswire.com/news/home/20260513917345/en/Carta-Launches-Carta-Law-with-Acquisition-of-Avantia" target="_blank" rel="noopener">businesswire.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="clerky automates incorporation and ongoing corporate paperwork for venture-track delaware c-corps: formation, safes, board consents, equity grants and the long tail of routine corporate documents. san francisco has automated startup corporate paperwork end to end, from formation onward, for over a decade — as document automation, not advice, which is how it avoids practising law."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.clerky.com" target="_blank" rel="noopener">Clerky</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2011 · US only (Delaware C-corp)</div>
+  <p class="co-desc">Automates incorporation and ongoing corporate paperwork for venture-track Delaware C-corps: formation, SAFEs, board consents, equity grants and the long tail of routine corporate documents.</p>
+  
+  <p class="line"><span class="lbl">Why it matters</span>Has automated startup corporate paperwork end to end, from formation onward, for over a decade — as document automation, not advice, which is how it avoids practising law.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://pulley.com/blog-posts/clerky-pulley-partnership" target="_blank" rel="noopener">pulley.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="diligent entities enterprise entity management and governance — centralises the corporate record as a single source of truth, tied to board and compliance tooling. new york multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.diligent.com" target="_blank" rel="noopener">Diligent Entities</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · Global</div>
+  <p class="co-desc">Enterprise entity management and governance — centralises the corporate record as a single source of truth, tied to board and compliance tooling.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.anywherer.com/best-corporate-entity-management-software/" target="_blank" rel="noopener">anywherer.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="firstbase formation plus the operational wrap — registered address, mailroom, bookkeeping, tax and compliance from one vendor. new york"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.firstbase.io" target="_blank" rel="noopener">Firstbase</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · est. 2017 · Global — US entity formation for non-US founders</div>
+  <p class="co-desc">Formation plus the operational wrap — registered address, mailroom, bookkeeping, tax and compliance from one vendor.</p>
+  
+  
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://sparklaun.ch/compare/stripe-atlas-alternatives" target="_blank" rel="noopener">sparklaun.ch</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="klea ai-embedded legal entity management for multinationals: formation, registers, ownership, officers, subsidiary governance, annual filings and approvals, with local know-how modules across 100+ jurisdictions. belgium multiple, undisclosed proven across 100+ multinationals in 120+ countries — the closest existing product to automated corp sec at global scale, and it is software, not a firm."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://klealegal.com" target="_blank" rel="noopener">Klea</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Belgium · est. 2019 · Global — 100+ countries</div>
+  <p class="co-desc">AI-embedded legal entity management for multinationals: formation, registers, ownership, officers, subsidiary governance, annual filings and approvals, with local know-how modules across 100+ jurisdictions.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Last round</span>Acquired by Quantios (2026)</p><p class="line"><span class="lbl">Why it matters</span>Proven across 100+ multinationals in 120+ countries — the closest existing product to automated corp sec at global scale, and it is software, not a firm.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://klealegal.com/entity-management/legal-entity-management-software" target="_blank" rel="noopener">klealegal.com</a><a href="https://news.quantios.com/press-centre/quantios-acquires-klea-accelerates-automation-in-corporate-services" target="_blank" rel="noopener">news.quantios.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="pulley cap table and equity management for startups; integrates with clerky so incorporation flows straight into a cap table. san francisco"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://pulley.com" target="_blank" rel="noopener">Pulley</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2019 · US</div>
+  <p class="co-desc">Cap table and equity management for startups; integrates with Clerky so incorporation flows straight into a cap table.</p>
+  
+  
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://pulley.com/blog-posts/clerky-pulley-partnership" target="_blank" rel="noopener">pulley.com</a></div>
+</article>
+
+<article class="co" data-cat="entity_mgmt" data-search="vistra corporate services at global scale — entity formation, corporate secretarial, accounting and compliance across jurisdictions, with blueprint as the workflow layer. hong kong with tmf and csc, one of the incumbents that has offered end-to-end corporate secretarial work across jurisdictions at fixed prices for decades — without ai and without being a law firm."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.vistra.com" target="_blank" rel="noopener">Vistra</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Hong Kong · est. 1986 · Global</div>
+  <p class="co-desc">Corporate services at global scale — entity formation, corporate secretarial, accounting and compliance across jurisdictions, with Blueprint as the workflow layer.</p>
+  
+  <p class="line"><span class="lbl">Why it matters</span>With TMF and CSC, one of the incumbents that has offered end-to-end corporate secretarial work across jurisdictions at fixed prices for decades — without AI and without being a law firm.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.anywherer.com/best-corporate-entity-management-software/" target="_blank" rel="noopener">anywherer.com</a></div>
 </article>
 
 <article class="co" data-cat="infra" data-search="box content cloud used as a deal room and matter repository. redwood city multiple, undisclosed"
@@ -966,6 +1149,22 @@ footer p { max-width:75ch; }
   <div class="co-src"><span class="src-lbl">Sources</span><a href="https://blog.platinumids.com/blog/legal-ai-billion-dollar-arms-race-2026" target="_blank" rel="noopener">blog.platinumids.com</a></div>
 </article>
 
+<article class="co" data-cat="ai_native_firm" data-search="agilecounsel startup, venture capital and m&amp;a firm serving founders, investors and tech companies on cross-border us–asia matters. san francisco / singapore multiple, undisclosed one of very few in this category built cross-border from the start rather than us-first with expansion later."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://agilecounsel.com" target="_blank" rel="noopener">AgileCounsel</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco / Singapore · Global — US + Asia cross-border</div>
+  <p class="co-desc">Startup, venture capital and M&amp;A firm serving founders, investors and tech companies on cross-border US–Asia matters.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>One of very few in this category built cross-border from the start rather than US-first with expansion later.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://agilecounsel.com/" target="_blank" rel="noopener">agilecounsel.com</a><a href="https://aifirmindex.com/" target="_blank" rel="noopener">aifirmindex.com</a></div>
+</article>
+
 <article class="co" data-cat="ai_native_firm" data-search="alaro ai-native firm built around &#x27;ai coworkers&#x27; for legal teams — founded by a former paul hastings corporate lawyer, with ai handling research, drafting and analysis as the first pass. seattle multiple, undisclosed explicitly testing whether ai can replace the associate pyramid rather than assist it"
          data-anthropic="0"
          data-openai="0"
@@ -974,12 +1173,44 @@ footer p { max-width:75ch; }
     <h4><a href="https://alaro.com" target="_blank" rel="noopener">Alaro</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">Seattle · est. 2025</div>
+  <div class="co-meta">Seattle · est. 2025 · US</div>
   <p class="co-desc">AI-native firm built around &#x27;AI coworkers&#x27; for legal teams — founded by a former Paul Hastings corporate lawyer, with AI handling research, drafting and analysis as the first pass.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Why it matters</span>Explicitly testing whether AI can replace the associate pyramid rather than assist it</p>
   
   <div class="co-src"><span class="src-lbl">Sources</span><a href="https://alaro.com/blog/building-an-ai-native-law-firm-with-alaro" target="_blank" rel="noopener">alaro.com</a><a href="https://www.geekwire.com/2026/can-ai-replace-an-army-of-associates-these-lawyers-are-betting-their-new-firm-on-it/" target="_blank" rel="noopener">geekwire.com</a></div>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="arcline ai-native legal services for startups: ai generates first drafts, lawyers do final revisions, flat fee per document rather than hourly. claims ~80% reduction in lawyer work and frequent same-day turnaround. san francisco multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.ycombinator.com/launches/PEh-arcline-ai-native-legal-services-for-startups" target="_blank" rel="noopener">Arcline</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">San Francisco · est. 2025 · US + Europe</div>
+  <p class="co-desc">AI-native legal services for startups: AI generates first drafts, lawyers do final revisions, flat fee per document rather than hourly. Claims ~80% reduction in lawyer work and frequent same-day turnaround.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Last round</span>Y Combinator W26</p><p class="line"><span class="lbl">Traction</span>50+ venture-backed startups across the US and Europe. Lawyers drawn from Cooley, Goodwin and Fenwick; founder was outside counsel to OpenAI.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.artificiallawyer.com/2026/02/04/y-combinator-picks-3-newmods-general-legal-arcline-legalos/" target="_blank" rel="noopener">artificiallawyer.com</a></div>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="carta law (fka avantia) ai-native legal and compliance for asset managers, now a division of carta. runs an ai workflow engine (ava) folded into carta&#x27;s erp so fund legal and compliance sit next to fund operations. london / san francisco multiple, undisclosed the single most important structural event for this question: a saas platform bought a law firm rather than partnering with one, explicitly to remove the need to instruct outside counsel for routine work. the saas/law-firm boundary is not holding."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://carta.com/blog/avantia-law-acquisition/" target="_blank" rel="noopener">Carta Law (fka Avantia)</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">London / San Francisco · est. 2019 · Global — funds across $15T AUM</div>
+  <p class="co-desc">AI-native legal and compliance for asset managers, now a division of Carta. Runs an AI workflow engine (Ava) folded into Carta&#x27;s ERP so fund legal and compliance sit next to fund operations.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Last round</span>Acquired by Carta, announced 2026-05-13</p><p class="line"><span class="lbl">Traction</span>200+ asset managers including 30% of the world&#x27;s largest funds, across ~$15T AUM. Carta&#x27;s fourth acquisition since Oct 2025.</p><p class="line"><span class="lbl">Why it matters</span>The single most important structural event for this question: a SaaS platform bought a law firm rather than partnering with one, explicitly to remove the need to instruct outside counsel for routine work. The SaaS/law-firm boundary is not holding.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.businesswire.com/news/home/20260513917345/en/Carta-Launches-Carta-Law-with-Acquisition-of-Avantia" target="_blank" rel="noopener">businesswire.com</a><a href="https://www.artificiallawyer.com/2026/05/13/carta-buys-alsp-avantia-launches-ai-first-law-firm/" target="_blank" rel="noopener">artificiallawyer.com</a><a href="https://www.globallegalpost.com/news/us-private-capital-focused-erp-provider-carta-acquires-uk-alsp-avantia-833132983" target="_blank" rel="noopener">globallegalpost.com</a></div>
 </article>
 
 <article class="co" data-cat="ai_native_firm" data-search="crosby an actual law firm running on ai: high-volume contract review with licensed attorney sign-off in a median of 58 minutes, priced per document rather than per hour. san francisco anthropic named claude for legal partner and named as using claude on live matters."
@@ -990,7 +1221,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://crosby.ai" target="_blank" rel="noopener">Crosby</a></h4>
     <div class="co-chips"><span class="chip chip--anthropic" title="Named partner and user">Anthropic</span></div>
   </div>
-  <div class="co-meta">San Francisco · est. 2024 · ~$400M (Apr 2026, reported)</div>
+  <div class="co-meta">San Francisco · est. 2024 · ~$400M (Apr 2026, reported) · US</div>
   <p class="co-desc">An actual law firm running on AI: high-volume contract review with licensed attorney sign-off in a median of 58 minutes, priced per document rather than per hour.</p>
   <div class="co-models"><span class="m">Anthropic</span></div>
   <p class="line"><span class="lbl">Last round</span>$60M Series B, Apr 2026</p><p class="line"><span class="lbl">Model use</span>Named Claude for Legal partner and named as using Claude on live matters.</p><p class="line"><span class="lbl">Traction</span>Clients include Cursor and Clay</p>
@@ -1006,12 +1237,28 @@ footer p { max-width:75ch; }
     <h4><a href="https://eudia.com" target="_blank" rel="noopener">Eudia</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">Palo Alto · est. 2023</div>
+  <div class="co-meta">Palo Alto · est. 2023 · US</div>
   <p class="co-desc">Augmented legal for enterprise departments — AI plus its own legal professionals delivering contracting, litigation support and compliance work as a service.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Last round</span>$105M+ total raised</p><p class="line"><span class="lbl">Why it matters</span>Acquired traditional ALSP capacity to pair with the model layer — the services-roll-up pattern</p>
   
   <div class="co-src"><span class="src-lbl">Sources</span><a href="https://dornamoini.substack.com/p/ai-native-and-venture-backed-law-firms" target="_blank" rel="noopener">dornamoini.substack.com</a></div>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="fisherbroyles the original partner-only distributed firm — &#x27;law firm 2.0&#x27; — founded two decades before the ai wave. no associates, no offices, partners keep most of their billings. distributed proof the senior-only economic model works without ai at all. ai makes it cheaper to run, it did not make it possible. pierson ferdinand&#x27;s founders and 130+ of its launch partners came from here."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://fisherbroyles.com" target="_blank" rel="noopener">FisherBroyles</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Distributed · est. 2002 · US + UK + Germany</div>
+  <p class="co-desc">The original partner-only distributed firm — &#x27;Law Firm 2.0&#x27; — founded two decades before the AI wave. No associates, no offices, partners keep most of their billings.</p>
+  
+  <p class="line"><span class="lbl">Why it matters</span>Proof the senior-only economic model works without AI at all. AI makes it cheaper to run, it did not make it possible. Pierson Ferdinand&#x27;s founders and 130+ of its launch partners came from here.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://fisherbroyles.com/" target="_blank" rel="noopener">fisherbroyles.com</a><a href="https://www.abajournal.com/news/article/is-virtual-law-firm-fisherbroyles-about-to-lose-140-lawyers-details-of-significant-new-venture-to-come" target="_blank" rel="noopener">abajournal.com</a></div>
 </article>
 
 <article class="co" data-cat="ai_native_firm" data-search="garfield ai small-claims and debt recovery run end-to-end by ai. the first fully ai-driven law firm authorised by the uk solicitors regulation authority. london multiple, undisclosed the regulatory precedent matters more than the product — sra authorisation is the template others will cite"
@@ -1022,7 +1269,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://garfield.law" target="_blank" rel="noopener">Garfield AI</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">London · est. 2024</div>
+  <div class="co-meta">London · est. 2024 · UK (England &amp; Wales)</div>
   <p class="co-desc">Small-claims and debt recovery run end-to-end by AI. The first fully AI-driven law firm authorised by the UK Solicitors Regulation Authority.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Why it matters</span>The regulatory precedent matters more than the product — SRA authorisation is the template others will cite</p>
@@ -1038,7 +1285,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://general.legal" target="_blank" rel="noopener">General Legal</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">United States · est. 2024</div>
+  <div class="co-meta">United States · est. 2024 · US</div>
   <p class="co-desc">AI-native firm for startups, staffed almost entirely by Big Law alumni with AI doing first-pass work.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Last round</span>$11.5M raised; Y Combinator alum</p><p class="line"><span class="lbl">Traction</span>14 full-time lawyers; ~$2M annualised revenue</p>
@@ -1054,7 +1301,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://justpoint.com" target="_blank" rel="noopener">Justpoint Law</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">New York · est. 2019</div>
+  <div class="co-meta">New York · est. 2019 · US (Arizona ABS)</div>
   <p class="co-desc">AI-driven personal injury and mass tort — data-led case identification and valuation.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Why it matters</span>Approved by the Arizona Supreme Court in July 2025 as the first AI-native PI/mass tort firm under an ABS licence — the US regulatory precedent that Garfield is to the UK</p>
@@ -1070,7 +1317,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://lawhive.co.uk" target="_blank" rel="noopener">Lawhive</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">London · est. 2020</div>
+  <div class="co-meta">London · est. 2020 · UK</div>
   <p class="co-desc">Consumer legal services delivered by AI plus a network of solicitors, at fixed prices.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Last round</span>Google-backed</p><p class="line"><span class="lbl">Why it matters</span>Acquired Woodstock Legal Services (Sep 2025) — believed to be the first acquisition of a traditional law firm by an AI company</p>
@@ -1086,7 +1333,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://manifestos.com" target="_blank" rel="noopener">Manifest OS / Manifest Law</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">United States · est. 2024 · $750M (Apr 2026)</div>
+  <div class="co-meta">United States · est. 2024 · $750M (Apr 2026) · US (Arizona ABS)</div>
   <p class="co-desc">Operating system for AI-native law firms: outcomes-based fixed pricing instead of the billable hour. Firms running on it practise under the Manifest Law brand; the first incubated firm is in business immigration, structured under Arizona&#x27;s ABS programme.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Last round</span>$60M Series A, Apr 2026 — Menlo Ventures, Kleiner Perkins, First Round Capital, Quiet Capital. Reported as the largest Series A in legal tech history.</p><p class="line"><span class="lbl">Traction</span>100+ attorneys serving 3,000+ clients across the US</p><p class="line"><span class="lbl">Why it matters</span>The clearest expression of the &#x27;services as software&#x27; thesis — capital is funding the firm, not the tool, and Arizona ABS is what makes the ownership structure legal</p>
@@ -1102,12 +1349,28 @@ footer p { max-width:75ch; }
     <h4><a href="https://www.moritzlegal.com" target="_blank" rel="noopener">Moritz</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">Oslo / global · est. 2025</div>
+  <div class="co-meta">Oslo / global · est. 2025 · Global — Europe, US, Australia</div>
   <p class="co-desc">AI-native firm for in-house teams. AI does the first ~80% of the work and clients pay lawyers for the final 20%, at flat upfront prices with same-day turnaround.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Last round</span>$9M seed/pre-seed — Y Combinator, 20VC, Urban Innovation</p><p class="line"><span class="lbl">Traction</span>Since launching in early 2026: 100+ companies supported, deals representing $2B+ in aggregate contract value across Europe, the US and Australia; reported ~4-hour average turnaround</p>
   
   <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.globallegalpost.com/news/ai-native-law-firm-start-up-moritz-secures-9m-in-seed-funding-round-533457054" target="_blank" rel="noopener">globallegalpost.com</a><a href="https://sifted.eu/articles/y-combinator-alum-moritz-raises-9m" target="_blank" rel="noopener">sifted.eu</a></div>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="pierson ferdinand partner-only, fully distributed law firm across 90+ practice areas including corporate. no associates and no junior training by design — ai absorbs the work the junior layer would have done. launched jan 2024 with 130+ partners, one of the largest launches in us history; now near 300. distributed (no offices) anthropic openai google the largest working example of partner-only economics paired with ai: at scale, across two jurisdictions, with ai named explicitly as the replacement for the associate layer. runs on harvey, chosen for legal purpose-build and for soc 2 type ii / iso 27001 / gdpr posture. harvey is multi-model, so this is indirect exposure to all three labs."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://pierferd.com" target="_blank" rel="noopener">Pierson Ferdinand</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">Distributed (no offices) · est. 2024 · US + UK</div>
+  <p class="co-desc">Partner-only, fully distributed law firm across 90+ practice areas including corporate. No associates and no junior training by design — AI absorbs the work the junior layer would have done. Launched Jan 2024 with 130+ partners, one of the largest launches in US history; now near 300.</p>
+  <div class="co-models"><span class="m">Anthropic</span><span class="m">OpenAI</span><span class="m">Google</span></div>
+  <p class="line"><span class="lbl">Model use</span>Runs on Harvey, chosen for legal purpose-build and for SOC 2 Type II / ISO 27001 / GDPR posture. Harvey is multi-model, so this is indirect exposure to all three labs.</p><p class="line"><span class="lbl">Traction</span>~300 partners, 90+ practice areas, US and UK. Partners retain a far larger share of billings; the firm reports most joiners earning 2–3x their prior Big Law income.</p><p class="line"><span class="lbl">Why it matters</span>The largest working example of partner-only economics paired with AI: at scale, across two jurisdictions, with AI named explicitly as the replacement for the associate layer.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.harvey.ai/customers/pierson-ferdinand" target="_blank" rel="noopener">harvey.ai</a><a href="https://www.law360.com/pulse/articles/2519822/how-a-partner-only-law-firm-uses-ai-to-replace-associates" target="_blank" rel="noopener">law360.com</a><a href="https://www.cityam.com/fully-remote-with-no-associates-meet-the-elite-law-firm-of-the-future/" target="_blank" rel="noopener">cityam.com</a></div>
 </article>
 
 <article class="co" data-cat="ai_native_firm" data-search="soxton startup contract work with ai doing the first pass. usage pricing, no billable hour: roughly $100–200 per contract and $50–100 per attorney conversation. united states multiple, undisclosed the most legible pricing in the category — per artefact and per conversation, which is what unbundling actually looks like"
@@ -1118,7 +1381,7 @@ footer p { max-width:75ch; }
     <h4><a href="https://soxton.ai" target="_blank" rel="noopener">Soxton</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">United States · est. 2025</div>
+  <div class="co-meta">United States · est. 2025 · US</div>
   <p class="co-desc">Startup contract work with AI doing the first pass. Usage pricing, no billable hour: roughly $100–200 per contract and $50–100 per attorney conversation.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   <p class="line"><span class="lbl">Why it matters</span>The most legible pricing in the category — per artefact and per conversation, which is what unbundling actually looks like</p>
@@ -1134,12 +1397,76 @@ footer p { max-width:75ch; }
     <h4><a href="https://talairis.com" target="_blank" rel="noopener">Talairis Law Group</a></h4>
     <div class="co-chips"></div>
   </div>
-  <div class="co-meta">United States · est. 2026</div>
+  <div class="co-meta">United States · est. 2026 · US</div>
   <p class="co-desc">Launched May 2026 to advise startups using AI agents. Work product typically priced at 10–15% of a comparable large-firm bill.</p>
   <div class="co-models"><span class="m">multiple, undisclosed</span></div>
   
   
   <div class="co-src"><span class="src-lbl">Sources</span><a href="https://news.bloomberglaw.com/business-and-practice/ai-native-firms-are-luring-frustrated-lawyers-away-from-big-law" target="_blank" rel="noopener">news.bloomberglaw.com</a></div>
+</article>
+
+<article class="co" data-cat="ai_native_firm" data-search="vector startup legal combining lawyers and paralegals averaging 10+ years of big law experience with custom-built ai, priced well below big law rates. united states multiple, undisclosed"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://aifirmindex.com/" target="_blank" rel="noopener">Vector</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">United States · US</div>
+  <p class="co-desc">Startup legal combining lawyers and paralegals averaging 10+ years of Big Law experience with custom-built AI, priced well below Big Law rates.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line line--caveat"><span class="lbl">Caveat</span>thin public information; details from directory listings</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://aifirmindex.com/" target="_blank" rel="noopener">aifirmindex.com</a></div>
+</article>
+
+<article class="co" data-cat="alsp" data-search="axiom on-demand senior legal talent — secondments, fractional gc and specialised advice from lawyers with am law 200 and fortune 500 backgrounds, now with an ai-enabled services layer. new york multiple, undisclosed has sold senior-experience-without-the-pyramid for 25 years. the talent thesis is not new; pairing it with ai and fixed pricing is the new part."
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.axiomlaw.com" target="_blank" rel="noopener">Axiom</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · est. 2000 · Global</div>
+  <p class="co-desc">On-demand senior legal talent — secondments, fractional GC and specialised advice from lawyers with Am Law 200 and Fortune 500 backgrounds, now with an AI-enabled services layer.</p>
+  <div class="co-models"><span class="m">multiple, undisclosed</span></div>
+  <p class="line"><span class="lbl">Why it matters</span>Has sold senior-experience-without-the-pyramid for 25 years. The talent thesis is not new; pairing it with AI and fixed pricing is the new part.</p>
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.axiomlaw.com/alsp" target="_blank" rel="noopener">axiomlaw.com</a></div>
+</article>
+
+<article class="co" data-cat="alsp" data-search="lawtrades on-demand legal talent platform for in-house teams — fractional and project-based senior lawyers. new york"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.lawtrades.com" target="_blank" rel="noopener">Lawtrades</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · est. 2016 · Global</div>
+  <p class="co-desc">On-demand legal talent platform for in-house teams — fractional and project-based senior lawyers.</p>
+  
+  
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.lawtrades.com/" target="_blank" rel="noopener">lawtrades.com</a></div>
+</article>
+
+<article class="co" data-cat="alsp" data-search="priori legal marketplace matching in-house teams to vetted outside counsel, including cross-border and specialist coverage, with managed pricing. new york"
+         data-anthropic="0"
+         data-openai="0"
+         data-google="0">
+  <div class="co-head">
+    <h4><a href="https://www.priorilegal.com" target="_blank" rel="noopener">Priori Legal</a></h4>
+    <div class="co-chips"></div>
+  </div>
+  <div class="co-meta">New York · est. 2013 · Global</div>
+  <p class="co-desc">Marketplace matching in-house teams to vetted outside counsel, including cross-border and specialist coverage, with managed pricing.</p>
+  
+  
+  
+  <div class="co-src"><span class="src-lbl">Sources</span><a href="https://www.priorilegal.com/" target="_blank" rel="noopener">priorilegal.com</a></div>
 </article>
 
 <article class="co" data-cat="buyer" data-search="accenture legal named claude for legal user; also a gemini enterprise for legal systems-integrator partner. dublin anthropic google"
@@ -1288,8 +1615,19 @@ footer p { max-width:75ch; }
   </div>
 </div></section>
 
+<section id="corporate"><div class="wrap">
+  <h2>05 &mdash; Corporate work: who covers what</h2>
+  <p class="lede">Corporate legal work &mdash; NDAs and commercial paper, formation, corporate secretarial, equity, deals &mdash; is served by four different kinds of provider at once, and they are converging. <strong>The line between &ldquo;law firm&rdquo; and &ldquo;software&rdquo; stopped holding in May 2026, when Carta bought a law firm outright.</strong> Geography is the other axis worth reading: most AI-native firms are US-only, while the corporate secretarial incumbents have been global for decades.</p>
+  <div class="mx-scroll"><table class="cp"><thead><tr><th>Provider</th><th class="ws">NDAs &amp; commercial contracts</th><th class="ws">Entity formation</th><th class="ws">Corporate secretarial</th><th class="ws">Equity &amp; cap table</th><th class="ws">Financings &amp; M&amp;A</th><th>Pricing &amp; note</th></tr></thead><tbody><tr><th scope="row"><a href="https://pierferd.com" target="_blank" rel="noopener">Pierson Ferdinand</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">US + UK</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cp-detail"><b>Partner-rate hourly; partners keep most of billings</b><span>Partner-only, no associates, 90+ practice areas, ~300 partners. AI (Harvey) explicitly in place of the junior layer.</span></td></tr><tr><th scope="row"><a href="https://fisherbroyles.com" target="_blank" rel="noopener">FisherBroyles</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">US + UK + Germany</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cp-detail"><b>Partner-rate hourly</b><span>The pre-AI precedent for partner-only economics — running since 2002.</span></td></tr><tr><th scope="row"><a href="https://carta.com/blog/avantia-law-acquisition/" target="_blank" rel="noopener">Carta Law (fka Avantia)</a><span class="cp-model cp-hybrid">Hybrid — software plus its own lawyers</span><span class="cp-scope">Global — funds</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Bundled into Carta&#x27;s platform</b><span>Fund legal and compliance inside an ERP. A SaaS company that bought a law firm.</span></td></tr><tr><th scope="row"><a href="https://general.legal" target="_blank" rel="noopener">General Legal</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">US</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Flat fee — NDAs $250, contract review from $250–500, negotiation ~$1,000</b><span>Hires only experienced lawyers — 5th–8th year Big Law or 10–15+ years in-house, no entry level. Expanding from commercial contracts into corporate.</span></td></tr><tr><th scope="row"><a href="https://www.ycombinator.com/launches/PEh-arcline-ai-native-legal-services-for-startups" target="_blank" rel="noopener">Arcline</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">US + Europe</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Flat fee per document</b><span>AI first draft, lawyer final revision; ~80% of lawyer work removed, often same-day.</span></td></tr><tr><th scope="row"><a href="https://agilecounsel.com" target="_blank" rel="noopener">AgileCounsel</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">Global — US + Asia</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cp-detail"><b>Not published</b><span>Built cross-border from the start rather than US-first.</span></td></tr><tr><th scope="row"><a href="https://www.moritzlegal.com" target="_blank" rel="noopener">Moritz</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">Global — Europe, US, Australia</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cp-detail"><b>Flat upfront; AI does ~80%, client pays for the last 20%</b><span>Same-day turnaround; $2B+ aggregate contract value since early 2026.</span></td></tr><tr><th scope="row"><a href="https://crosby.ai" target="_blank" rel="noopener">Crosby</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">US</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cv"></td><td class="cv"></td><td class="cv"></td><td class="cp-detail"><b>Per document</b><span>Narrow by design: NDAs and MSAs, median 58 minutes to attorney sign-off.</span></td></tr><tr><th scope="row"><a href="https://soxton.ai" target="_blank" rel="noopener">Soxton</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">US</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cp-detail"><b>~$100–200 per contract, $50–100 per attorney conversation</b><span>The most legible unbundled pricing in the category.</span></td></tr><tr><th scope="row"><a href="https://aifirmindex.com/" target="_blank" rel="noopener">Vector</a><span class="cp-model cp-firm">Law firm</span><span class="cp-scope">US</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Below Big Law rates</b><span>Lawyers and paralegals averaging 10+ years of Big Law experience plus custom AI.</span></td></tr><tr><th scope="row"><a href="https://eudia.com" target="_blank" rel="noopener">Eudia</a><span class="cp-model cp-hybrid">Hybrid — software plus its own lawyers</span><span class="cp-scope">US</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cv"></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Enterprise / managed</b><span>AI plus its own legal professionals, sold to enterprise departments.</span></td></tr><tr><th scope="row"><a href="https://www.ontra.ai" target="_blank" rel="noopener">Ontra</a><span class="cp-model cp-hybrid">Hybrid — software plus its own lawyers</span><span class="cp-scope">Global — private markets</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cv"></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Per contract / subscription</b><span>Does the negotiating, not just the tooling — AI plus a global lawyer network. Not a law firm.</span></td></tr><tr><th scope="row"><a href="https://www.axiomlaw.com" target="_blank" rel="noopener">Axiom</a><span class="cp-model cp-hybrid">Hybrid — software plus its own lawyers</span><span class="cp-scope">Global</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cp-detail"><b>Secondment / project</b><span>Senior talent without the pyramid, sold this way for 25 years. AI layer is recent.</span></td></tr><tr><th scope="row"><a href="https://manifestos.com" target="_blank" rel="noopener">Manifest OS</a><span class="cp-model cp-hybrid">Hybrid — software plus its own lawyers</span><span class="cp-scope">US (Arizona ABS)</span></th><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cv"></td><td class="cv"></td><td class="cp-detail"><b>Outcomes-based fixed</b><span>Infrastructure for firms rather than a firm: first incubated practice is immigration, not corporate.</span></td></tr><tr><th scope="row"><a href="https://klealegal.com" target="_blank" rel="noopener">Klea</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">Global — 100+ countries</span></th><td class="cv"></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cp-detail"><b>SaaS subscription</b><span>Closest existing product to automated corp sec at global scale — and it is software, not a firm.</span></td></tr><tr><th scope="row"><a href="https://www.athennian.com" target="_blank" rel="noopener">Athennian</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">Global</span></th><td class="cv"></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>SaaS subscription</b><span>Minute books, registers, filings, org charts. The modern default for the corp sec workstream.</span></td></tr><tr><th scope="row"><a href="https://www.diligent.com" target="_blank" rel="noopener">Diligent Entities</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">Global</span></th><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cp-detail"><b>Enterprise SaaS</b><span>Enterprise governance and the corporate record as single source of truth.</span></td></tr><tr><th scope="row"><a href="https://www.cscglobal.com" target="_blank" rel="noopener">CSC</a><span class="cp-model cp-services">Managed corporate services</span><span class="cp-scope">Global</span></th><td class="cv"></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cp-detail"><b>Service fees per entity / filing</b><span>Registered agent and filings footprint at enterprise scale. Competing on corp sec means competing with this, not just with software.</span></td></tr><tr><th scope="row"><a href="https://www.vistra.com" target="_blank" rel="noopener">Vistra</a><span class="cp-model cp-services">Managed corporate services</span><span class="cp-scope">Global</span></th><td class="cv"></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv"></td><td class="cp-detail"><b>Fixed fee per entity / jurisdiction</b><span>Has done end-to-end corporate secretarial work across jurisdictions at fixed prices for decades — without AI and without being a law firm.</span></td></tr><tr><th scope="row"><a href="https://www.clerky.com" target="_blank" rel="noopener">Clerky</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">US only — Delaware C-corp</span></th><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Flat per document / package</b><span>Has automated startup corporate paperwork from formation onward for over a decade — as document automation, not advice.</span></td></tr><tr><th scope="row"><a href="https://carta.com" target="_blank" rel="noopener">Carta</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">Global</span></th><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>SaaS subscription</b><span>Holds the corporate record, then bought the legal layer. The convergence pattern.</span></td></tr><tr><th scope="row"><a href="https://pulley.com" target="_blank" rel="noopener">Pulley</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">US</span></th><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cp-detail"><b>SaaS subscription</b><span>Cap table; integrates with Clerky so formation flows into equity.</span></td></tr><tr><th scope="row"><a href="https://www.firstbase.io" target="_blank" rel="noopener">Firstbase</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">Global — US entities for non-US founders</span></th><td class="cv"></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cv"></td><td class="cp-detail"><b>Flat fee + subscription</b><span>Formation plus the operational wrap: address, mailroom, bookkeeping, tax, compliance.</span></td></tr><tr><th scope="row"><a href="https://ironcladapp.com" target="_blank" rel="noopener">Ironclad</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">Global</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cv"></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Enterprise SaaS</b><span>CLM — workflow and repository for the contract layer, no advice.</span></td></tr><tr><th scope="row"><a href="https://spellbook.legal" target="_blank" rel="noopener">Spellbook</a><span class="cp-model cp-saas">Software only</span><span class="cp-scope">Global</span></th><td class="cv cv-y"><span>&#9679;</span></td><td class="cv"></td><td class="cv"></td><td class="cv"></td><td class="cv cv-p"><span>&#9676;</span></td><td class="cp-detail"><b>Per seat</b><span>Drafting and review inside Word, aimed at small firms and lean in-house teams.</span></td></tr></tbody></table></div>
+  <div class="legend">
+    <span><span style="color:var(--accent)">&#9679;</span> core offering</span>
+    <span><span style="color:var(--ink3)">&#9676;</span> partial or adjacent</span>
+    <span>blank &mdash; not covered</span>
+  </div>
+</div></section>
+
 <section id="frictions"><div class="wrap">
-  <h2>05 &mdash; Where it's stuck, and what's open</h2>
+  <h2>06 &mdash; Where it's stuck, and what's open</h2>
   <p class="lede">The capability argument is mostly over. What's left is a set of problems that are commercial, organisational and regulatory &mdash; and the gaps those leave are the actual opportunity. <strong>Almost none of the stated blockers are about whether the models are good enough.</strong></p>
 
   <div class="split-h"><h3>Bottlenecks</h3><span>What is actually holding it up</span></div>
@@ -1430,7 +1768,7 @@ footer p { max-width:75ch; }
 </div></section>
 
 <section id="reading"><div class="wrap">
-  <h2>06 &mdash; Reading</h2>
+  <h2>07 &mdash; Reading</h2>
   <div class="reads">
     <div class="read"><a href="https://helenfan1.substack.com/" target="_blank" rel="noopener">Helen's Legal AI Lab &mdash; Helen Fan</a>
       <p>The Legal AI Value Stack (V2): five levels from raw model, to workflow redesigned around agents, to a self-learning data layer within client and ethical-wall boundaries, to AI as system of record, to the AI-native firm. The most useful framework for judging whether a vendor has anything defensible.</p></div>

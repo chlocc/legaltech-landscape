@@ -14,6 +14,20 @@ treatment next — the field is empty for every other company.
 Also corrected: Series D lead was Accel (previously unattributed), plus full funding history back to
 YC W24 and the Leya rebrand, and $100M ARR by April 2026.
 
+## 2026-09-27 — corporate coverage
+
+New section and `data/corporate.json`: 25 providers mapped against five corporate workstreams
+(NDAs and commercial contracts, formation, corporate secretarial, equity, deals), tagged by model
+type — law firm, hybrid, software, managed services — and by geography.
+
+19 new entries, two new categories (entity management / corporate secretarial, and senior legal
+talent / ALSP), and a `scope` field giving geography for every firm in the services cluster.
+
+The finding that organises the section: Carta acquired Avantia in May 2026 and launched Carta Law,
+so the SaaS/law-firm boundary no longer holds. Second finding: partner-only senior staffing predates
+AI by two decades (FisherBroyles, 2002) and already operates at scale (Pierson Ferdinand, ~300
+partners, US and UK).
+
 ## 2026-09-24b — every Legora relationship now carries its own source
 
 Thirteen items in the collaboration map pointed at Legora's newsroom index rather than the specific

@@ -130,7 +130,51 @@ follows Arizona, and what happens to UPL and fee-sharing rules when one does. Ev
 the pricing experiments, the talent flow out of Big Law, the equity-instead-of-lockstep pitch — is
 downstream of that one regulatory fact.
 
-## 7. Where it's stuck, and what's open
+## 7. Corporate work: four kinds of provider, converging
+
+Corporate legal work is served simultaneously by law firms, hybrids, pure software and managed
+corporate services — and the boundaries between them are dissolving rather than hardening.
+
+**The boundary broke in May 2026.** Carta acquired Avantia, an AI-native legal and compliance firm
+for asset managers serving 200+ managers across ~$15T AUM, and launched it as **Carta Law** — fund
+legal and compliance folded into the ERP, explicitly to reduce the need to instruct outside counsel
+for routine work. A SaaS company did not partner with a law firm; it bought one. It was Carta's
+fourth acquisition since October 2025. The pattern to watch is platforms that already hold the
+corporate record adding the legal layer on top, rather than legal providers adding software.
+
+**Senior-only staffing is not a new idea, and it already works at scale.** FisherBroyles has run
+partner-only, no-associates, no-offices since 2002. **Pierson Ferdinand** launched in January 2024
+with 130+ partners from FisherBroyles — one of the largest launches in US history — and is now near
+300 partners across 90+ practice areas in the US and UK, describing itself as AI-native and partner-
+only, with Harvey named explicitly as the replacement for the associate layer. Partners reportedly
+earn 2–3x their prior Big Law income. So AI did not make the senior-only model possible; it made it
+cheaper to run. The newer cohort applies the same staffing logic at the startup end: **General
+Legal** hires only 5th–8th year Big Law or 10–15+ year in-house lawyers, no entry level, at $250 for
+an NDA and $500–1,000 for contract work, and reports 40–50% margins per contract.
+
+**Corporate secretarial is the most thoroughly solved workstream, by software.** Klea covers entity
+management across 100+ countries (acquired by Quantios). Athennian handles minute books, registers,
+filings and org charts. Diligent Entities and CSC hold the enterprise end; Vistra, CSC and TMF have
+delivered end-to-end corporate secretarial work across jurisdictions at fixed prices for decades.
+At the startup end, Clerky has automated formation and the corporate paperwork long tail since 2011
+— as document automation rather than advice, which is how it stays outside the practice of law.
+
+**Geography is the sharpest dividing line.** Almost every AI-native firm is US-only: Crosby, Soxton,
+Talairis, Alaro, General Legal, Vector, Justpoint, Manifest. The exceptions are few — Arcline (US and
+Europe), Moritz (Europe, US, Australia), AgileCounsel (US and Asia, cross-border by design), Pierson
+Ferdinand (US and UK), Garfield and Lawhive (UK only). Meanwhile the corporate secretarial and
+managed-services incumbents have been genuinely global for decades. The AI-native cohort is behind
+on geography, and the regulatory reason is section 6: non-lawyer ownership rules are national, so a
+structure built around Arizona's ABS regime does not port.
+
+**Where coverage is thinnest.** Nobody in the AI-native cohort covers the full corporate span well.
+The firms cluster on NDAs and commercial contracts because the paper repeats; formation and equity
+are handled by software; corporate secretarial is handled by incumbents at a scale no startup firm
+matches; and deals stay with traditional firms. The coverage table on the site shows the gaps
+directly — the sparsest columns are corporate secretarial among the firms, and advice-bearing work
+among the software.
+
+## 8. Where it's stuck, and what's open
 
 Worth stating plainly: **almost none of the stated blockers are about whether the models are good
 enough.** The capability argument is largely over. What's left is commercial, organisational and
@@ -204,7 +248,7 @@ ownership to take capital, and in the US that is Arizona and essentially nowhere
    and CourtListener shows the data can come from public sources.
 8. **A second ABS state.** The highest-leverage single event in the sector.
 
-## 8. What I'd watch next
+## 9. What I'd watch next
 
 1. **Does Anthropic go further up the stack?** The plugins already do practice-area workflow with
    playbook configuration. The gap between that and competing with Harvey is one product decision.
